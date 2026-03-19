@@ -1,71 +1,1373 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> <!-- Default to English -->
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thumbnail Click Video</title>
-<style>
-body{
-  margin:0;
-  background:#000;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-}
-/* Video container */
-.video-box{
-  position:relative;
-  width:90vw;
-  max-width:270px;
-  aspect-ratio:9/16;
-  overflow:hidden;
-  cursor:pointer;
-}
-/* Thumbnail */
-.video-box img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-/* Play button */
-.play{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  font-size:90px;
-  color:white;
-  text-shadow:0 0 20px rgba(0,0,0,0.8);
-}
-/* iframe video */
-.video-frame{
-  position:absolute;
-  top:0;
-  left:0;
-  width:120%;
-  height:100%;
-  border:none;
-  transform:translateX(-10%);
-}</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create stunning digital WhatsApp video wedding cards. Choose templates, upload photos, and get custom video invitations delivered to your email.">
+    <meta name="keywords" content="digital wedding card, WhatsApp wedding invitation, video wedding card, online wedding invitation, digital invitation maker">
+    <meta property="og:title" content="Digital Card Maker - WhatsApp Video Invitations">
+    <meta property="og:description" content="Choose templates and create beautiful digital video cards perfect for WhatsApp sharing">
+    <meta property="og:type" content="website">
+    <title>Digital Card Maker | WhatsApp Video Invitations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d4af37;
+            --primary-dark: #b8941f;
+            --secondary: #2c1810;
+            --accent: #fff8e7;
+            --text: #333;
+            --light: #fafafa;
+            --success: #28a745;
+            --whatsapp: #25D366;
+            --red-circle: #e74c3c;
+            --label-bg: #f8f4e8;
+            --label-border: #d4af37;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--light);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-dark);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 0.5rem 0;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            color: var(--primary);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a::after {
+            display: none;
+        }
+
+        /* WhatsApp button style for navigation - same font size as other menus */
+        .nav-whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.7rem 1.5rem;
+            background: var(--whatsapp);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-whatsapp-button .whatsapp-icon {
+            font-size: 1.2rem;
+            margin-left: 0.5rem;
+        }
+
+        .nav-whatsapp-button span:last-child {
+            margin-right: 0.5rem;
+        }
+
+        .nav-whatsapp-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: var(--secondary);
+            transition: 0.3s;
+        }
+
+        /* Language Toggle Button */
+        .lang-toggle-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.7rem 1.5rem;
+            background: #f0f0f0; /* Light gray background */
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: none;
+            margin-left: 1rem; /* Space from WhatsApp button */
+        }
+
+        .lang-toggle-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            background: #e0e0e0;
+        }
+
+        /* Sections */
+        section {
+            min-height: auto;
+            padding: 6rem 2rem 0rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        section:last-of-type {
+            padding-bottom: 4rem;
+        }
+
+        h1, h2 {
+            color: var(--secondary);
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            padding-top: 0;
+            line-height: 1.2;
+        }
+
+        h1 .digital {
+            color: #E6B800;
+        }
+        h1 .card {
+            color: #8B4513;
+        }
+        h1 .maker {
+            color: #4CAF50;
+        }
+
+        h2 {
+            font-size: 1.25rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--accent) 0%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+            padding-top: 6rem;
+            padding-bottom: 0rem;
+        }
+
+        #home::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding-top: 0;
+            margin: 0 auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Home info text */
+        .home-info-text {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            font-weight: 500;
+            line-height: 1.5;
+            max-width: 800px;
+            margin: 0.5rem auto 0 auto;
+            padding: 0;
+        }
+
+        /* Category Labels - keeping the style but not using it anymore */
+        .category-label {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+            text-align: center;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* General label style for sections */
+        .section-main-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #fff9e6;
+            color: #8B4513;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 1.5rem auto 0.5rem auto;
+            width: fit-content;
+            border: 2px solid #d4af37;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            letter-spacing: 0.5px;
+        }
+
+        /* Red circle with paper card emoji */
+        .red-circle-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #e74c3c;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.4rem;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
+            border: 2px solid #fff;
+        }
+
+        /* Description text */
+        .section-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Video Samples Grid */
+        .samples-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        /* Specific adjustment for vertical section to ensure 4 cards in a row on large screens */
+        #vertical .samples-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* For horizontal and square sections, keep 3 cards in a row */
+        #horizontal .samples-grid,
+        #square .samples-grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .sample-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            height: fit-content;
+        }
+
+        .sample-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .video-container {
+            position: relative;
+            background: #000;
+            overflow: hidden;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border: none;
+        }
+
+        .thumbnail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .sample-card:hover .video-overlay {
+            opacity: 1;
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+        }
+
+        .duration-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        /* Aspect Ratios */
+        .ratio-9-16 {
+            aspect-ratio: 9/16;
+            width: 100%;
+            position: relative;
+        }
+
+        .ratio-16-9 {
+            aspect-ratio: 16/9;
+            width: 100%;
+            position: relative;
+        }
+
+        .ratio-1-1 {
+            aspect-ratio: 1/1;
+            width: 100%;
+            position: relative;
+        }
+
+        .sample-info {
+            padding: 1.2rem;
+        }
+
+        .sample-info h3 {
+            color: var(--secondary);
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .sample-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* ========== MORE BUTTONS WITH RIGHT ARROW ========== */
+        .more-button-container {
+            grid-column: 1 / -1;
+            display: flex;
+            justify-content: flex-end;
+            margin: 1.5rem 0 1rem 0;
+        }
+
+        .more-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .more-button .emoji {
+            font-size: 1.3rem;
+        }
+
+        .more-button .arrow {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .more-button:hover .arrow {
+            transform: translateX(5px);
+        }
+
+        .more-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .more-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* More Vertical Button - Blue theme */
+        .more-button.vertical {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .more-button.vertical:hover {
+            background: linear-gradient(135deg, #5a6fd6 0%, #6a4190 100%);
+        }
+
+        /* More Horizontal Button - Green theme */
+        .more-button.horizontal {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+        }
+
+        .more-button.horizontal:hover {
+            background: linear-gradient(135deg, #0d8579 0%, #2dd46a 100%);
+        }
+
+        /* More Square Button - Orange theme */
+        .more-button.square {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .more-button.square:hover {
+            background: linear-gradient(135deg, #e07de0 0%, #e0455a 100%);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            #vertical .samples-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            #vertical .samples-grid,
+            #horizontal .samples-grid,
+            #square .samples-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                border-top: 1px solid #eee;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                width: 100%;
+            }
+            .nav-links li a {
+                padding: 0.8rem 1rem;
+            }
+            .nav-links li:last-child {
+                margin-top: 1rem;
+                text-align: center;
+            }
+            .nav-whatsapp-button {
+                width: 80%;
+                margin: 0.5rem auto;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+            .nav-whatsapp-button span:last-child {
+                margin-right: 0;
+            }
+
+            .dropdown-content {
+                position: static;
+                box-shadow: none;
+                background-color: transparent;
+                padding-left: 1rem;
+            }
+
+            .dropdown-content a {
+                padding: 0.5rem 16px;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-top: 0.5rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+                padding-bottom: 0.4rem;
+                margin-top: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            #vertical .samples-grid,
+            #horizontal .samples-grid,
+            #square .samples-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-info-text {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 6rem 2rem 0rem;
+            }
+
+            section:last-of-type {
+                padding-bottom: 3rem;
+            }
+
+            .section-main-label {
+                font-size: 1.1rem;
+                padding: 0.5rem 1.5rem;
+                margin: 1rem auto 0.5rem auto;
+                gap: 8px;
+            }
+
+            .red-circle-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 1.1rem;
+            }
+
+            .section-description {
+                margin-top: 0.5rem;
+            }
+
+            /* Adjust language button for mobile */
+            .lang-toggle-button {
+                width: 80%;
+                margin: 0.5rem auto; /* Center it */
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            /* More buttons for mobile */
+            .more-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ratio-9-16 {
+                max-height: 70vh;
+            }
+
+            h2 {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 0rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            opacity: 0.9;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 2;
+            cursor: pointer;
+            pointer-events: none;
+        }
+
+        .video-container:hover .video-play-btn {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-container.playing-video .video-play-btn,
+        .video-container.playing-video .video-overlay,
+        .video-container.playing-video .duration-badge,
+        .video-container.playing-video .thumbnail-img {
+            display: none;
+        }
+    </style>
 </head>
 <body>
-<div class="video-box" onclick="playVideo()">
-<img src="Sample 01 Hindi.png">
-<div class="play">▶</div>
-</div>
-<script>
-function playVideo(){
-document.querySelector(".video-box").innerHTML = `
-<iframe
-class="video-frame"
-src="Sample 01 Hindi.mp4"
-allow="autoplay"
-allowfullscreen>
-</iframe>
-`;
 
-}
-</script>
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="Digital Cards Home">
+                💍 DigitalCards
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" data-en="Home" data-hi="होम">Home</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropbtn" data-en="Wedding Cards" data-hi="विवाह कार्ड्स">Wedding Cards</a>
+                    <div class="dropdown-content">
+                        <a href="#vertical" data-en="Vertical (9:16)" data-hi="वर्टिकल (9:16)">Vertical (9:16)</a>
+                        <a href="#horizontal" data-en="Horizontal (16:9)" data-hi="हॉरिजॉन्टल (16:9)">Horizontal (16:9)</a>
+                        <a href="#square" data-en="Square (1:1)" data-hi="स्क्वायर (1:1)">Square (1:1)</a>
+                    </div>
+                </li>
+                <li><a href="#birthday" data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</a></li>
+                <li><a href="#anniversary" data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</a></li>
+                <li><a href="#customized" data-en="Customized" data-hi="कस्टमाइज्ड">Customized</a></li>
+                <li>
+                    <a href="https://wa.me/1234567890?text=Hi%20I'm%20interested%20in%20a%20digital%20wedding%20card"
+                       class="nav-whatsapp-button"
+                       target="_blank"
+                       data-en-aria-label="Contact us on WhatsApp"
+                       data-hi-aria-label="व्हाट्सएप पर हमसे संपर्क करें"
+                       aria-label="Contact us on WhatsApp">
+                        <span class="whatsapp-icon">📱</span>
+                        <span data-en="Contact on WhatsApp" data-hi="व्हाट्सएप पर संपर्क करें">Contact on WhatsApp</span>
+                    </a>
+                </li>
+                <li>
+                    <button class="lang-toggle-button" id="langToggle" onclick="toggleLanguage()">हिन्दी</button>
+                </li>
+            </ul>
+            <div class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Home -->
+    <section id="home" aria-labelledby="home-heading">
+        <div class="hero-content">
+            <h1 id="home-heading">
+                <span class="digital" data-en="Digital" data-hi="डिजिटल">Digital</span>
+                <span class="card" data-en="Card" data-hi="कार्ड">Card</span>
+                <span class="maker" data-en="Maker" data-hi="मेकर">Maker</span>
+<br><br>
+            </h1>
+            <p class="home-info-text" data-en="Send us the number of your preferred card from these cards on WhatsApp. We will prepare a special digital card for you, which will make your special day even more memorable. Hurry, choose your favorite design today!" data-hi="इन कार्डों में से अपना पसंद का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें!">
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 2: Vertical Samples (9:16) -->
+    <section id="vertical" aria-labelledby="vertical-heading">
+        <!-- Wedding Cards Label - centered with red circle and paper card emoji -->
+        <div class="section-main-label">
+            <span class="red-circle-icon">📇</span>
+            <span data-en="Wedding Cards" data-hi="विवाह कार्ड्स">Wedding Cards</span>
+        </div>
+
+        <h2 id="vertical-heading" data-en="Vertical Format (9:16)" data-hi="वर्टिकल फॉर्मेट (9:16)">Vertical Format (9:16)</h2>
+        <p class="section-description" data-en="Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos." data-hi="व्हाट्सएप स्टेटस, इंस्टाग्राम स्टोरीज और फेसबुक स्टोरीज के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
+            Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.
+        </p>
+
+        <div class="samples-grid">
+            <!-- Video 1 - Sample 01 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 01.mp4')">
+                <div class="video-container ratio-9-16">
+                    <img src="Sample 01.png"
+                          alt="Sample 01 preview"
+                          data-en-alt="Sample 01 preview"
+                          data-hi-alt="सैंपल 01 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 01" data-hi="कार्ड 01">Card 01</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 01" data-hi="सैंपल 01">Sample 01</h3>
+                    <p data-en="Royal golden theme" data-hi="शाही सुनहरा थीम">Royal golden theme</p>
+                </div>
+            </article>
+
+            <!-- Video 2 - Sample 02 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 02.mp4')">
+                <div class="video-container ratio-9-16">
+                    <img src="Sample 02.png"
+                          alt="Sample 02 preview"
+                          data-en-alt="Sample 02 preview"
+                          data-hi-alt="सैंपल 02 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 02" data-hi="कार्ड 02">Card 02</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 02" data-hi="सैंपल 02">Sample 02</h3>
+                    <p data-en="Elegant wedding invitation" data-hi="शानदार विवाह निमंत्रण">Elegant wedding invitation</p>
+                </div>
+            </article>
+
+            <!-- Video 3 - Sample 03 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 03.mp4')">
+                <div class="video-container ratio-9-16">
+                    <img src="Sample 03.png"
+                          alt="Sample 03 preview"
+                          data-en-alt="Sample 03 preview"
+                          data-hi-alt="सैंपल 03 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 03" data-hi="कार्ड 03">Card 03</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 03" data-hi="सैंपल 03">Sample 03</h3>
+                    <p data-en="Modern fusion design" data-hi="आधुनिक फ्यूजन डिजाइन">Modern fusion design</p>
+                </div>
+            </article>
+
+            <!-- Video 4 - Sample 04 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 04.mp4')">
+                <div class="video-container ratio-9-16">
+                    <img src="Sample 04.png"
+                          alt="Sample 04 preview"
+                          data-en-alt="Sample 04 preview"
+                          data-hi-alt="सैंपल 04 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 04" data-hi="कार्ड 04">Card 04</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 04" data-hi="सैंपल 04">Sample 04</h3>
+                    <p data-en="Contemporary romantic" data-hi="समकालीन रोमांटिक">Contemporary romantic</p>
+                </div>
+            </article>
+
+            <!-- More Vertical Button after Sample 04 -->
+            <div class="more-button-container">
+                <a href="Vertical.html" class="more-button vertical" onclick="return false;"  role="button">
+                    <span class="emoji">📱</span>
+                    <span data-en="More Vertical" data-hi="और वर्टिकल">More Vertical</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Horizontal Samples (16:9) -->
+    <section id="horizontal" aria-labelledby="horizontal-heading">
+        <h2 id="horizontal-heading" data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</h2>
+        <p class="section-description" data-en="Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos." data-hi="व्हाट्सएप मैसेजेस, फेसबुक पोस्ट्स और ट्विटर के लिए आदर्श। वीडियो चलाने के लिए क्लिक करें।">
+            Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos.
+        </p>
+
+        <div class="samples-grid">
+            <!-- Video 5 - Sample 31 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 31.mp4')">
+                <div class="video-container ratio-16-9">
+                    <img src="Sample 31.png"
+                          alt="Sample 31 preview"
+                          data-en-alt="सैंपल 31 प्रीव्यू"
+                          data-hi-alt="सैंपल 31 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 31" data-hi="कार्ड 31">Card 31</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 31" data-hi="सैंपल 31">Sample 31</h3>
+                    <p data-en="Elegant widescreen design" data-hi="शानदार वाइडस्क्रीन डिज़ाइन">Elegant widescreen design</p>
+                </div>
+            </article>
+
+            <!-- Video 6 - Sample 32 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 32.mp4')">
+                <div class="video-container ratio-16-9">
+                    <img src="Sample 32.png"
+                          alt="Sample 32 preview"
+                          data-en-alt="सैंपल 32 प्रीव्यू"
+                          data-hi-alt="सैंपल 32 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 32" data-hi="कार्ड 32">Card 32</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 32" data-hi="सैंपल 32">Sample 32</h3>
+                    <p data-en="Classic panoramic format" data-hi="क्लासिक पैनोरमिक फॉर्मेट">Classic panoramic format</p>
+                </div>
+            </article>
+
+            <!-- Video 7 - Sample 33 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 33.mp4')">
+                <div class="video-container ratio-16-9">
+                    <img src="Sample 33.png"
+                          alt="Sample 33 preview"
+                          data-en-alt="सैंपल 33 प्रीव्यू"
+                          data-hi-alt="सैंपल 33 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 33" data-hi="कार्ड 33">Card 33</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 33" data-hi="सैंपल 33">Sample 33</h3>
+                    <p data-en="Modern cinematic style" data-hi="आधुनिक सिनेमैटिक स्टाइल">Modern cinematic style</p>
+                </div>
+            </article>
+
+            <!-- More Horizontal Button after Sample 33 -->
+            <div class="more-button-container">
+                <a href="Horizontal.html" class="more-button horizontal"  onclick="return false;" role="button">
+                    <span class="emoji">🖥️</span>
+                    <span data-en="More Horizontal" data-hi="और हॉरिजॉन्टल">More Horizontal</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Square Samples (1:1) -->
+    <section id="square" aria-labelledby="square-heading">
+        <h2 id="square-heading" data-en="Square Format (1:1)" data-hi="स्क्वायर फॉर्मेट (1:1)">Square Format (1:1)</h2>
+        <p class="section-description" data-en="Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos." data-hi="इंस्टाग्राम पोस्ट्स, फेसबुक फीड और प्रोफाइल पिक्चर्स के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
+            Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos.
+        </p>
+
+        <div class="samples-grid">
+            <!-- Video 8 - Sample 61 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 61.mp4')">
+                <div class="video-container ratio-1-1">
+                    <img src="Sample 61.png"
+                          alt="Sample 61 preview"
+                          data-en-alt="सैंपल 61 प्रीव्यू"
+                          data-hi-alt="सैंपल 61 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 61" data-hi="कार्ड 61">Card 61</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 61" data-hi="सैंपल 61">Sample 61</h3>
+                    <p data-en="Perfect for Instagram" data-hi="इंस्टाग्राम के लिए बिल्कुल सही">Perfect for Instagram</p>
+                </div>
+            </article>
+
+            <!-- Video 9 - Sample 62 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 62.mp4')">
+                <div class="video-container ratio-1-1">
+                    <img src="Sample 62.png"
+                          alt="Sample 62 preview"
+                          data-en-alt="सैंपल 62 प्रीव्यू"
+                          data-hi-alt="सैंपल 62 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 62" data-hi="कार्ड 62">Card 62</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 62" data-hi="सैंपल 62">Sample 62</h3>
+                    <p data-en="Traditional square design" data-hi="पारंपरिक स्क्वायर डिज़ाइन">Traditional square design</p>
+                </div>
+            </article>
+
+            <!-- Video 10 - Sample 63 -->
+            <article class="sample-card" onclick="playLocalVideo(this, 'Sample 63.mp4')">
+                <div class="video-container ratio-1-1">
+                    <img src="Sample 63.png"
+                          alt="Sample 63 preview"
+                          data-en-alt="सैंपल 63 प्रीव्यू"
+                          data-hi-alt="सैंपल 63 प्रीव्यू"
+                          class="thumbnail-img">
+                    <div class="video-overlay">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <span class="duration-badge" data-en="Card 63" data-hi="कार्ड 63">Card 63</span>
+                    <div class="video-play-btn">▶</div>
+                </div>
+                <div class="sample-info">
+                    <h3 data-en="Sample 63" data-hi="सैंपल 63">Sample 63</h3>
+                    <p data-en="Contemporary social media" data-hi="समकालीन सोशल मीडिया">Contemporary social media</p>
+                </div>
+            </article>
+
+            <!-- More Square Button after Sample 63 -->
+            <div class="more-button-container">
+                <a href="Square.html" class="more-button square"  onclick="return false;"  role="button">
+                    <span class="emoji">🎨</span>
+                    <span data-en="More Square" data-hi="और स्क्वायर">More Square</span>
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Birthday Cards Section -->
+    <section id="birthday" aria-labelledby="birthday-heading">
+        <div class="section-main-label">
+            <span class="red-circle-icon">🎂</span>
+            <span data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</span>
+        </div>
+        <p class="section-description" data-en="Coming soon: A variety of joyful birthday card designs! Stay tuned for more samples." data-hi="जल्द आ रहा है: खुशी भरे जन्मदिन कार्ड डिज़ाइनों की एक वैरायटी! अधिक सैंपल के लिए बने रहें।">
+            Coming soon: A variety of joyful birthday card designs! Stay tuned for more samples.
+        </p>
+        <div class="samples-grid">
+            <!-- You can add actual birthday card samples here when ready -->
+        </div>
+    </section>
+
+    <!-- Anniversary Cards Section -->
+    <section id="anniversary" aria-labelledby="anniversary-heading">
+        <div class="section-main-label">
+            <span class="red-circle-icon">💖</span>
+            <span data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</span>
+        </div>
+        <p class="section-description" data-en="Coming soon: Elegant anniversary card templates to cherish your milestones!" data-hi="जल्द आ रहा है: आपके मील के पत्थरों को संजोने के लिए शानदार सालगिरह कार्ड टेम्पलेट्स!">
+            Coming soon: Elegant anniversary card templates to cherish your milestones!
+        </p>
+        <div class="samples-grid">
+            <!-- You can add actual anniversary card samples here when ready -->
+        </div>
+    </section>
+
+    <!-- Customized Cards Section -->
+    <section id="customized" aria-labelledby="customized-heading">
+        <div class="section-main-label">
+            <span class="red-circle-icon">✨</span>
+            <span data-en="Customized Cards" data-hi="कस्टमाइज्ड कार्ड्स">Customized Cards</span>
+        </div>
+        <p class="section-description" data-en="Have a unique idea? We can bring your custom card design to life! Contact us for details." data-hi="एक अनोखा विचार है? हम आपके कस्टम कार्ड डिज़ाइन को साकार कर सकते हैं! विवरण के लिए हमसे संपर्क करें।">
+            Have a unique idea? We can bring your custom card design to life! Contact us for details.
+        </p>
+        <div class="samples-grid">
+            <!-- You can add examples of customized cards here when ready -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="#home" data-en="Home" data-hi="होम">Home</a>
+            <a href="#vertical" data-en="Templates" data-hi="टेम्पलेट्स">Templates</a>
+            <a href="https://wa.me/1234567890" target="_blank" data-en="WhatsApp" data-hi="व्हाट्सएप">WhatsApp</a>
+        </div>
+        <p data-en="&copy; 2024 Digital Card Maker. Designed with ❤ for your special day." data-hi="&copy; 2024 डिजिटल कार्ड मेकर। आपके खास दिन के लिए ❤️ से डिज़ाइन किया गया।">
+            &copy; 2024 Digital Card Maker. Designed with ❤ for your special day.
+        </p>
+    </footer>
+
+    <script>
+        // Store language preference in localStorage
+        let currentLang = localStorage.getItem('lang') || 'en'; // Default to English
+
+        // Function to update content based on language
+        function updateContent(lang) {
+            document.querySelectorAll('[data-en], [data-hi]').forEach(element => {
+                const enText = element.getAttribute('data-en');
+                const hiText = element.getAttribute('data-hi');
+
+                if (element.tagName === 'IMG') {
+                    // Handle alt text for images
+                    element.setAttribute('alt', lang === 'hi' ? element.getAttribute('data-hi-alt') : element.getAttribute('data-en-alt'));
+                } else if (element.classList.contains('nav-whatsapp-button')) {
+                    // Handle aria-label for WhatsApp button
+                    const enAriaLabel = element.getAttribute('data-en-aria-label');
+                    const hiAriaLabel = element.getAttribute('data-hi-aria-label');
+                    element.setAttribute('aria-label', lang === 'hi' ? hiAriaLabel : enAriaLabel);
+                    // Handle inner text for WhatsApp button's span
+                    const whatsappSpan = element.querySelector('span:last-child');
+                    if (whatsappSpan) {
+                         whatsappSpan.textContent = lang === 'hi' ? whatsappSpan.getAttribute('data-hi') : whatsappSpan.getAttribute('data-en');
+                    }
+                } else {
+                    element.textContent = lang === 'hi' ? hiText : enText;
+                }
+            });
+
+            // Update language attribute of HTML tag
+            document.documentElement.lang = lang;
+
+            // Update toggle button text
+            const langToggleButton = document.getElementById('langToggle');
+            if (langToggleButton) {
+                // Button should show the *other* language option
+                langToggleButton.textContent = (lang === 'hi') ? 'English' : 'हिन्दी';
+            }
+
+            // Update meta description and keywords for SEO
+            const metaDescription = document.querySelector('meta[name="description"]');
+            const metaKeywords = document.querySelector('meta[name="keywords"]');
+            const ogTitle = document.querySelector('meta[property="og:title"]');
+            const ogDescription = document.querySelector('meta[property="og:description"]');
+            const titleTag = document.querySelector('title');
+
+            if (lang === 'hi') {
+                metaDescription.setAttribute('content', 'आकर्षक डिजिटल व्हाट्सएप वीडियो विवाह कार्ड बनाएं। टेम्प्लेट चुनें, तस्वीरें अपलोड करें, और अपने ईमेल पर कस्टम वीडियो निमंत्रण प्राप्त करें।');
+                metaKeywords.setAttribute('content', 'डिजिटल विवाह कार्ड, व्हाट्सएप विवाह निमंत्रण, वीडियो विवाह कार्ड, ऑनलाइन विवाह निमंत्रण, डिजिटल निमंत्रण मेकर');
+                ogTitle.setAttribute('content', 'डिजिटल कार्ड मेकर - व्हाट्सएप वीडियो निमंत्रण');
+                ogDescription.setAttribute('content', 'टेम्प्लेट चुनें और व्हाट्सएप शेयरिंग के लिए एकदम सही सुंदर डिजिटल वीडियो कार्ड बनाएं');
+                titleTag.textContent = 'डिजिटल कार्ड मेकर | व्हाट्सएप वीडियो निमंत्रण';
+            } else {
+                metaDescription.setAttribute('content', 'Create stunning digital WhatsApp video wedding cards. Choose templates, upload photos, and get custom video invitations delivered to your email.');
+                metaKeywords.setAttribute('content', 'digital wedding card, WhatsApp wedding invitation, video wedding card, online wedding invitation, digital invitation maker');
+                ogTitle.setAttribute('content', 'Digital Card Maker - WhatsApp Video Invitations');
+                ogDescription.setAttribute('content', 'Choose templates and create beautiful digital video cards perfect for WhatsApp sharing');
+                titleTag.textContent = 'Digital Card Maker | WhatsApp Video Invitations';
+            }
+
+            // Store current language
+            localStorage.setItem('lang', lang);
+            currentLang = lang;
+        }
+
+        // Function to toggle language
+        function toggleLanguage() {
+            const newLang = (currentLang === 'en') ? 'hi' : 'en';
+            updateContent(newLang);
+        }
+
+        // Initialize content on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateContent(currentLang); // Apply stored or default language
+
+            // Mobile Menu Toggle
+            function toggleMobileMenu() {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.toggle('active');
+            }
+            window.toggleMobileMenu = toggleMobileMenu; // Make it globally accessible
+
+            // Play local video function
+            function playLocalVideo(card, videoPath) {
+                const container = card.querySelector('.video-container');
+                if (!container) return;
+
+                const existingVideo = container.querySelector('video');
+                if (existingVideo) {
+                    if (existingVideo.paused) {
+                        existingVideo.play();
+                    } else {
+                        existingVideo.pause();
+                    }
+                    return;
+                }
+
+                document.querySelectorAll('video').forEach(v => {
+                    if (v !== existingVideo) {
+                        v.pause();
+                    }
+                });
+
+                const video = document.createElement('video');
+                video.src = videoPath;
+                video.controls = true;
+                video.autoplay = true;
+                video.style.width = '100%';
+                video.style.height = '100%';
+                video.style.objectFit = 'cover';
+
+                container.innerHTML = '';
+                container.appendChild(video);
+                container.classList.add('playing-video');
+
+                video.addEventListener('ended', () => {
+                    const thumbnail = document.createElement('img');
+                    // Get original alt attribute from data-en-alt or data-hi-alt
+                    const originalAlt = card.querySelector('.thumbnail-img').getAttribute(`data-${currentLang}-alt`);
+                    thumbnail.src = card.querySelector('.thumbnail-img').src;
+                    thumbnail.alt = originalAlt; // Use the original alt text
+                    thumbnail.className = 'thumbnail-img';
+
+                    container.innerHTML = '';
+                    container.appendChild(thumbnail);
+
+                    const overlay = document.createElement('div');
+                    overlay.className = 'video-overlay';
+                    overlay.innerHTML = '<div class="play-icon">▶</div>';
+
+                    const badge = document.createElement('span');
+                    badge.className = 'duration-badge';
+                    // Get original duration badge text from data-en or data-hi
+                    const originalBadgeText = card.querySelector('.duration-badge').getAttribute(`data-${currentLang}`);
+                    badge.textContent = originalBadgeText; // Use the original text
+                    badge.setAttribute('data-en', card.querySelector('.duration-badge').getAttribute('data-en'));
+                    badge.setAttribute('data-hi', card.querySelector('.duration-badge').getAttribute('data-hi'));
+
+                    const playBtn = document.createElement('div');
+                    playBtn.className = 'video-play-btn';
+                    playBtn.textContent = '▶';
+
+                    container.appendChild(overlay);
+                    container.appendChild(badge);
+                    container.appendChild(playBtn);
+
+                    container.classList.remove('playing-video');
+                });
+            }
+            window.playLocalVideo = playLocalVideo; // Make it globally accessible
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.sample-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s, transform 0.6s';
+                observer.observe(card);
+            });
+
+            const videoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const container = entry.target;
+                    const video = container.querySelector('video');
+                    if (video && !entry.isIntersecting) {
+                        video.pause();
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.video-container').forEach(container => {
+                if (container.querySelector('video')) {
+                    videoObserver.observe(container);
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                document.querySelectorAll('video').forEach(video => {
+                    video.autoplay = false;
+                });
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    const navLinks = document.getElementById('navLinks');
+                    if (window.innerWidth <= 768 && navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
