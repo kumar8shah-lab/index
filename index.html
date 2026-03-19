@@ -150,39 +150,6 @@
             display: none;
         }
 
-        /* WhatsApp button style for navigation - same font size as other menus */
-        .nav-whatsapp-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 0.7rem 1.5rem;
-            background: var(--whatsapp);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-            cursor: pointer;
-            border: none;
-        }
-
-        .nav-whatsapp-button .whatsapp-icon {
-            font-size: 1.2rem;
-            margin-left: 0.5rem;
-        }
-
-        .nav-whatsapp-button span:last-child {
-            margin-right: 0.5rem;
-        }
-
-        .nav-whatsapp-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
-        }
-
         .mobile-menu {
             display: none;
             flex-direction: column;
@@ -195,31 +162,6 @@
             height: 3px;
             background: var(--secondary);
             transition: 0.3s;
-        }
-
-        /* Language Toggle Button */
-        .lang-toggle-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.7rem 1.5rem;
-            background: #f0f0f0; /* Light gray background */
-            color: var(--secondary);
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            cursor: pointer;
-            border: none;
-            margin-left: 1rem; /* Space from WhatsApp button */
-        }
-
-        .lang-toggle-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-            background: #e0e0e0;
         }
 
         /* Sections */
@@ -298,7 +240,7 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            max-width: 800px;
+            max-width: 1400px;
             padding-top: 0;
             margin: 0 auto;
             text-align: center;
@@ -315,6 +257,74 @@
             max-width: 800px;
             margin: 0.5rem auto 0 auto;
             padding: 0;
+        }
+
+        /* ============================================
+           BUTTONS BELOW H1 - EXTREME LEFT & RIGHT
+           ============================================ */
+        .hero-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            max-width: 1400px;
+            padding: 0 2rem;
+        }
+
+        /* WhatsApp Button below H1 - EXTREME LEFT */
+        .hero-whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 0.9rem 1.8rem;
+            background: var(--whatsapp);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            border: none;
+            white-space: nowrap;
+        }
+
+        .hero-whatsapp-button .whatsapp-icon {
+            font-size: 1.2rem;
+        }
+
+        .hero-whatsapp-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Language Toggle Button below H1 - EXTREME RIGHT */
+        .hero-lang-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8rem 1.8rem;
+            background: #f0f0f0;
+            color: var(--secondary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            cursor: pointer;
+            border: 2px solid var(--primary);
+            white-space: nowrap;
+        }
+
+        .hero-lang-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            background: #e0e0e0;
         }
 
         /* Category Labels - keeping the style but not using it anymore */
@@ -628,19 +638,6 @@
             .nav-links li a {
                 padding: 0.8rem 1rem;
             }
-            .nav-links li:last-child {
-                margin-top: 1rem;
-                text-align: center;
-            }
-            .nav-whatsapp-button {
-                width: 80%;
-                margin: 0.5rem auto;
-                padding: 1rem 2rem;
-                font-size: 1rem;
-            }
-            .nav-whatsapp-button span:last-child {
-                margin-right: 0;
-            }
 
             .dropdown-content {
                 position: static;
@@ -704,12 +701,20 @@
                 margin-top: 0.5rem;
             }
 
-            /* Adjust language button for mobile */
-            .lang-toggle-button {
-                width: 80%;
-                margin: 0.5rem auto; /* Center it */
-                padding: 1rem 2rem;
-                font-size: 1rem;
+            /* Hero buttons for mobile - stack vertically */
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+                margin-top: 1rem;
+                padding: 0 1rem;
+            }
+
+            .hero-whatsapp-button,
+            .hero-lang-button {
+                width: 100%;
+                max-width: 280px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.95rem;
             }
 
             /* More buttons for mobile */
@@ -725,6 +730,13 @@
             }
 
             h2 {
+                font-size: 0.9rem;
+            }
+
+            .hero-whatsapp-button,
+            .hero-lang-button {
+                max-width: 250px;
+                padding: 0.7rem 1.2rem;
                 font-size: 0.9rem;
             }
         }
@@ -811,20 +823,6 @@
                 <li><a href="#birthday" data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</a></li>
                 <li><a href="#anniversary" data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</a></li>
                 <li><a href="#customized" data-en="Customized" data-hi="कस्टमाइज्ड">Customized</a></li>
-                <li>
-                    <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-"
-                       class="nav-whatsapp-button"
-                       target="_blank"
-                       data-en-aria-label="Contact us on WhatsApp"
-                       data-hi-aria-label="व्हाट्सएप पर हमसे संपर्क करें"
-                       aria-label="Contact us on WhatsApp">
-                        <span class="whatsapp-icon">📱</span>
-                        <span data-en="Contact on WhatsApp" data-hi="व्हाट्सएप पर संपर्क करें">Contact on WhatsApp</span>
-                    </a>
-                </li>
-                <li>
-                    <button class="lang-toggle-button" id="langToggle" onclick="toggleLanguage()">हिन्दी</button>
-                </li>
             </ul>
             <div class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle mobile menu">
                 <span></span>
@@ -841,8 +839,22 @@
                 <span class="digital" data-en="Digital" data-hi="डिजिटल">Digital</span>
                 <span class="card" data-en="Card" data-hi="कार्ड">Card</span>
                 <span class="maker" data-en="Maker" data-hi="मेकर">Maker</span>
-<br><br>
             </h1>
+            
+            <!-- Buttons Below H1 - WhatsApp EXTREME LEFT, Language EXTREME RIGHT -->
+            <div class="hero-buttons">
+                <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-"
+                   class="hero-whatsapp-button"
+                   target="_blank"
+                   data-en-aria-label="Contact us on WhatsApp"
+                   data-hi-aria-label="व्हाट्सएप पर हमसे संपर्क करें"
+                   aria-label="Contact us on WhatsApp">
+                    <span class="whatsapp-icon">📱</span>
+                    <span data-en="Contact on WhatsApp" data-hi="व्हाट्सएप पर संपर्क करें">Contact on WhatsApp</span>
+                </a>
+                <button class="hero-lang-button" id="langToggle" onclick="toggleLanguage()">हिन्दी</button>
+            </div>
+            
             <p class="home-info-text" data-en="Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!" data-hi="इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें!">
             </p>
         </div>
@@ -1178,7 +1190,7 @@
                 if (element.tagName === 'IMG') {
                     // Handle alt text for images
                     element.setAttribute('alt', lang === 'hi' ? element.getAttribute('data-hi-alt') : element.getAttribute('data-en-alt'));
-                } else if (element.classList.contains('nav-whatsapp-button')) {
+                } else if (element.classList.contains('hero-whatsapp-button')) {
                     // Handle aria-label for WhatsApp button
                     const enAriaLabel = element.getAttribute('data-en-aria-label');
                     const hiAriaLabel = element.getAttribute('data-hi-aria-label');
