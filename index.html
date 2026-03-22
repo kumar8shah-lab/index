@@ -346,6 +346,7 @@
             display: flex;
             gap: 1.5rem;
             align-items: center;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
 
         .whatsapp-action {
@@ -699,7 +700,7 @@
         }
 
         /* ============================================
-           MOBILE SPECIFIC STYLES
+           MOBILE SPECIFIC STYLES (ONLY FOR MOBILE)
            ============================================ */
         @media (max-width: 900px) {
             .sticky-inner {
@@ -716,15 +717,14 @@
                 flex-wrap: wrap;
             }
 
+            /* Mobile: Hide WhatsApp and Language Buttons on Scroll */
             .top-actions {
                 position: static;
                 transform: none;
                 margin-top: 1rem;
                 justify-content: center;
-                transition: opacity 0.3s ease, visibility 0.3s ease;
             }
-
-            /* Hide WhatsApp and Language buttons on scroll up */
+            
             .top-actions.hide-on-scroll {
                 opacity: 0;
                 visibility: hidden;
@@ -733,8 +733,18 @@
                 overflow: hidden;
             }
 
-            h1 {
-                font-size: 2rem;
+            /* Mobile: Hide h1 title */
+            .title-section h1 {
+                display: none;
+            }
+
+            /* Mobile: Adjust header height when compact */
+            .main-header.compact {
+                padding: 0.5rem 1rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
             }
 
             section {
@@ -760,7 +770,6 @@
                 justify-content: space-between;
             }
 
-            /* Hide logo text on mobile */
             .header-logo span {
                 display: none;
             }
@@ -776,7 +785,6 @@
                 font-size: 1.2rem;
             }
 
-            /* Mobile Header Title - appears between logo and hamburger */
             .mobile-header-title {
                 display: block;
                 order: 2;
@@ -788,11 +796,6 @@
 
             .header-right {
                 display: none;
-            }
-
-            /* Adjust main-header padding when buttons are hidden */
-            .main-header.compact {
-                padding: 0.5rem 1rem;
             }
         }
 
@@ -806,10 +809,6 @@
             #horizontal .samples-grid,
             #square .samples-grid {
                 grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 1.5rem;
             }
 
             .more-button-container {
@@ -843,6 +842,31 @@
         @media (max-width: 1200px) {
             #vertical .samples-grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Desktop: Ensure top-actions never hide on scroll */
+        @media (min-width: 901px) {
+            .top-actions {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            
+            .top-actions.hide-on-scroll {
+                opacity: 1 !important;
+                visibility: visible !important;
+                margin-top: 0 !important;
+                height: auto !important;
+            }
+            
+            .title-section h1 {
+                display: block !important;
+            }
+            
+            .main-header.compact {
+                padding: 0.8rem 2rem !important;
             }
         }
     </style>
@@ -1168,7 +1192,6 @@
     <script>
         let currentLang = localStorage.getItem('lang') || 'en';
         let lastScrollTop = 0;
-        let scrollTimeout;
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1214,8 +1237,9 @@
 
         window.addEventListener('scroll', updateActiveLinkOnScroll);
 
-        // Mobile scroll hide/show for top-actions
+        // Mobile scroll hide/show for top-actions - ONLY ON MOBILE
         function handleMobileScroll() {
+            // Only apply on mobile devices (max-width: 900px)
             if (window.innerWidth <= 900) {
                 const topActions = document.getElementById('topActions');
                 const mainHeader = document.getElementById('mainHeader');
