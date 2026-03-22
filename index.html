@@ -751,10 +751,11 @@
                 scroll-margin-top: 280px;
             }
 
+            /* FIX: Mobile - Only 1 card per row for all formats */
             #vertical .samples-grid,
             #horizontal .samples-grid,
             #square .samples-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
             .header-nav {
@@ -805,6 +806,7 @@
                 gap: 0.8rem;
             }
 
+            /* Ensure 1 card per row on smaller mobile */
             #vertical .samples-grid,
             #horizontal .samples-grid,
             #square .samples-grid {
@@ -839,7 +841,7 @@
             }
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1200px) and (min-width: 901px) {
             #vertical .samples-grid {
                 grid-template-columns: repeat(3, 1fr);
             }
