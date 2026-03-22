@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Create stunning digital WhatsApp video wedding cards. Choose templates, upload photos, and get custom video invitations delivered to your email.">
     <meta name="keywords" content="digital wedding card, WhatsApp wedding invitation, video wedding card, online wedding invitation, digital invitation maker">
     <meta property="og:title" content="Digital Card Maker - WhatsApp Video Invitations">
@@ -139,8 +139,16 @@
             color: white;
         }
 
-        .header-logo span {
-            display: inline-block;
+        /* Mobile Title Text - between logo and hamburger */
+        .mobile-header-title {
+            display: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
         }
 
         /* Desktop Navigation */
@@ -259,6 +267,7 @@
             background: var(--light);
             padding: 1.5rem 2rem;
             border-bottom: 1px solid #eee;
+            transition: transform 0.3s ease;
         }
 
         .sticky-inner {
@@ -286,7 +295,6 @@
             display: flex;
             flex-direction: row;
             gap: 1.2rem;
-            flex-wrap: wrap;
         }
 
         .format-links a {
@@ -336,7 +344,7 @@
             color: #4caf50;
         }
 
-        /* Top Right Actions - Hide on scroll */
+        /* Top Right Actions - Hidden on scroll */
         .top-actions {
             position: absolute;
             right: 0;
@@ -437,7 +445,7 @@
         }
 
         /* ============================================
-           SAMPLES GRID - FIXED HEIGHT FOR VIDEO CONTAINERS
+           SAMPLES GRID
            ============================================ */
         .samples-grid {
             display: grid;
@@ -477,21 +485,6 @@
             width: 100%;
         }
 
-        /* Fixed aspect ratios for consistent video display */
-        .ratio-9-16 {
-            aspect-ratio: 9 / 16;
-            max-height: none;
-            height: auto;
-        }
-
-        .ratio-16-9 {
-            aspect-ratio: 16 / 9;
-        }
-
-        .ratio-1-1 {
-            aspect-ratio: 1 / 1;
-        }
-
         .video-container video {
             width: 100%;
             height: 100%;
@@ -515,6 +508,18 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        .ratio-9-16 {
+            aspect-ratio: 9/16;
+        }
+
+        .ratio-16-9 {
+            aspect-ratio: 16/9;
+        }
+
+        .ratio-1-1 {
+            aspect-ratio: 1/1;
         }
 
         .video-play-btn {
@@ -753,6 +758,7 @@
 
             .format-links {
                 justify-content: center;
+                flex-wrap: wrap;
             }
 
             .top-actions {
@@ -782,32 +788,38 @@
 
             .mobile-menu-btn {
                 display: flex;
+                order: 3;
             }
 
             .header-container {
                 justify-content: space-between;
+                gap: 0.5rem;
             }
 
-            /* Keep logo text on mobile - don't hide */
+            .header-logo {
+                order: 1;
+            }
+
             .header-logo span {
-                display: inline-block;
-                font-size: 0.9rem;
+                display: none;
             }
 
             .header-logo-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            /* Show mobile title between logo and hamburger */
+            .mobile-header-title {
+                display: block;
+                order: 2;
+                flex: 1;
+                text-align: center;
             }
 
             .header-right {
                 display: none;
-            }
-
-            /* Ensure video containers maintain proper aspect ratio on mobile */
-            .ratio-9-16 {
-                aspect-ratio: 9 / 16;
-                max-height: none;
             }
         }
 
@@ -840,39 +852,18 @@
             }
 
             .whatsapp-icon-btn {
-                width: 45px;
-                height: 45px;
+                width: 40px;
+                height: 40px;
             }
 
             .lang-btn {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.85rem;
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
             }
 
-            .header-logo span {
-                font-size: 0.8rem;
-                max-width: 100px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            /* Ensure vertical videos display properly on small screens */
-            .ratio-9-16 {
-                aspect-ratio: 9 / 16;
-                max-height: 450px;
-            }
-            
-            .video-container video,
-            .video-container .thumbnail-img {
-                object-fit: contain;
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 480px) {
-            .ratio-9-16 {
-                max-height: 400px;
+            .mobile-header-title {
+                max-width: 120px;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -899,6 +890,11 @@
                     <div class="header-logo-icon">🎬</div>
                     <span>Digital Video Cards</span>
                 </a>
+                
+                <!-- Mobile Header Title - Shows between logo and hamburger -->
+                <div class="mobile-header-title" id="mobileTitle" data-en="Digital Card Maker" data-hi="डिजिटल कार्ड मेकर">
+                    Digital Card Maker
+                </div>
                 
                 <nav class="header-nav">
                     <a onclick="scrollToTop()">Wedding Cards</a>
@@ -1239,6 +1235,7 @@
         // Store language preference
         let currentLang = localStorage.getItem('lang') || 'en';
         let lastScrollTop = 0;
+        let scrollTimeout;
 
         // Scroll to top function
         function scrollToTop() {
@@ -1312,18 +1309,19 @@
             
             const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
             
-            // Show buttons at the very top
+            // Show buttons when scrolling up or at the very top
             if (currentScroll <= 50) {
+                // At the top - show buttons
                 topActions.classList.remove('hide-actions');
-            } 
-            // Hide when scrolling down, show when scrolling up
-            else if (currentScroll > lastScrollTop && currentScroll > 100) {
+            } else if (currentScroll > lastScrollTop && currentScroll > 100) {
+                // Scrolling down and not at the top - hide buttons
                 topActions.classList.add('hide-actions');
-            } 
-            else if (currentScroll < lastScrollTop) {
+            } else if (currentScroll < lastScrollTop) {
+                // Scrolling up - show buttons
                 topActions.classList.remove('hide-actions');
             }
             
+            // Show buttons when cursor is near top (mouse move near top of page)
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         }
 
@@ -1332,6 +1330,7 @@
             const topActions = document.getElementById('topActions');
             if (!topActions) return;
             
+            // If mouse is within 100px from top of page
             if (e.clientY <= 100) {
                 topActions.classList.remove('hide-actions');
             }
@@ -1342,6 +1341,7 @@
 
         // Function to update content based on language
         function updateContent(lang) {
+            // Update all data-en/data-hi elements
             document.querySelectorAll('[data-en]').forEach(element => {
                 const enText = element.getAttribute('data-en');
                 const hiText = element.getAttribute('data-hi');
@@ -1353,6 +1353,7 @@
                 }
             });
 
+            // Update marquee text separately
             const marqueeSpan = document.querySelector('#marqueeText');
             if (marqueeSpan) {
                 const enText = marqueeSpan.getAttribute('data-en');
@@ -1370,11 +1371,13 @@
             currentLang = lang;
         }
 
+        // Toggle language function
         function toggleLanguage() {
             const newLang = (currentLang === 'en') ? 'hi' : 'en';
             updateContent(newLang);
         }
 
+        // Video play functionality
         function playVideo(card, videoPath) {
             const container = card.querySelector('.video-container');
             if (!container) return;
@@ -1408,6 +1411,7 @@
             };
         }
 
+        // Mobile menu toggle function - hamburger to X
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
             const menuBtn = document.getElementById('mobileMenuBtn');
@@ -1424,6 +1428,7 @@
             menuBtn.classList.remove('active');
         }
 
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
             updateContent(currentLang);
             updateActiveLinkOnScroll();
