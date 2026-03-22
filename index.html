@@ -104,6 +104,7 @@
             background: var(--header-orange);
             padding: 0.8rem 2rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
         }
 
         .header-container {
@@ -114,7 +115,6 @@
             align-items: center;
         }
 
-        /* Logo styling - no white background */
         .header-logo {
             display: flex;
             align-items: center;
@@ -139,18 +139,6 @@
             color: white;
         }
 
-        /* Mobile Title Text - between logo and hamburger */
-        .mobile-header-title {
-            display: none;
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 150px;
-        }
-
         /* Desktop Navigation */
         .header-nav {
             display: flex;
@@ -171,7 +159,17 @@
             text-decoration: underline;
         }
 
-        /* Mobile menu button - positioned on top-right */
+        /* Mobile Header Title - appears between logo and hamburger on mobile */
+        .mobile-header-title {
+            display: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            text-align: center;
+            flex: 1;
+        }
+
+        /* Mobile menu button */
         .mobile-menu-btn {
             display: none;
             flex-direction: column;
@@ -267,7 +265,6 @@
             background: var(--light);
             padding: 1.5rem 2rem;
             border-bottom: 1px solid #eee;
-            transition: transform 0.3s ease;
         }
 
         .sticky-inner {
@@ -277,7 +274,6 @@
             gap: 2rem;
         }
 
-        /* Left Sidebar in Sticky Area */
         .sticky-sidebar {
             width: 220px;
             flex-shrink: 0;
@@ -290,7 +286,6 @@
             font-weight: 600;
         }
 
-        /* Format Links - INLINE with underline active state */
         .format-links {
             display: flex;
             flex-direction: row;
@@ -314,12 +309,10 @@
             text-decoration: none;
         }
 
-        /* Main Sticky Area */
         .sticky-main {
             flex: 1;
         }
 
-        /* Title Section */
         .title-section {
             text-align: center;
             margin-bottom: 1rem;
@@ -344,7 +337,7 @@
             color: #4caf50;
         }
 
-        /* Top Right Actions - Hidden on scroll */
+        /* Top Right Actions */
         .top-actions {
             position: absolute;
             right: 0;
@@ -353,12 +346,6 @@
             display: flex;
             gap: 1.5rem;
             align-items: center;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .top-actions.hide-actions {
-            opacity: 0;
-            visibility: hidden;
         }
 
         .whatsapp-action {
@@ -408,9 +395,7 @@
             background: #f0f0f0;
         }
 
-        /* ============================================
-           SCROLLABLE CONTENT (Cards Sections)
-           ============================================ */
+        /* Scrollable Content */
         .scrollable-content {
             margin-top: 0;
             padding: 2rem 2rem 2rem;
@@ -419,9 +404,6 @@
             margin-right: auto;
         }
 
-        /* ============================================
-           SECTIONS
-           ============================================ */
         section {
             margin-bottom: 3rem;
             scroll-margin-top: 180px;
@@ -444,9 +426,6 @@
             font-size: 0.9rem;
         }
 
-        /* ============================================
-           SAMPLES GRID
-           ============================================ */
         .samples-grid {
             display: grid;
             gap: 1.5rem;
@@ -578,9 +557,6 @@
             color: #666;
         }
 
-        /* ============================================
-           MORE BUTTONS
-           ============================================ */
         .more-button-container {
             grid-column: 1 / -1;
             display: flex;
@@ -631,9 +607,6 @@
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
         }
 
-        /* ============================================
-           OTHER SECTIONS
-           ============================================ */
         .section-main-label {
             display: flex;
             align-items: center;
@@ -666,9 +639,6 @@
             border: 2px solid #fff;
         }
 
-        /* ============================================
-           INFO BOX - BOTTOM CENTER
-           ============================================ */
         .bottom-info-section {
             background: var(--light);
             padding: 2rem;
@@ -692,9 +662,6 @@
             font-size: 1rem;
         }
 
-        /* ============================================
-           FOOTER
-           ============================================ */
         footer {
             background: var(--secondary);
             color: white;
@@ -725,12 +692,6 @@
             line-height: 1.5;
         }
 
-        @media (max-width: 600px) {
-            .footer-copyright br {
-                display: block;
-            }
-        }
-
         @media (min-width: 601px) {
             .footer-copyright br {
                 display: none;
@@ -738,14 +699,8 @@
         }
 
         /* ============================================
-           RESPONSIVE
+           MOBILE SPECIFIC STYLES
            ============================================ */
-        @media (max-width: 1200px) {
-            #vertical .samples-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
         @media (max-width: 900px) {
             .sticky-inner {
                 flex-direction: column;
@@ -766,6 +721,16 @@
                 transform: none;
                 margin-top: 1rem;
                 justify-content: center;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            /* Hide WhatsApp and Language buttons on scroll up */
+            .top-actions.hide-on-scroll {
+                opacity: 0;
+                visibility: hidden;
+                margin-top: 0;
+                height: 0;
+                overflow: hidden;
             }
 
             h1 {
@@ -793,15 +758,16 @@
 
             .header-container {
                 justify-content: space-between;
-                gap: 0.5rem;
+            }
+
+            /* Hide logo text on mobile */
+            .header-logo span {
+                display: none;
             }
 
             .header-logo {
+                font-size: 0;
                 order: 1;
-            }
-
-            .header-logo span {
-                display: none;
             }
 
             .header-logo-icon {
@@ -810,16 +776,23 @@
                 font-size: 1.2rem;
             }
 
-            /* Show mobile title between logo and hamburger */
+            /* Mobile Header Title - appears between logo and hamburger */
             .mobile-header-title {
                 display: block;
                 order: 2;
-                flex: 1;
+                font-size: 1rem;
+                font-weight: 600;
+                color: white;
                 text-align: center;
             }
 
             .header-right {
                 display: none;
+            }
+
+            /* Adjust main-header padding when buttons are hidden */
+            .main-header.compact {
+                padding: 0.5rem 1rem;
             }
         }
 
@@ -854,6 +827,7 @@
             .whatsapp-icon-btn {
                 width: 40px;
                 height: 40px;
+                font-size: 1.4rem;
             }
 
             .lang-btn {
@@ -862,8 +836,13 @@
             }
 
             .mobile-header-title {
-                max-width: 120px;
                 font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            #vertical .samples-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -884,14 +863,14 @@
     <div class="sticky-wrapper" id="top">
         
         <!-- Header -->
-        <header class="main-header">
+        <header class="main-header" id="mainHeader">
             <div class="header-container">
                 <a href="#top" class="header-logo" onclick="scrollToTop(); return false;">
                     <div class="header-logo-icon">🎬</div>
                     <span>Digital Video Cards</span>
                 </a>
                 
-                <!-- Mobile Header Title - Shows between logo and hamburger -->
+                <!-- Mobile Header Title - appears between logo and hamburger on mobile -->
                 <div class="mobile-header-title" id="mobileTitle" data-en="Digital Card Maker" data-hi="डिजिटल कार्ड मेकर">
                     Digital Card Maker
                 </div>
@@ -903,13 +882,11 @@
                     <a href="#customized">Customized</a>
                 </nav>
 
-                <!-- Search and Actions (Desktop) -->
                 <div class="header-right">
                     <input type="text" class="header-search" placeholder="Search...">
                     <button class="header-search-btn" onclick="alert('Search coming soon!')">🔍</button>
                 </div>
 
-                <!-- Mobile Menu Button - Hamburger that transforms to X (Top-Right) -->
                 <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
                     <span></span>
                     <span></span>
@@ -917,7 +894,6 @@
                 </button>
             </div>
 
-            <!-- Mobile Navigation Menu -->
             <div class="mobile-nav" id="mobileNav">
                 <a onclick="scrollToTop(); closeMobileMenu()">Wedding Cards</a>
                 <a href="#birthday" onclick="closeMobileMenu()">Birthday Cards</a>
@@ -930,7 +906,6 @@
         <div class="sticky-content">
             <div class="sticky-inner">
                 
-                <!-- Left Sidebar -->
                 <aside class="sticky-sidebar">
                     <h2 data-en="Wedding Cards" data-hi="विवाह कार्ड्स">Wedding Cards</h2>
                     <div class="format-links">
@@ -940,10 +915,7 @@
                     </div>
                 </aside>
 
-                <!-- Main Sticky Area -->
                 <div class="sticky-main">
-
-                    <!-- Title Section -->
                     <div class="title-section">
                         <h1>
                             <span class="digital" data-en="Digital" data-hi="डिजिटल">Digital</span>
@@ -951,7 +923,6 @@
                             <span class="maker" data-en="Maker" data-hi="मेकर">Maker</span>
                         </h1>
                         
-                        <!-- WhatsApp and Language Buttons -->
                         <div class="top-actions" id="topActions">
                             <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="whatsapp-action" target="_blank">
                                 <button class="whatsapp-icon-btn">
@@ -965,7 +936,6 @@
                             <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">हिन्दी</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -973,17 +943,13 @@
 
     <!-- SCROLLABLE CONTENT (Cards Sections) -->
     <div class="scrollable-content">
-
-        <!-- Section: Vertical Samples (9:16) - Cards 01-04 -->
         <section id="vertical" aria-labelledby="vertical-heading">
             <h2 id="vertical-heading" data-en="Vertical Format (9:16)" data-hi="वर्टिकल फॉर्मेट (9:16)">Vertical Format (9:16)</h2>
             <p class="section-description" data-en="Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos." 
                data-hi="व्हाट्सएप स्टेटस, इंस्टाग्राम स्टोरीज और फेसबुक स्टोरीज के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
                 Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.
             </p>
-
             <div class="samples-grid">
-                <!-- Sample 01 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 01.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 01.webp" alt="Sample 01" class="thumbnail-img">
@@ -996,8 +962,6 @@
                         <p data-en="Royal golden theme" data-hi="शाही सुनहरा थीम">Royal golden theme</p>
                     </div>
                 </article>
-
-                <!-- Sample 02 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 02.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 02.webp" alt="Sample 02" class="thumbnail-img">
@@ -1010,8 +974,6 @@
                         <p data-en="Elegant wedding invitation" data-hi="शानदार विवाह निमंत्रण">Elegant wedding invitation</p>
                     </div>
                 </article>
-
-                <!-- Sample 03 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 03.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 03.webp" alt="Sample 03" class="thumbnail-img">
@@ -1024,8 +986,6 @@
                         <p data-en="Modern fusion design" data-hi="आधुनिक फ्यूजन डिजाइन">Modern fusion design</p>
                     </div>
                 </article>
-
-                <!-- Sample 04 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 04.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 04.webp" alt="Sample 04" class="thumbnail-img">
@@ -1038,8 +998,6 @@
                         <p data-en="Contemporary romantic" data-hi="समकालीन रोमांटिक">Contemporary romantic</p>
                     </div>
                 </article>
-
-                <!-- More Vertical Button -->
                 <div class="more-button-container">
                     <a href="Vertical.html" class="more-button vertical" onclick="return false;" role="button">
                         <span data-en="More Vertical" data-hi="और वर्टिकल">More Vertical</span>
@@ -1049,16 +1007,13 @@
             </div>
         </section>
 
-        <!-- Section: Horizontal Samples (16:9) - Cards 31-33 -->
         <section id="horizontal" aria-labelledby="horizontal-heading">
             <h2 id="horizontal-heading" data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</h2>
             <p class="section-description" data-en="Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos." 
                data-hi="व्हाट्सएप मैसेजेस, फेसबुक पोस्ट्स और ट्विटर के लिए आदर्श। वीडियो चलाने के लिए क्लिक करें।">
                 Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos.
             </p>
-
             <div class="samples-grid">
-                <!-- Sample 31 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 31.mp4')">
                     <div class="video-container ratio-16-9">
                         <img src="Sample 31.webp" alt="Sample 31" class="thumbnail-img">
@@ -1071,8 +1026,6 @@
                         <p data-en="Elegant widescreen design" data-hi="शानदार वाइडस्क्रीन डिज़ाइन">Elegant widescreen design</p>
                     </div>
                 </article>
-
-                <!-- Sample 32 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 32.mp4')">
                     <div class="video-container ratio-16-9">
                         <img src="Sample 32.webp" alt="Sample 32" class="thumbnail-img">
@@ -1085,8 +1038,6 @@
                         <p data-en="Classic panoramic format" data-hi="क्लासिक पैनोरमिक फॉर्मेट">Classic panoramic format</p>
                     </div>
                 </article>
-
-                <!-- Sample 33 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 33.mp4')">
                     <div class="video-container ratio-16-9">
                         <img src="Sample 33.webp" alt="Sample 33" class="thumbnail-img">
@@ -1099,8 +1050,6 @@
                         <p data-en="Modern cinematic style" data-hi="आधुनिक सिनेमैटिक स्टाइल">Modern cinematic style</p>
                     </div>
                 </article>
-
-                <!-- More Horizontal Button -->
                 <div class="more-button-container">
                     <a href="Horizontal.html" class="more-button horizontal" onclick="return false;" role="button">
                         <span data-en="More Horizontal" data-hi="और हॉरिजॉन्टल">More Horizontal</span>
@@ -1110,16 +1059,13 @@
             </div>
         </section>
 
-        <!-- Section: Square Samples (1:1) - Cards 61-63 -->
         <section id="square" aria-labelledby="square-heading">
             <h2 id="square-heading" data-en="Square Format (1:1)" data-hi="स्क्वायर फॉर्मेट (1:1)">Square Format (1:1)</h2>
             <p class="section-description" data-en="Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos." 
                data-hi="इंस्टाग्राम पोस्ट्स, फेसबुक फीड और प्रोफाइल पिक्चर्स के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
                 Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos.
             </p>
-
             <div class="samples-grid">
-                <!-- Sample 61 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 61.mp4')">
                     <div class="video-container ratio-1-1">
                         <img src="Sample 61.webp" alt="Sample 61" class="thumbnail-img">
@@ -1132,8 +1078,6 @@
                         <p data-en="Perfect for Instagram" data-hi="इंस्टाग्राम के लिए बिल्कुल सही">Perfect for Instagram</p>
                     </div>
                 </article>
-
-                <!-- Sample 62 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 62.mp4')">
                     <div class="video-container ratio-1-1">
                         <img src="Sample 62.webp" alt="Sample 62" class="thumbnail-img">
@@ -1146,8 +1090,6 @@
                         <p data-en="Traditional square design" data-hi="पारंपरिक स्क्वायर डिज़ाइन">Traditional square design</p>
                     </div>
                 </article>
-
-                <!-- Sample 63 -->
                 <article class="sample-card" onclick="playVideo(this, 'Sample 63.mp4')">
                     <div class="video-container ratio-1-1">
                         <img src="Sample 63.webp" alt="Sample 63" class="thumbnail-img">
@@ -1160,8 +1102,6 @@
                         <p data-en="Contemporary social media" data-hi="समकालीन सोशल मीडिया">Contemporary social media</p>
                     </div>
                 </article>
-
-                <!-- More Square Button -->
                 <div class="more-button-container">
                     <a href="Square.html" class="more-button square" onclick="return false;" role="button">
                         <span data-en="More Square" data-hi="और स्क्वायर">More Square</span>
@@ -1171,7 +1111,6 @@
             </div>
         </section>
 
-        <!-- Birthday Cards Section -->
         <section id="birthday" aria-labelledby="birthday-heading">
             <div class="section-main-label">
                 <span class="red-circle-icon">🎂</span>
@@ -1183,7 +1122,6 @@
             </p>
         </section>
 
-        <!-- Anniversary Cards Section -->
         <section id="anniversary" aria-labelledby="anniversary-heading">
             <div class="section-main-label">
                 <span class="red-circle-icon">💖</span>
@@ -1195,7 +1133,6 @@
             </p>
         </section>
 
-        <!-- Customized Cards Section -->
         <section id="customized" aria-labelledby="customized-heading">
             <div class="section-main-label">
                 <span class="red-circle-icon">✨</span>
@@ -1206,10 +1143,8 @@
                 Have a unique idea? We can bring your custom card design to life! Contact us for details.
             </p>
         </section>
-
     </div>
 
-    <!-- INFO BOX - BOTTOM CENTER (Before Footer) -->
     <div class="bottom-info-section">
         <div class="info-box">
             <p data-en="Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!" 
@@ -1219,7 +1154,6 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-links">
             <a onclick="scrollToTop()" data-en="Home" data-hi="होम">Home</a>
@@ -1232,69 +1166,45 @@
     </footer>
 
     <script>
-        // Store language preference
         let currentLang = localStorage.getItem('lang') || 'en';
         let lastScrollTop = 0;
         let scrollTimeout;
 
-        // Scroll to top function
         function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
             closeMobileMenu();
         }
 
-        // Scroll to specific section
         function scrollToSection(sectionId) {
             const element = document.getElementById(sectionId);
             if (element) {
                 const offset = 180;
                 const elementPosition = element.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - offset;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
             }
             setActiveFormat(sectionId);
             closeMobileMenu();
         }
 
-        // Set active format link
         function setActiveFormat(formatId) {
-            document.querySelectorAll('.format-links a').forEach(link => {
-                link.classList.remove('active');
-            });
+            document.querySelectorAll('.format-links a').forEach(link => link.classList.remove('active'));
             const activeLink = document.getElementById('link-' + formatId);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
+            if (activeLink) activeLink.classList.add('active');
         }
 
-        // Update active link based on scroll position
         function updateActiveLinkOnScroll() {
             const sections = ['vertical', 'horizontal', 'square'];
             const scrollPos = window.scrollY + 220;
-
             let activeSection = null;
-
             for (let i = 0; i < sections.length; i++) {
-                const section = sections[i];
-                const element = document.getElementById(section);
-                
+                const element = document.getElementById(sections[i]);
                 if (element) {
                     const offsetTop = element.offsetTop;
                     const offsetBottom = offsetTop + element.offsetHeight;
-                    
-                    if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
-                        activeSection = section;
-                    }
+                    if (scrollPos >= offsetTop && scrollPos < offsetBottom) activeSection = sections[i];
                 }
             }
-
             if (activeSection) {
                 document.querySelectorAll('.format-links a').forEach(l => l.classList.remove('active'));
                 const link = document.getElementById('link-' + activeSection);
@@ -1302,120 +1212,89 @@
             }
         }
 
-        // Handle scroll to hide/show WhatsApp and Language buttons
-        function handleScrollHideButtons() {
-            const topActions = document.getElementById('topActions');
-            if (!topActions) return;
-            
-            const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Show buttons when scrolling up or at the very top
-            if (currentScroll <= 50) {
-                // At the top - show buttons
-                topActions.classList.remove('hide-actions');
-            } else if (currentScroll > lastScrollTop && currentScroll > 100) {
-                // Scrolling down and not at the top - hide buttons
-                topActions.classList.add('hide-actions');
-            } else if (currentScroll < lastScrollTop) {
-                // Scrolling up - show buttons
-                topActions.classList.remove('hide-actions');
-            }
-            
-            // Show buttons when cursor is near top (mouse move near top of page)
-            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-        }
+        window.addEventListener('scroll', updateActiveLinkOnScroll);
 
-        // Show buttons when mouse moves near the top of the page
-        function handleMouseNearTop(e) {
-            const topActions = document.getElementById('topActions');
-            if (!topActions) return;
-            
-            // If mouse is within 100px from top of page
-            if (e.clientY <= 100) {
-                topActions.classList.remove('hide-actions');
+        // Mobile scroll hide/show for top-actions
+        function handleMobileScroll() {
+            if (window.innerWidth <= 900) {
+                const topActions = document.getElementById('topActions');
+                const mainHeader = document.getElementById('mainHeader');
+                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (currentScroll > 50) {
+                    if (currentScroll > lastScrollTop) {
+                        // Scrolling down - hide buttons and reduce header height
+                        topActions.classList.add('hide-on-scroll');
+                        mainHeader.classList.add('compact');
+                    } else {
+                        // Scrolling up - show buttons when near top
+                        if (currentScroll < 30) {
+                            topActions.classList.remove('hide-on-scroll');
+                            mainHeader.classList.remove('compact');
+                        }
+                    }
+                } else {
+                    // At the very top - show everything
+                    topActions.classList.remove('hide-on-scroll');
+                    mainHeader.classList.remove('compact');
+                }
+                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
             }
         }
 
-        window.addEventListener('scroll', handleScrollHideButtons);
-        window.addEventListener('mousemove', handleMouseNearTop);
+        window.addEventListener('scroll', handleMobileScroll);
 
-        // Function to update content based on language
         function updateContent(lang) {
-            // Update all data-en/data-hi elements
             document.querySelectorAll('[data-en]').forEach(element => {
                 const enText = element.getAttribute('data-en');
                 const hiText = element.getAttribute('data-hi');
-
-                if (element.tagName === 'IMG') {
-                    element.setAttribute('alt', lang === 'hi' ? element.getAttribute('data-hi-alt') : element.getAttribute('data-en-alt'));
-                } else {
+                if (element.tagName !== 'IMG') {
                     element.textContent = lang === 'hi' ? hiText : enText;
                 }
             });
-
-            // Update marquee text separately
             const marqueeSpan = document.querySelector('#marqueeText');
             if (marqueeSpan) {
-                const enText = marqueeSpan.getAttribute('data-en');
-                const hiText = marqueeSpan.getAttribute('data-hi');
-                marqueeSpan.textContent = lang === 'hi' ? hiText : enText;
+                marqueeSpan.textContent = lang === 'hi' ? marqueeSpan.getAttribute('data-hi') : marqueeSpan.getAttribute('data-en');
             }
-
             document.documentElement.lang = lang;
             const langToggleButton = document.getElementById('langToggle');
-            if (langToggleButton) {
-                langToggleButton.textContent = (lang === 'hi') ? 'English' : 'हिन्दी';
-            }
-
+            if (langToggleButton) langToggleButton.textContent = (lang === 'hi') ? 'English' : 'हिन्दी';
             localStorage.setItem('lang', lang);
             currentLang = lang;
         }
 
-        // Toggle language function
         function toggleLanguage() {
-            const newLang = (currentLang === 'en') ? 'hi' : 'en';
-            updateContent(newLang);
+            updateContent(currentLang === 'en' ? 'hi' : 'en');
         }
 
-        // Video play functionality
         function playVideo(card, videoPath) {
             const container = card.querySelector('.video-container');
             if (!container) return;
-
             const video = container.querySelector('video');
             const isPlaying = container.classList.contains('playing');
-
             if (isPlaying) {
-                if (video.paused) {
-                    video.play();
-                } else {
-                    video.pause();
-                }
+                if (video.paused) video.play();
+                else video.pause();
                 return;
             }
-
             document.querySelectorAll('.video-container.playing').forEach(playingContainer => {
                 const playingVideo = playingContainer.querySelector('video');
                 playingVideo.pause();
                 playingVideo.src = '';
                 playingContainer.classList.remove('playing');
             });
-
             video.src = videoPath;
             container.classList.add('playing');
             video.play();
-
             video.onended = function() {
                 container.classList.remove('playing');
                 video.src = '';
             };
         }
 
-        // Mobile menu toggle function - hamburger to X
         function toggleMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
             const menuBtn = document.getElementById('mobileMenuBtn');
-            
             mobileNav.classList.toggle('show');
             menuBtn.classList.toggle('active');
         }
@@ -1423,17 +1302,14 @@
         function closeMobileMenu() {
             const mobileNav = document.getElementById('mobileNav');
             const menuBtn = document.getElementById('mobileMenuBtn');
-            
             mobileNav.classList.remove('show');
             menuBtn.classList.remove('active');
         }
 
-        // Initialize on page load
         document.addEventListener('DOMContentLoaded', () => {
             updateContent(currentLang);
             updateActiveLinkOnScroll();
         });
     </script>
-
 </body>
 </html>
