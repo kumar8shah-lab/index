@@ -104,7 +104,7 @@
             background: var(--header-orange);
             padding: 0.8rem 2rem;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: padding 0.25s ease;
             position: relative;
         }
 
@@ -354,7 +354,7 @@
             display: flex;
             gap: 1.5rem;
             align-items: center;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease, height 0.2s ease;
         }
 
         .whatsapp-action {
@@ -729,7 +729,7 @@
             .top-actions {
                 position: static;
                 transform: none;
-                margin-top: 1rem;
+                margin-top: 0.5rem;
                 justify-content: center;
             }
             
@@ -738,6 +738,7 @@
                 visibility: hidden;
                 margin-top: 0;
                 height: 0;
+                padding: 0;
                 overflow: hidden;
             }
 
@@ -746,9 +747,32 @@
                 display: none;
             }
 
-            /* Mobile: Adjust header height when compact */
+            /* Mobile: Reduce header height when compact - as much as possible */
+            .main-header {
+                transition: padding 0.2s ease;
+            }
+            
             .main-header.compact {
-                padding: 0.5rem 1rem;
+                padding: 0.2rem 1rem;
+            }
+            
+            .main-header.compact .header-logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+            
+            .main-header.compact .mobile-header-title {
+                font-size: 0.85rem;
+            }
+            
+            .main-header.compact .mobile-menu-btn {
+                width: 26px;
+                height: 20px;
+            }
+            
+            .main-header.compact .mobile-menu-btn span {
+                height: 2.5px;
             }
 
             h2 {
@@ -759,7 +783,7 @@
                 scroll-margin-top: 280px;
             }
 
-            /* Mobile: Only 1 card per row for all formats */
+            /* Mobile: Only 1 card per row for all formats - NO HEIGHT CHANGES */
             #vertical .samples-grid,
             #horizontal .samples-grid,
             #square .samples-grid {
@@ -792,6 +816,7 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
+                transition: all 0.2s ease;
             }
 
             .mobile-header-title {
@@ -801,6 +826,7 @@
                 font-weight: 600;
                 color: white;
                 text-align: center;
+                transition: all 0.2s ease;
             }
 
             .header-right {
@@ -876,6 +902,12 @@
             
             .main-header.compact {
                 padding: 0.8rem 2rem !important;
+            }
+            
+            .main-header.compact .header-logo-icon {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 1rem !important;
             }
         }
     </style>
@@ -1201,6 +1233,7 @@
     <script>
         let currentLang = localStorage.getItem('lang') || 'en';
         let lastScrollTop = 0;
+        let ticking = false;
 
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1246,28 +1279,35 @@
 
         window.addEventListener('scroll', updateActiveLinkOnScroll);
 
-        // Mobile scroll hide/show for top-actions - ONLY ON MOBILE
+        // Mobile scroll hide/show for top-actions - ONLY ON MOBILE with improved performance (no flickering)
         function handleMobileScroll() {
-            if (window.innerWidth <= 900) {
-                const topActions = document.getElementById('topActions');
-                const mainHeader = document.getElementById('mainHeader');
-                const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (currentScroll > 50) {
-                    if (currentScroll > lastScrollTop) {
-                        topActions.classList.add('hide-on-scroll');
-                        mainHeader.classList.add('compact');
-                    } else {
-                        if (currentScroll < 30) {
-                            topActions.classList.remove('hide-on-scroll');
-                            mainHeader.classList.remove('compact');
+            if (!ticking && window.innerWidth <= 900) {
+                requestAnimationFrame(() => {
+                    const topActions = document.getElementById('topActions');
+                    const mainHeader = document.getElementById('mainHeader');
+                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+                    
+                    if (currentScroll > 30) {
+                        if (currentScroll > lastScrollTop + 5) {
+                            // Scrolling down - hide buttons and reduce header height
+                            topActions.classList.add('hide-on-scroll');
+                            mainHeader.classList.add('compact');
+                        } else if (currentScroll < lastScrollTop - 5) {
+                            // Scrolling up - show buttons when near top
+                            if (currentScroll < 50) {
+                                topActions.classList.remove('hide-on-scroll');
+                                mainHeader.classList.remove('compact');
+                            }
                         }
+                    } else {
+                        // At the very top - show everything
+                        topActions.classList.remove('hide-on-scroll');
+                        mainHeader.classList.remove('compact');
                     }
-                } else {
-                    topActions.classList.remove('hide-on-scroll');
-                    mainHeader.classList.remove('compact');
-                }
-                lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+                    ticking = false;
+                });
+                ticking = true;
             }
         }
 
@@ -1327,11 +1367,9 @@
             const menuBtn = document.getElementById('mobileMenuBtn');
             
             if (mobileNav.classList.contains('show')) {
-                // Close menu
                 mobileNav.classList.remove('show');
                 menuBtn.classList.remove('active');
             } else {
-                // Open menu
                 mobileNav.classList.add('show');
                 menuBtn.classList.add('active');
             }
@@ -1344,7 +1382,6 @@
             menuBtn.classList.remove('active');
         }
 
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const mobileNav = document.getElementById('mobileNav');
             const menuBtn = document.getElementById('mobileMenuBtn');
