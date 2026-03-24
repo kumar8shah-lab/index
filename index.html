@@ -9,6 +9,10 @@
     <meta property="og:description" content="Choose templates and create beautiful digital video cards perfect for WhatsApp sharing">
     <meta property="og:type" content="website">
     <title>Digital Card Maker | WhatsApp Video Invitations</title>
+    
+    <!-- External Terms & Conditions JavaScript File -->
+    <script src="terms-content.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -43,7 +47,7 @@
         }
 
         /* ============================================
-           DARK BLUE MARQUEE BAR
+           DARK BLUE MARQUEE BAR - Always visible
            ============================================ */
         .marquee-bar {
             background: var(--dark-blue);
@@ -699,6 +703,7 @@
 
         .footer-copyright {
             line-height: 1.5;
+            margin-top: 1rem;
         }
 
         @media (min-width: 601px) {
@@ -707,8 +712,79 @@
             }
         }
 
+        /* Modal Styles for Policy Pages */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.85);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 900px;
+            width: 90%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+            z-index: 10;
+        }
+
+        .close-modal:hover {
+            color: var(--primary);
+        }
+
+        .modal-content h2 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            text-align: left;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-content h3 {
+            color: var(--primary-dark);
+            margin: 1.2rem 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .modal-content p {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+        }
+
+        .modal-content ul, .modal-content ol {
+            margin: 0.5rem 0 1rem 1.8rem;
+            color: #444;
+        }
+
+        .modal-content li {
+            margin-bottom: 0.5rem;
+        }
+
         /* ============================================
-           MOBILE SPECIFIC STYLES (ONLY FOR MOBILE)
+           MOBILE SPECIFIC STYLES
            ============================================ */
         @media (max-width: 900px) {
             .sticky-inner {
@@ -725,7 +801,6 @@
                 flex-wrap: wrap;
             }
 
-            /* Mobile: Hide WhatsApp and Language Buttons on Scroll */
             .top-actions {
                 position: static;
                 transform: none;
@@ -742,12 +817,10 @@
                 overflow: hidden;
             }
 
-            /* Mobile: Hide h1 title */
             .title-section h1 {
                 display: none;
             }
 
-            /* Mobile: Reduce header height when compact - as much as possible */
             .main-header {
                 transition: padding 0.2s ease;
             }
@@ -783,7 +856,6 @@
                 scroll-margin-top: 280px;
             }
 
-            /* Mobile: Only 1 card per row for all formats - NO HEIGHT CHANGES */
             #vertical .samples-grid,
             #horizontal .samples-grid,
             #square .samples-grid {
@@ -832,6 +904,10 @@
             .header-right {
                 display: none;
             }
+
+            .footer-links {
+                gap: 1rem;
+            }
         }
 
         @media (max-width: 600px) {
@@ -872,6 +948,12 @@
             .mobile-header-title {
                 font-size: 0.9rem;
             }
+
+            .footer-links {
+                gap: 0.8rem;
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         @media (max-width: 1200px) and (min-width: 901px) {
@@ -880,7 +962,6 @@
             }
         }
 
-        /* Desktop: Ensure top-actions never hide on scroll */
         @media (min-width: 901px) {
             .top-actions {
                 position: absolute;
@@ -914,7 +995,7 @@
 </head>
 <body>
 
-    <!-- DARK BLUE MARQUEE BAR - Above Navbar -->
+    <!-- DARK BLUE MARQUEE BAR -->
     <div class="marquee-bar" id="marqueeBar">
         <div class="marquee-content">
             <span id="marqueeText" data-en="✨ Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today! ✨" 
@@ -924,7 +1005,7 @@
         </div>
     </div>
 
-    <!-- STICKY WRAPPER (Header + Title + Buttons) -->
+    <!-- STICKY WRAPPER -->
     <div class="sticky-wrapper" id="top">
         
         <!-- Header -->
@@ -935,7 +1016,6 @@
                     <span>Digital Video Cards</span>
                 </a>
                 
-                <!-- Mobile Header Title - appears between logo and hamburger on mobile -->
                 <div class="mobile-header-title" id="mobileTitle" data-en="Digital Card Maker" data-hi="डिजिटल कार्ड मेकर">
                     Digital Card Maker
                 </div>
@@ -1219,16 +1299,28 @@
         </div>
     </div>
 
+    <!-- Footer with links - Now using external JS functions -->
     <footer>
         <div class="footer-links">
             <a onclick="scrollToTop()" data-en="Home" data-hi="होम">Home</a>
             <a href="https://wa.me/9413451477" target="_blank" data-en="WhatsApp" data-hi="व्हाट्सएप">WhatsApp</a>
+            <a onclick="loadCancellationModal(currentLang)" style="cursor: pointer;" data-en="Cancellation Policy" data-hi="रद्दकरण नीति">Cancellation Policy</a>
+            <a onclick="loadPrivacyModal(currentLang)" style="cursor: pointer;" data-en="Privacy Policy" data-hi="गोपनीयता नीति">Privacy Policy</a>
+            <a onclick="loadTermsModal(currentLang)" style="cursor: pointer;" data-en="Terms & Conditions" data-hi="नियम और शर्तें">Terms & Conditions</a>
         </div>
-        <p class="footer-copyright" data-en="&copy; 2024 Digital Card Maker. Designed with ❤ for your special day." 
-           data-hi="&copy; 2024 डिजिटल कार्ड मेकर। Designed with ❤ for your special day.">
-            &copy; 2024 Digital Card Maker.<br>Designed with ❤ for your special day.
+        <p class="footer-copyright" data-en="&copy; 2026 Digital Card Maker. Designed with ❤ for your special day." 
+           data-hi="&copy; 2026 डिजिटल कार्ड मेकर। Designed with ❤ for your special day.">
+            &copy; 2026 Digital Card Maker.<br>Designed with ❤ for your special day.
         </p>
     </footer>
+
+    <!-- Modal for Policy Pages -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
 
     <script>
         let currentLang = localStorage.getItem('lang') || 'en';
@@ -1279,7 +1371,6 @@
 
         window.addEventListener('scroll', updateActiveLinkOnScroll);
 
-        // Mobile scroll hide/show for top-actions - ONLY ON MOBILE with improved performance (no flickering)
         function handleMobileScroll() {
             if (!ticking && window.innerWidth <= 900) {
                 requestAnimationFrame(() => {
@@ -1289,18 +1380,15 @@
                     
                     if (currentScroll > 30) {
                         if (currentScroll > lastScrollTop + 5) {
-                            // Scrolling down - hide buttons and reduce header height
                             topActions.classList.add('hide-on-scroll');
                             mainHeader.classList.add('compact');
                         } else if (currentScroll < lastScrollTop - 5) {
-                            // Scrolling up - show buttons when near top
                             if (currentScroll < 50) {
                                 topActions.classList.remove('hide-on-scroll');
                                 mainHeader.classList.remove('compact');
                             }
                         }
                     } else {
-                        // At the very top - show everything
                         topActions.classList.remove('hide-on-scroll');
                         mainHeader.classList.remove('compact');
                     }
@@ -1380,6 +1468,17 @@
             const menuBtn = document.getElementById('mobileMenuBtn');
             mobileNav.classList.remove('show');
             menuBtn.classList.remove('active');
+        }
+
+        function closeModal() {
+            document.getElementById('policyModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('policyModal');
+            if (event.target == modal) {
+                closeModal();
+            }
         }
 
         document.addEventListener('click', function(event) {
