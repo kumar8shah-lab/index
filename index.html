@@ -446,7 +446,7 @@
         }
 
         #vertical .samples-grid {
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(5, 1fr);
         }
 
         #horizontal .samples-grid,
@@ -958,7 +958,7 @@
 
         @media (max-width: 1200px) and (min-width: 901px) {
             #vertical .samples-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
         }
 
@@ -991,7 +991,88 @@
                 font-size: 1rem !important;
             }
         }
+    
+        /* Video Modal Styles */
+        .video-modal {
+            display: none;
+            position: fixed;
+            z-index: 3000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.3);
+            pointer-events: none;
+        }
+
+        .video-modal.show {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: auto;
+        }
+
+        .video-modal-content {
+            position: relative;
+            max-width: calc(100% - 50px);
+            max-height: calc(100% - 50px);
+            background: #fff;
+            padding: 25px;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            pointer-events: auto;
+        }
+
+        .video-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+
+        .video-wrapper video {
+            max-width: 100%;
+            max-height: calc(100vh - 100px);
+            display: block;
+        }
+
+        .video-close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+            z-index: 3001;
+            transition: color 0.3s;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+        }
+
+        .video-close-btn:hover {
+            color: #e74c3c;
+        }
+
+        @media (max-width: 768px) {
+            .video-modal-content {
+                max-width: calc(100% - 30px);
+                max-height: calc(100% - 30px);
+                padding: 15px;
+            }
+
+            .video-wrapper video {
+                max-height: calc(100vh - 60px);
+            }
+        }
+
     </style>
+<base target="_blank">
 </head>
 <body>
 
@@ -1009,7 +1090,7 @@
     <div class="sticky-wrapper" id="top">
         
         <!-- Header -->
-        <header class="main-header" id="mainHeader">
+ <header class="main-header" id="mainHeader">
             <div class="header-container">
                 <a href="#top" class="header-logo" onclick="scrollToTop(); return false;">
                     <div class="header-logo-icon">🎬</div>
@@ -1095,10 +1176,10 @@
                 Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.
             </p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="playVideo(this, 'Sample 01.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 01.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 01.webp" alt="Sample 01" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 01" data-hi="कार्ड 01">Card 01</span>
                     </div>
@@ -1107,10 +1188,10 @@
                         <p data-en="Royal golden theme" data-hi="शाही सुनहरा थीम">Royal golden theme</p>
                     </div>
                 </article>
-                <article class="sample-card" onclick="playVideo(this, 'Sample 02.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 02.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 02.webp" alt="Sample 02" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 02" data-hi="कार्ड 02">Card 02</span>
                     </div>
@@ -1119,10 +1200,10 @@
                         <p data-en="Elegant wedding invitation" data-hi="शानदार विवाह निमंत्रण">Elegant wedding invitation</p>
                     </div>
                 </article>
-                <article class="sample-card" onclick="playVideo(this, 'Sample 03.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 03.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 03.webp" alt="Sample 03" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 03" data-hi="कार्ड 03">Card 03</span>
                     </div>
@@ -1131,16 +1212,27 @@
                         <p data-en="Modern fusion design" data-hi="आधुनिक फ्यूजन डिजाइन">Modern fusion design</p>
                     </div>
                 </article>
-                <article class="sample-card" onclick="playVideo(this, 'Sample 04.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 04.mp4')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 04.webp" alt="Sample 04" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 04" data-hi="कार्ड 04">Card 04</span>
                     </div>
                     <div class="sample-info">
                         <h3 data-en="Sample 04" data-hi="सैंपल 04">Sample 04</h3>
                         <p data-en="Contemporary romantic" data-hi="समकालीन रोमांटिक">Contemporary romantic</p>
+                    </div>
+                </article>
+                <article class="sample-card" onclick="openVideoModal('Sample 05.mp4')">
+                    <div class="video-container ratio-9-16">
+                        <img src="Sample 05.webp" alt="Sample 05" class="thumbnail-img">
+                        <div class="video-play-btn">▶</div>
+                        <span class="duration-badge" data-en="Card 05" data-hi="कार्ड 05">Card 05</span>
+                    </div>
+                    <div class="sample-info">
+                        <h3 data-en="Sample 05" data-hi="सैंपल 05">Sample 05</h3>
+                        <p data-en="Elegant floral design" data-hi="सुंदर फूलों वाला डिजाइन">Elegant floral design</p>
                     </div>
                 </article>
                 <div class="more-button-container">
@@ -1159,10 +1251,10 @@
                 Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos.
             </p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="playVideo(this, 'Sample 31.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 31.mp4')">
                     <div class="video-container ratio-16-9">
                         <img src="Sample 31.webp" alt="Sample 31" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 31" data-hi="कार्ड 31">Card 31</span>
                     </div>
@@ -1171,10 +1263,10 @@
                         <p data-en="Elegant widescreen design" data-hi="शानदार वाइडस्क्रीन डिज़ाइन">Elegant widescreen design</p>
                     </div>
                 </article>
-                <article class="sample-card" onclick="playVideo(this, 'Sample 32.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 32.mp4')">
                     <div class="video-container ratio-16-9">
                         <img src="Sample 32.webp" alt="Sample 32" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 32" data-hi="कार्ड 32">Card 32</span>
                     </div>
@@ -1183,10 +1275,10 @@
                         <p data-en="Classic panoramic format" data-hi="क्लासिक पैनोरमिक फॉर्मेट">Classic panoramic format</p>
                     </div>
                 </article>
-                <article class="sample-card" onclick="playVideo(this, 'Sample 33.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 33.mp4')">
                     <div class="video-container ratio-16-9">
                         <img src="Sample 33.webp" alt="Sample 33" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 33" data-hi="कार्ड 33">Card 33</span>
                     </div>
@@ -1211,10 +1303,10 @@
                 Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos.
             </p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="playVideo(this, 'Sample 61.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 61.mp4')">
                     <div class="video-container ratio-1-1">
                         <img src="Sample 61.webp" alt="Sample 61" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 61" data-hi="कार्ड 61">Card 61</span>
                     </div>
@@ -1223,10 +1315,10 @@
                         <p data-en="Perfect for Instagram" data-hi="इंस्टाग्राम के लिए बिल्कुल सही">Perfect for Instagram</p>
                     </div>
                 </article>
-                <article class="sample-card" onclick="playVideo(this, 'Sample 62.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 62.mp4')">
                     <div class="video-container ratio-1-1">
                         <img src="Sample 62.webp" alt="Sample 62" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 62" data-hi="कार्ड 62">Card 62</span>
                     </div>
@@ -1235,10 +1327,10 @@
                         <p data-en="Traditional square design" data-hi="पारंपरिक स्क्वायर डिज़ाइन">Traditional square design</p>
                     </div>
                 </article>
-                <article class="sample-card" onclick="playVideo(this, 'Sample 63.mp4')">
+                <article class="sample-card" onclick="openVideoModal('Sample 63.mp4')">
                     <div class="video-container ratio-1-1">
                         <img src="Sample 63.webp" alt="Sample 63" class="thumbnail-img">
-                        <video controls></video>
+                        
                         <div class="video-play-btn">▶</div>
                         <span class="duration-badge" data-en="Card 63" data-hi="कार्ड 63">Card 63</span>
                     </div>
@@ -1306,7 +1398,7 @@
             <a href="https://wa.me/9413451477" target="_blank" data-en="WhatsApp" data-hi="व्हाट्सएप">WhatsApp</a>
             <a onclick="loadCancellationModal(currentLang)" style="cursor: pointer;" data-en="Cancellation Policy" data-hi="रद्दकरण नीति">Cancellation Policy</a>
             <a onclick="loadPrivacyModal(currentLang)" style="cursor: pointer;" data-en="Privacy Policy" data-hi="गोपनीयता नीति">Privacy Policy</a>
-            <!a onclick="loadTermsModal(currentLang)" style="cursor: pointer;" data-en="Terms & Conditions" data-hi="नियम और शर्तें">Terms & Conditions</a>
+            <a onclick="loadTermsModal(currentLang)" style="cursor: pointer;" data-en="Terms & Conditions" data-hi="नियम और शर्तें">Terms & Conditions</a>
         </div>
         <p class="footer-copyright" data-en="&copy; 2026 Digital Card Maker. Designed with ❤ for your special day." 
            data-hi="&copy; 2026 डिजिटल कार्ड मेकर। Designed with ❤ for your special day.">
@@ -1496,6 +1588,75 @@
             updateContent(currentLang);
             updateActiveLinkOnScroll();
         });
+
+        // Video Modal Functions
+        function openVideoModal(videoSrc) {
+            var modal = document.getElementById('videoModal');
+            var video = document.getElementById('modalVideo');
+
+            // Set video source
+            video.src = videoSrc;
+
+            // Show modal
+            modal.classList.add('show');
+
+            // Play video
+            video.play().catch(function(error) {
+                console.log('Autoplay prevented:', error);
+            });
+
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideoModal() {
+            var modal = document.getElementById('videoModal');
+            var video = document.getElementById('modalVideo');
+
+            // Pause and reset video
+            video.pause();
+            video.currentTime = 0;
+            video.src = '';
+
+            // Hide modal
+            modal.classList.remove('show');
+
+            // Restore body scroll
+            document.body.style.overflow = '';
+        }
+
+        // Close video modal when clicking on backdrop (outside video)
+        function closeVideoModalOnBackdrop(event) {
+            // event.target is the element that was clicked
+            // If it's the modal itself (the backdrop), close it
+            if (event.target.id === 'videoModal') {
+                closeVideoModal();
+            }
+        }
+
+        // Close video modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                var modal = document.getElementById('videoModal');
+                if (modal && modal.classList.contains('show')) {
+                    closeVideoModal();
+                }
+            }
+        });
+
     </script>
+
+    <!-- Video Modal for Sample 01 -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModalOnBackdrop(event)">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <span class="video-close-btn" onclick="closeVideoModal()">&times;</span>
+            <div class="video-wrapper">
+                <video id="modalVideo" loop playsinline controls>
+                    <source src="Sample 01.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
