@@ -686,7 +686,7 @@
             color: var(--primary);
         }
 
-        /* VIDEO MODAL STYLES - 10px White Border, Centered */
+                /* VIDEO MODAL STYLES - Exact Aspect Ratio Sizing */
         .video-modal {
             display: none;
             position: fixed;
@@ -695,9 +695,10 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: rgba(0,0,0,0.85);
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
         .video-modal.show {
@@ -706,13 +707,40 @@
 
         .video-modal-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
             background: white;
             padding: 10px;
             border-radius: 12px;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Vertical Format (9:16) - Phone portrait */
+        /* Height is the constraint, width adjusts automatically */
+        .video-modal-content.vertical {
+            height: 90vh;
+            width: auto;
+            aspect-ratio: 9 / 16;
+            max-width: 95vw;
+        }
+
+        /* Horizontal Format (16:9) - Standard video */
+        /* Width is the constraint, height adjusts automatically */
+        .video-modal-content.horizontal {
+            width: 85vw;
+            height: auto;
+            aspect-ratio: 16 / 9;
+            max-height: 90vh;
+        }
+
+        /* Square Format (1:1) */
+        /* Height is the constraint, width adjusts automatically */
+        .video-modal-content.square {
+            height: 70vh;
+            width: auto;
+            aspect-ratio: 1 / 1;
+            max-width: 95vw;
         }
 
         .video-wrapper {
@@ -722,15 +750,19 @@
             background: #000;
             border-radius: 8px;
             overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: relative;
         }
 
-        .video-wrapper iframe,
-        .video-wrapper video {
-            max-width: 100%;
-            max-height: 75vh;
-            display: block;
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            border-radius: 0;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .video-close-btn {
@@ -758,16 +790,31 @@
             transform: scale(1.1);
         }
 
+        /* Responsive adjustments for mobile */
         @media (max-width: 768px) {
-            .video-modal-content { 
-                max-width: 95%; 
-                max-height: 95%;
+            .video-modal {
+                padding: 10px;
+            }
+
+            .video-modal-content {
                 padding: 8px;
             }
-            .video-wrapper iframe,
-            .video-wrapper video { 
-                max-height: 70vh; 
+
+            .video-modal-content.vertical {
+                height: 80vh;
+                width: auto;
             }
+
+            .video-modal-content.horizontal {
+                width: 95vw;
+                height: auto;
+            }
+
+            .video-modal-content.square {
+                height: 60vh;
+                width: auto;
+            }
+
             .video-close-btn {
                 top: -12px;
                 right: -12px;
@@ -777,51 +824,14 @@
             }
         }
 
-        @media (max-width: 900px) {
-            .sticky-inner { flex-direction: column; }
-            .sticky-sidebar { width: 100%; text-align: center; }
-            .format-links { justify-content: center; flex-wrap: wrap; }
-            .top-actions { position: static; transform: none; margin-top: 0.5rem; justify-content: center; }
-            .top-actions.hide-on-scroll { opacity: 0; visibility: hidden; margin-top: 0; height: 0; padding: 0; overflow: hidden; }
-            .title-section h1 { display: none; }
-            .main-header { transition: padding 0.2s ease; }
-            .main-header.compact { padding: 0.2rem 1rem; }
-            .main-header.compact .header-logo-icon { width: 32px; height: 32px; font-size: 1rem; }
-            .main-header.compact .mobile-header-title { font-size: 0.85rem; }
-            .main-header.compact .mobile-menu-btn { width: 26px; height: 20px; }
-            .main-header.compact .mobile-menu-btn span { height: 2.5px; }
-            h2 { font-size: 1.25rem; }
-            section { scroll-margin-top: 280px; }
-            #vertical .samples-grid,
-            #horizontal .samples-grid,
-            #square .samples-grid { grid-template-columns: 1fr; }
-            .header-nav { display: none; }
-            .mobile-menu-btn { display: flex; order: 3; }
-            .header-container { justify-content: space-between; }
-            .header-logo span { display: none; }
-            .header-logo { font-size: 0; order: 1; }
-            .header-logo-icon { width: 40px; height: 40px; font-size: 1.2rem; transition: all 0.2s ease; }
-            .mobile-header-title { display: block; order: 2; font-size: 1rem; font-weight: 600; color: white; text-align: center; }
-            .header-right { display: none; }
-            .footer-links { gap: 1rem; }
-        }
+        @media (max-width: 480px) {
+            .video-modal-content.vertical {
+                height: 75vh;
+            }
 
-        @media (max-width: 600px) {
-            .format-links { flex-wrap: wrap; gap: 0.8rem; }
-            #vertical .samples-grid,
-            #horizontal .samples-grid,
-            #square .samples-grid { grid-template-columns: 1fr; }
-            .more-button-container { justify-content: center; }
-            section { scroll-margin-top: 320px; }
-            .info-box { padding: 1rem; }
-            .whatsapp-icon-btn { width: 40px; height: 40px; font-size: 1.4rem; }
-            .lang-btn { padding: 0.4rem 1rem; font-size: 0.9rem; }
-            .mobile-header-title { font-size: 0.9rem; }
-            .footer-links { gap: 0.8rem; flex-direction: column; align-items: center; }
-        }
-
-        @media (max-width: 1200px) and (min-width: 901px) {
-            #vertical .samples-grid { grid-template-columns: repeat(4, 1fr); }
+            .video-modal-content.square {
+                height: 50vh;
+            }
         }
 
         @media (min-width: 901px) {
@@ -832,6 +842,7 @@
             .main-header.compact .header-logo-icon { width: 32px !important; height: 32px !important; font-size: 1rem !important; }
         }
     </style>
+<base target="_blank">
 <base target="_blank">
 </head>
 <body>
@@ -1145,7 +1156,7 @@
     </div>
 
     <div id="videoModal" class="video-modal">
-        <div class="video-modal-content">
+        <div class="video-modal-content" id="videoModalContent">
             <span class="video-close-btn" onclick="closeVideoModal()">&times;</span>
             <div class="video-wrapper" id="videoWrapper"></div>
         </div>
@@ -1302,41 +1313,47 @@
         });
 
         // ============================================
-        // YOUTUBE MODAL FUNCTION - With aspect ratio support
+        // YOUTUBE MODAL FUNCTION - With size adjustments
         // ============================================
         function openYouTubeModal(videoId, format = 'vertical') {
             const modal = document.getElementById('videoModal');
+            const modalContent = document.getElementById('videoModalContent');
             const videoWrapper = document.getElementById('videoWrapper');
-            
-            if (!modal || !videoWrapper) return;
-            
+
+            if (!modal || !videoWrapper || !modalContent) return;
+
             // Clear the wrapper
             videoWrapper.innerHTML = '';
-            
-            // Set aspect ratio based on format
-            let aspectRatio = '9 / 16'; // vertical default
+
+            // Remove existing format classes
+            modalContent.classList.remove('vertical', 'horizontal', 'square');
+
+            // Add the appropriate format class - CSS handles the sizing
             if (format === 'horizontal') {
-                aspectRatio = '16 / 9';
+                modalContent.classList.add('horizontal');
             } else if (format === 'square') {
-                aspectRatio = '1 / 1';
+                modalContent.classList.add('square');
+            } else {
+                modalContent.classList.add('vertical');
             }
-            
-            // Create iframe with YouTube embed - no controls, loop enabled
+
+            // Create iframe with YouTube embed
             const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0&showinfo=0`;
-            
+
             const iframe = document.createElement('iframe');
             iframe.setAttribute('src', embedUrl);
             iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
             iframe.setAttribute('allowfullscreen', 'true');
+            // The iframe fills the container completely
             iframe.style.width = '100%';
-            iframe.style.height = 'auto';
-            iframe.style.maxWidth = '100%';
-            iframe.style.maxHeight = '75vh';
-            iframe.style.aspectRatio = aspectRatio;
+            iframe.style.height = '100%';
             iframe.style.border = 'none';
-            
+            iframe.style.position = 'absolute';
+            iframe.style.top = '0';
+            iframe.style.left = '0';
+
             videoWrapper.appendChild(iframe);
-            
+
             // Show modal
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
