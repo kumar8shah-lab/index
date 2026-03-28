@@ -714,33 +714,30 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-        }
-
-        /* Vertical Format (9:16) - Phone portrait */
-        /* Height is the constraint, width adjusts automatically */
-        .video-modal-content.vertical {
-            height: 90vh;
-            width: auto;
-            aspect-ratio: 9 / 16;
+            /* Default constraints */
             max-width: 95vw;
+            max-height: 95vh;
         }
 
-        /* Horizontal Format (16:9) - Standard video */
-        /* Width is the constraint, height adjusts automatically */
+        /* Horizontal Format (16:9) - Standard HD Video: 1920x1080 */
         .video-modal-content.horizontal {
-            width: 76.5vw;
-            height: auto;
+            width: min(85vw, calc(95vh * 16/9));
             aspect-ratio: 16 / 9;
-            max-height: 81vh;
+            height: auto;
         }
 
-        /* Square Format (1:1) */
-        /* Height is the constraint, width adjusts automatically */
-        .video-modal-content.square {
-            height: 70vh;
+        /* Vertical Format (9:16) - Phone Portrait: 1080x1920 */
+        .video-modal-content.vertical {
+            height: min(90vh, calc(95vw * 16/9));
+            aspect-ratio: 9 / 16;
             width: auto;
+        }
+
+        /* Square Format (1:1) - Social Media: 1080x1080 */
+        .video-modal-content.square {
+            width: min(70vh, 70vw);
+            height: auto;
             aspect-ratio: 1 / 1;
-            max-width: 95vw;
         }
 
         .video-wrapper {
@@ -800,19 +797,16 @@
                 padding: 8px;
             }
 
-            .video-modal-content.vertical {
-                height: 80vh;
-                width: auto;
+            .video-modal-content.horizontal {
+                width: min(95vw, calc(85vh * 16/9));
             }
 
-            .video-modal-content.horizontal {
-                width: 85.5vw;
-                height: auto;
+            .video-modal-content.vertical {
+                height: min(80vh, calc(95vw * 16/9));
             }
 
             .video-modal-content.square {
-                height: 60vh;
-                width: auto;
+                width: min(60vh, 60vw);
             }
 
             .video-close-btn {
@@ -826,12 +820,13 @@
 
         @media (max-width: 480px) {
             .video-modal-content.vertical {
-                height: 75vh;
+                height: min(75vh, calc(95vw * 16/9));
             }
 
             .video-modal-content.square {
-                height: 50vh;
+                width: min(50vh, 50vw);
             }
+        }
         }
 
         @media (min-width: 901px) {
