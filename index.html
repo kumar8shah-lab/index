@@ -683,7 +683,7 @@
             color: var(--primary);
         }
 
-        /* Video Modal Styles - YouTube Embed (Working version) */
+        /* Video Modal Styles - Transparent background, no YouTube controls */
         .video-modal {
             display: none;
             position: fixed;
@@ -692,7 +692,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.9);
+            background-color: transparent;
             pointer-events: none;
         }
 
@@ -707,20 +707,18 @@
             position: relative;
             max-width: 90%;
             max-height: 90%;
-            background: #000;
-            border-radius: 12px;
+            background: transparent;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
             pointer-events: auto;
+            box-shadow: none;
         }
 
         .video-wrapper {
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #000;
-            min-width: 280px;
-            min-height: 200px;
+            background: transparent;
         }
 
         .video-wrapper iframe,
@@ -729,9 +727,9 @@
             max-height: 85vh;
             display: block;
             border: none;
+            border-radius: 0;
         }
 
-        /* For YouTube Shorts - maintain 9:16 aspect ratio */
         .video-wrapper iframe {
             width: auto;
             height: auto;
@@ -755,13 +753,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0,0,0,0.5);
             border-radius: 50%;
+            backdrop-filter: blur(4px);
         }
 
         .video-close-btn:hover {
             color: #e74c3c;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.7);
+            transform: scale(1.05);
         }
 
         @media (max-width: 768px) {
@@ -911,7 +911,7 @@
                 Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.
             </p>
             <div class="samples-grid">
-                <!-- Sample 01 - YouTube Video (Working embed using standard YouTube URL format) -->
+                <!-- Sample 01 - YouTube Video (No controls, loop, transparent background) -->
                 <article class="sample-card" onclick="openYouTubeModal('tAlLHKNyk3c')">
                     <div class="video-container ratio-9-16">
                         <img src="Sample 01.webp" alt="Sample 01" class="thumbnail-img">
@@ -1296,7 +1296,7 @@
         });
 
         // ============================================
-        // YOUTUBE MODAL FUNCTION - Using working embed format
+        // YOUTUBE MODAL FUNCTION - No controls, loop enabled, transparent background
         // ============================================
         function openYouTubeModal(videoId) {
             const modal = document.getElementById('videoModal');
@@ -1309,8 +1309,16 @@
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
             
-            // Create iframe with proper YouTube embed parameters (similar to working reference site)
-            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=1&loop=0`;
+            // Create iframe with YouTube embed parameters:
+            // controls=0 - hides video controls
+            // loop=1 - enables looping
+            // playlist=videoId - required for loop to work
+            // autoplay=1 - auto start
+            // playsinline=1 - plays inline on mobile
+            // modestbranding=1 - reduces YouTube branding
+            // rel=0 - no related videos at end
+            // showinfo=0 - hides video title and uploader
+            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&rel=0&modestbranding=1&controls=0&loop=1&playlist=${videoId}&showinfo=0&disablekb=1&fs=0&iv_load_policy=3`;
             
             const iframe = document.createElement('iframe');
             iframe.setAttribute('width', '100%');
@@ -1318,7 +1326,7 @@
             iframe.setAttribute('src', embedUrl);
             iframe.setAttribute('title', 'YouTube video player');
             iframe.setAttribute('frameborder', '0');
-            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
             iframe.setAttribute('allowfullscreen', 'true');
             iframe.style.maxWidth = '100%';
             iframe.style.maxHeight = '85vh';
