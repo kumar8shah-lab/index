@@ -10,9 +10,6 @@
     <meta property="og:type" content="website">
     <title>Digital Card Maker | WhatsApp Video Invitations</title>
     
-    <!-- External Terms & Conditions JavaScript File -->
-    <script src="terms-content.js"></script>
-    
     <style>
         * {
             margin: 0;
@@ -686,7 +683,44 @@
             color: var(--primary);
         }
 
-                /* VIDEO MODAL STYLES - Exact Aspect Ratio Sizing */
+        /* Modal content styling */
+        .modal-policy-content {
+            line-height: 1.8;
+            color: #444;
+        }
+        .modal-policy-content h3 {
+            margin: 1.2rem 0 0.5rem 0;
+            color: var(--secondary);
+            font-size: 1.25rem;
+        }
+        .modal-policy-content ul {
+            margin-left: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .modal-policy-content li {
+            margin-bottom: 0.4rem;
+        }
+        .highlight-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-weight: 600;
+            color: #856404;
+            border-radius: 6px;
+        }
+        .contact-wa {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #25D36620;
+            padding: 8px 16px;
+            border-radius: 40px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        /* VIDEO MODAL STYLES */
         .video-modal {
             display: none;
             position: fixed;
@@ -714,26 +748,22 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            /* Default constraints */
             max-width: 95vw;
             max-height: 95vh;
         }
 
-        /* Horizontal Format (16:9) - Standard HD Video: 1920x1080 */
         .video-modal-content.horizontal {
             width: min(85vw, calc(95vh * 16/9));
             aspect-ratio: 16 / 9;
             height: auto;
         }
 
-        /* Vertical Format (9:16) - Phone Portrait: 1080x1920 */
         .video-modal-content.vertical {
             height: min(90vh, calc(95vw * 16/9));
             aspect-ratio: 9 / 16;
             width: auto;
         }
 
-        /* Square Format (1:1) - Social Media: 1080x1080 */
         .video-modal-content.square {
             width: min(70vh, 70vw);
             height: auto;
@@ -787,67 +817,26 @@
             transform: scale(1.1);
         }
 
-        /* Responsive adjustments for mobile */
         @media (max-width: 768px) {
-            .video-modal {
-                padding: 10px;
-            }
-
-            .video-modal-content {
-                padding: 8px;
-            }
-
-            .video-modal-content.horizontal {
-                width: min(95vw, calc(85vh * 16/9));
-            }
-
-            .video-modal-content.vertical {
-                height: min(80vh, calc(95vw * 16/9));
-            }
-
-            .video-modal-content.square {
-                width: min(60vh, 60vw);
-            }
-
-            .video-close-btn {
-                top: -12px;
-                right: -12px;
-                width: 28px;
-                height: 28px;
-                font-size: 1.2rem;
-            }
+            .video-modal { padding: 10px; }
+            .video-modal-content { padding: 8px; }
+            .video-modal-content.horizontal { width: min(95vw, calc(85vh * 16/9)); }
+            .video-modal-content.vertical { height: min(80vh, calc(95vw * 16/9)); }
+            .video-modal-content.square { width: min(60vh, 60vw); }
+            .video-close-btn { top: -12px; right: -12px; width: 28px; height: 28px; font-size: 1.2rem; }
         }
 
         @media (max-width: 480px) {
-            .video-modal-content.vertical {
-                height: min(75vh, calc(95vw * 16/9));
-            }
-
-            .video-modal-content.square {
-                width: min(50vh, 50vw);
-            }
-        }
-        }
-
-        @media (min-width: 901px) {
-            .top-actions { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
-            .top-actions.hide-on-scroll { opacity: 1 !important; visibility: visible !important; margin-top: 0 !important; height: auto !important; }
-            .title-section h1 { display: block !important; }
-            .main-header.compact { padding: 0.8rem 2rem !important; }
-            .main-header.compact .header-logo-icon { width: 32px !important; height: 32px !important; font-size: 1rem !important; }
+            .video-modal-content.vertical { height: min(75vh, calc(95vw * 16/9)); }
+            .video-modal-content.square { width: min(50vh, 50vw); }
         }
     </style>
-<base target="_blank">
-<base target="_blank">
 </head>
 <body>
 
-    <div class="marquee-bar" id="marqueeBar">
+    <div class="marquee-bar">
         <div class="marquee-content">
-            <span id="marqueeText" data-en="✨ Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today! ✨" 
-                  data-hi="✨ इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें! ✨">
-                ✨ Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today! ✨
-            </span>
+            <span id="marqueeText" data-en="✨ Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today! ✨" data-hi="✨ इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें! ✨">✨ Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today! ✨</span>
         </div>
     </div>
 
@@ -861,9 +850,9 @@
                 <div class="mobile-header-title" id="mobileTitle" data-en="Digital Card Maker" data-hi="डिजिटल कार्ड मेकर">Digital Card Maker</div>
                 <nav class="header-nav">
                     <a onclick="scrollToTop()">Wedding Cards</a>
-                    <a href="#birthday">Birthday Cards</a>
-                    <a href="#anniversary">Anniversary Cards</a>
-                    <a href="#customized">Customized</a>
+                    <a onclick="scrollToSection('birthday')">Birthday Cards</a>
+                    <a onclick="scrollToSection('anniversary')">Anniversary Cards</a>
+                    <a onclick="scrollToSection('customized')">Customized</a>
                 </nav>
                 <div class="header-right">
                     <input type="text" class="header-search" placeholder="Search...">
@@ -875,9 +864,9 @@
             </div>
             <div class="mobile-nav" id="mobileNav">
                 <a onclick="scrollToTop(); closeMobileMenu()">Wedding Cards</a>
-                <a href="#birthday" onclick="closeMobileMenu()">Birthday Cards</a>
-                <a href="#anniversary" onclick="closeMobileMenu()">Anniversary Cards</a>
-                <a href="#customized" onclick="closeMobileMenu()">Customized</a>
+                <a onclick="scrollToSection('birthday'); closeMobileMenu()">Birthday Cards</a>
+                <a onclick="scrollToSection('anniversary'); closeMobileMenu()">Anniversary Cards</a>
+                <a onclick="scrollToSection('customized'); closeMobileMenu()">Customized</a>
             </div>
         </header>
 
@@ -917,217 +906,47 @@
     </div>
 
     <div class="scrollable-content">
-        <section id="vertical" aria-labelledby="vertical-heading">
-            <h2 id="vertical-heading" data-en="Vertical Format (9:16)" data-hi="वर्टिकल फॉर्मेट (9:16)">Vertical Format (9:16)</h2>
-            <p class="section-description" data-en="Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos." 
-               data-hi="व्हाट्सएप स्टेटस, इंस्टाग्राम स्टोरीज और फेसबुक स्टोरीज के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
-                Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.
-            </p>
+        <section id="vertical">
+            <h2 data-en="Vertical Format (9:16)" data-hi="वर्टिकल फॉर्मेट (9:16)">Vertical Format (9:16)</h2>
+            <p class="section-description" data-en="Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos." data-hi="व्हाट्सएप स्टेटस, इंस्टाग्राम स्टोरीज और फेसबुक स्टोरीज के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.</p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('tAlLHKNyk3c', 'vertical')">
-                    <div class="video-container ratio-9-16">
-                        <img src="Sample 01.webp" alt="Sample 01" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 01" data-hi="कार्ड 01">Card 01</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 01" data-hi="सैंपल 01">Sample 01</h3>
-                        <p data-en="Royal golden theme" data-hi="शाही सुनहरा थीम">Royal golden theme</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('1c1IMbcBlSg', 'vertical')">
-                    <div class="video-container ratio-9-16">
-                        <img src="Sample 02.webp" alt="Sample 02" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 02" data-hi="कार्ड 02">Card 02</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 02" data-hi="सैंपल 02">Sample 02</h3>
-                        <p data-en="Elegant wedding invitation" data-hi="शानदार विवाह निमंत्रण">Elegant wedding invitation</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('Sample 03.mp4', 'vertical')">
-                    <div class="video-container ratio-9-16">
-                        <img src="Sample 03.webp" alt="Sample 03" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 03" data-hi="कार्ड 03">Card 03</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 03" data-hi="सैंपल 03">Sample 03</h3>
-                        <p data-en="Modern fusion design" data-hi="आधुनिक फ्यूजन डिजाइन">Modern fusion design</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('Sample 04.mp4', 'vertical')">
-                    <div class="video-container ratio-9-16">
-                        <img src="Sample 04.webp" alt="Sample 04" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 04" data-hi="कार्ड 04">Card 04</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 04" data-hi="सैंपल 04">Sample 04</h3>
-                        <p data-en="Contemporary romantic" data-hi="समकालीन रोमांटिक">Contemporary romantic</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('Sample 05.mp4', 'vertical')">
-                    <div class="video-container ratio-9-16">
-                        <img src="Sample 05.webp" alt="Sample 05" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 05" data-hi="कार्ड 05">Card 05</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 05" data-hi="सैंपल 05">Sample 05</h3>
-                        <p data-en="Elegant floral design" data-hi="सुंदर फूलों वाला डिजाइन">Elegant floral design</p>
-                    </div>
-                </article>
-                <div class="more-button-container">
-                    <a href="Vertical.html" class="more-button vertical" onclick="return false;" role="button">
-                        <span data-en="More Vertical" data-hi="और वर्टिकल">More Vertical</span>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
+                <article class="sample-card" onclick="openYouTubeModal('_NyMgwNPgD4', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 01.webp" alt="Sample 01" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 01</span></div><div class="sample-info"><h3>Sample 01</h3><p>Royal golden theme</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('eOKX4xSyFoA', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 02.webp" alt="Sample 02" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 02</span></div><div class="sample-info"><h3>Sample 02</h3><p>Elegant wedding invitation</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('iVG0zxZxhIQ', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 03.webp" alt="Sample 03" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 03</span></div><div class="sample-info"><h3>Sample 03</h3><p>Modern fusion design</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('sSmjd6f9zbY', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 04.webp" alt="Sample 04" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 04</span></div><div class="sample-info"><h3>Sample 04</h3><p>Contemporary romantic</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('rbuVLRvd2Xs', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 05.webp" alt="Sample 05" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 05</span></div><div class="sample-info"><h3>Sample 05</h3><p>Elegant floral design</p></div></article>
+                <div class="more-button-container"><a class="more-button vertical"><span>More Vertical</span><span class="arrow">→</span></a></div>
             </div>
         </section>
 
-        <section id="horizontal" aria-labelledby="horizontal-heading">
-            <h2 id="horizontal-heading" data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</h2>
-            <p class="section-description" data-en="Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos." 
-               data-hi="व्हाट्सएप मैसेजेस, फेसबुक पोस्ट्स और ट्विटर के लिए आदर्श। वीडियो चलाने के लिए क्लिक करें।">
-                Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos.
-            </p>
+        <section id="horizontal">
+            <h2 data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</h2>
+            <p class="section-description" data-en="Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos." data-hi="व्हाट्सएप मैसेजेस, फेसबुक पोस्ट्स और ट्विटर के लिए आदर्श। वीडियो चलाने के लिए क्लिक करें।">Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos.</p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('xnoGflpyjCU', 'horizontal')">
-                    <div class="video-container ratio-16-9">
-                        <img src="Sample 31.webp" alt="Sample 31" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 31" data-hi="कार्ड 31">Card 31</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 31" data-hi="सैंपल 31">Sample 31</h3>
-                        <p data-en="Elegant widescreen design" data-hi="शानदार वाइडस्क्रीन डिज़ाइन">Elegant widescreen design</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('Sample 32.mp4', 'horizontal')">
-                    <div class="video-container ratio-16-9">
-                        <img src="Sample 32.webp" alt="Sample 32" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 32" data-hi="कार्ड 32">Card 32</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 32" data-hi="सैंपल 32">Sample 32</h3>
-                        <p data-en="Classic panoramic format" data-hi="क्लासिक पैनोरमिक फॉर्मेट">Classic panoramic format</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('Sample 33.mp4', 'horizontal')">
-                    <div class="video-container ratio-16-9">
-                        <img src="Sample 33.webp" alt="Sample 33" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 33" data-hi="कार्ड 33">Card 33</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 33" data-hi="सैंपल 33">Sample 33</h3>
-                        <p data-en="Modern cinematic style" data-hi="आधुनिक सिनेमैटिक स्टाइल">Modern cinematic style</p>
-                    </div>
-                </article>
-                <div class="more-button-container">
-                    <a href="Horizontal.html" class="more-button horizontal" onclick="return false;" role="button">
-                        <span data-en="More Horizontal" data-hi="और हॉरिजॉन्टल">More Horizontal</span>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
+                <article class="sample-card" onclick="openYouTubeModal('P1B9_CF8Wcw', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 31.webp" alt="Sample 31" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 31</span></div><div class="sample-info"><h3>Sample 31</h3><p>Elegant widescreen design</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('nbxg8O1WWNA', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 32.webp" alt="Sample 32" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 32</span></div><div class="sample-info"><h3>Sample 32</h3><p>Classic panoramic format</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('WsAhAjwEqy8', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 33.webp" alt="Sample 33" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 33</span></div><div class="sample-info"><h3>Sample 33</h3><p>Modern cinematic style</p></div></article>
+                <div class="more-button-container"><a class="more-button horizontal"><span>More Horizontal</span><span class="arrow">→</span></a></div>
             </div>
         </section>
 
-        <section id="square" aria-labelledby="square-heading">
-            <h2 id="square-heading" data-en="Square Format (1:1)" data-hi="स्क्वायर फॉर्मेट (1:1)">Square Format (1:1)</h2>
-            <p class="section-description" data-en="Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos." 
-               data-hi="इंस्टाग्राम पोस्ट्स, फेसबुक फीड और प्रोफाइल पिक्चर्स के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
-                Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos.
-            </p>
+        <section id="square">
+            <h2 data-en="Square Format (1:1)" data-hi="स्क्वायर फॉर्मेट (1:1)">Square Format (1:1)</h2>
+            <p class="section-description" data-en="Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos." data-hi="इंस्टाग्राम पोस्ट्स, फेसबुक फीड और प्रोफाइल पिक्चर्स के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos.</p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('Sample 61.mp4', 'square')">
-                    <div class="video-container ratio-1-1">
-                        <img src="Sample 61.webp" alt="Sample 61" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 61" data-hi="कार्ड 61">Card 61</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 61" data-hi="सैंपल 61">Sample 61</h3>
-                        <p data-en="Perfect for Instagram" data-hi="इंस्टाग्राम के लिए बिल्कुल सही">Perfect for Instagram</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('Sample 62.mp4', 'square')">
-                    <div class="video-container ratio-1-1">
-                        <img src="Sample 62.webp" alt="Sample 62" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 62" data-hi="कार्ड 62">Card 62</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 62" data-hi="सैंपल 62">Sample 62</h3>
-                        <p data-en="Traditional square design" data-hi="पारंपरिक स्क्वायर डिज़ाइन">Traditional square design</p>
-                    </div>
-                </article>
-                <article class="sample-card" onclick="openYouTubeModal('Sample 63.mp4', 'square')">
-                    <div class="video-container ratio-1-1">
-                        <img src="Sample 63.webp" alt="Sample 63" class="thumbnail-img">
-                        <div class="video-play-btn">▶</div>
-                        <span class="duration-badge" data-en="Card 63" data-hi="कार्ड 63">Card 63</span>
-                    </div>
-                    <div class="sample-info">
-                        <h3 data-en="Sample 63" data-hi="सैंपल 63">Sample 63</h3>
-                        <p data-en="Contemporary social media" data-hi="समकालीन सोशल मीडिया">Contemporary social media</p>
-                    </div>
-                </article>
-                <div class="more-button-container">
-                    <a href="Square.html" class="more-button square" onclick="return false;" role="button">
-                        <span data-en="More Square" data-hi="और स्क्वायर">More Square</span>
-                        <span class="arrow">→</span>
-                    </a>
-                </div>
+                <article class="sample-card" onclick="openYouTubeModal('uRezbYgFGE', 'square')"><div class="video-container ratio-1-1"><img src="Sample 61.webp" alt="Sample 61" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 61</span></div><div class="sample-info"><h3>Sample 61</h3><p>Perfect for Instagram</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('Sample 62.mp4', 'square')"><div class="video-container ratio-1-1"><img src="Sample 62.webp" alt="Sample 62" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 62</span></div><div class="sample-info"><h3>Sample 62</h3><p>Traditional square design</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('Sample 63.mp4', 'square')"><div class="video-container ratio-1-1"><img src="Sample 63.webp" alt="Sample 63" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 63</span></div><div class="sample-info"><h3>Sample 63</h3><p>Contemporary social media</p></div></article>
+                <div class="more-button-container"><a class="more-button square"><span>More Square</span><span class="arrow">→</span></a></div>
             </div>
         </section>
 
-        <section id="birthday" aria-labelledby="birthday-heading">
-            <div class="section-main-label">
-                <span class="red-circle-icon">🎂</span>
-                <span data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</span>
-            </div>
-            <p class="section-description" data-en="Coming soon: A variety of joyful birthday card designs! Stay tuned for more samples." 
-               data-hi="जल्द आ रहा है: खुशी भरे जन्मदिन कार्ड डिज़ाइनों की एक वैरायटी! अधिक सैंपल के लिए बने रहें।">
-                Coming soon: A variety of joyful birthday card designs! Stay tuned for more samples.
-            </p>
-        </section>
-
-        <section id="anniversary" aria-labelledby="anniversary-heading">
-            <div class="section-main-label">
-                <span class="red-circle-icon">💖</span>
-                <span data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</span>
-            </div>
-            <p class="section-description" data-en="Coming soon: Elegant anniversary card templates to cherish your milestones!" 
-               data-hi="जल्द आ रहा है: आपके मील के पत्थरों को संजोने के लिए शानदार सालगिरह कार्ड टेम्पलेट्स!">
-                Coming soon: Elegant anniversary card templates to cherish your milestones!
-            </p>
-        </section>
-
-        <section id="customized" aria-labelledby="customized-heading">
-            <div class="section-main-label">
-                <span class="red-circle-icon">✨</span>
-                <span data-en="Customized Cards" data-hi="कस्टमाइज्ड कार्ड्स">Customized Cards</span>
-            </div>
-            <p class="section-description" data-en="Have a unique idea? We can bring your custom card design to life! Contact us for details." 
-               data-hi="एक अनोखा विचार है? हम आपके कस्टम कार्ड डिज़ाइन को साकार कर सकते हैं! विवरण के लिए हमसे संपर्क करें।">
-                Have a unique idea? We can bring your custom card design to life! Contact us for details.
-            </p>
-        </section>
+        <section id="birthday"><div class="section-main-label"><span class="red-circle-icon">🎂</span><span data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</span></div><p class="section-description" data-en="Coming soon: A variety of joyful birthday card designs! Stay tuned for more samples." data-hi="जल्द आ रहा है: खुशी भरे जन्मदिन कार्ड डिज़ाइनों की एक वैरायटी! अधिक सैंपल के लिए बने रहें।">Coming soon: A variety of joyful birthday card designs! Stay tuned for more samples.</p></section>
+        <section id="anniversary"><div class="section-main-label"><span class="red-circle-icon">💖</span><span data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</span></div><p class="section-description" data-en="Coming soon: Elegant anniversary card templates to cherish your milestones!" data-hi="जल्द आ रहा है: आपके मील के पत्थरों को संजोने के लिए शानदार सालगिरह कार्ड टेम्पलेट्स!">Coming soon: Elegant anniversary card templates to cherish your milestones!</p></section>
+        <section id="customized"><div class="section-main-label"><span class="red-circle-icon">✨</span><span data-en="Customized Cards" data-hi="कस्टमाइज्ड कार्ड्स">Customized Cards</span></div><p class="section-description" data-en="Have a unique idea? We can bring your custom card design to life! Contact us for details." data-hi="एक अनोखा विचार है? हम आपके कस्टम कार्ड डिज़ाइन को साकार कर सकते हैं! विवरण के लिए हमसे संपर्क करें।">Have a unique idea? We can bring your custom card design to life! Contact us for details.</p></section>
     </div>
 
-    <div class="bottom-info-section">
-        <div class="info-box">
-            <p data-en="Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!" 
-               data-hi="इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें!">
-                Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!
-            </p>
-        </div>
-    </div>
+    <div class="bottom-info-section"><div class="info-box"><p data-en="Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!" data-hi="इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें!">Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!</p></div></div>
 
     <footer>
         <div class="footer-links">
@@ -1137,272 +956,102 @@
             <a onclick="loadPrivacyModal(currentLang)" style="cursor: pointer;" data-en="Privacy Policy" data-hi="गोपनीयता नीति">Privacy Policy</a>
             <a onclick="loadTermsModal(currentLang)" style="cursor: pointer;" data-en="Terms & Conditions" data-hi="नियम और शर्तें">Terms & Conditions</a>
         </div>
-        <p class="footer-copyright" data-en="&copy; 2026 Digital Card Maker. Designed with ❤ for your special day." 
-           data-hi="&copy; 2026 डिजिटल कार्ड मेकर। Designed with ❤ for your special day.">
-            &copy; 2026 Digital Card Maker.<br>Designed with ❤ for your special day.
-        </p>
+        <p class="footer-copyright" data-en="&copy; 2026 Digital Card Maker. Designed with ❤ for your special day." data-hi="&copy; 2026 डिजिटल कार्ड मेकर। Designed with ❤ for your special day.">&copy; 2026 Digital Card Maker.<br>Designed with ❤ for your special day.</p>
     </footer>
 
-    <div id="policyModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div id="modalContent"></div>
-        </div>
-    </div>
-
-    <div id="videoModal" class="video-modal">
-        <div class="video-modal-content" id="videoModalContent">
-            <span class="video-close-btn" onclick="closeVideoModal()">&times;</span>
-            <div class="video-wrapper" id="videoWrapper"></div>
-        </div>
-    </div>
+    <div id="policyModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal()">&times;</span><div id="modalContent"></div></div></div>
+    <div id="videoModal" class="video-modal"><div class="video-modal-content" id="videoModalContent"><span class="video-close-btn" onclick="closeVideoModal()">&times;</span><div class="video-wrapper" id="videoWrapper"></div></div></div>
 
     <script>
         let currentLang = localStorage.getItem('lang') || 'en';
-        let lastScrollTop = 0;
-        let ticking = false;
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            closeMobileMenu();
-        }
-
-        function scrollToSection(sectionId) {
-            const element = document.getElementById(sectionId);
-            if (element) {
-                const offset = 180;
-                const elementPosition = element.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - offset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-            }
-            setActiveFormat(sectionId);
-            closeMobileMenu();
-        }
-
-        function setActiveFormat(formatId) {
-            document.querySelectorAll('.format-links a').forEach(link => link.classList.remove('active'));
-            const activeLink = document.getElementById('link-' + formatId);
-            if (activeLink) activeLink.classList.add('active');
-        }
-
-        function updateActiveLinkOnScroll() {
-            const sections = ['vertical', 'horizontal', 'square'];
-            const scrollPos = window.scrollY + 220;
-            let activeSection = null;
-            for (let i = 0; i < sections.length; i++) {
-                const element = document.getElementById(sections[i]);
-                if (element) {
-                    const offsetTop = element.offsetTop;
-                    const offsetBottom = offsetTop + element.offsetHeight;
-                    if (scrollPos >= offsetTop && scrollPos < offsetBottom) activeSection = sections[i];
-                }
-            }
-            if (activeSection) {
-                document.querySelectorAll('.format-links a').forEach(l => l.classList.remove('active'));
-                const link = document.getElementById('link-' + activeSection);
-                if (link) link.classList.add('active');
-            }
-        }
-
-        window.addEventListener('scroll', updateActiveLinkOnScroll);
-
-        function handleMobileScroll() {
-            if (!ticking && window.innerWidth <= 900) {
-                requestAnimationFrame(() => {
-                    const topActions = document.getElementById('topActions');
-                    const mainHeader = document.getElementById('mainHeader');
-                    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-                    
-                    if (currentScroll > 30) {
-                        if (currentScroll > lastScrollTop + 5) {
-                            topActions.classList.add('hide-on-scroll');
-                            mainHeader.classList.add('compact');
-                        } else if (currentScroll < lastScrollTop - 5) {
-                            if (currentScroll < 50) {
-                                topActions.classList.remove('hide-on-scroll');
-                                mainHeader.classList.remove('compact');
-                            }
-                        }
-                    } else {
-                        topActions.classList.remove('hide-on-scroll');
-                        mainHeader.classList.remove('compact');
-                    }
-                    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', handleMobileScroll);
-
+        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); closeMobileMenu(); }
+        function scrollToSection(id) { const el = document.getElementById(id); if(el) window.scrollTo({ top: el.offsetTop - 180, behavior: 'smooth' }); closeMobileMenu(); }
+        function toggleMobileMenu(e) { if(e) e.stopPropagation(); document.getElementById('mobileNav').classList.toggle('show'); document.getElementById('mobileMenuBtn').classList.toggle('active'); }
+        function closeMobileMenu() { document.getElementById('mobileNav')?.classList.remove('show'); document.getElementById('mobileMenuBtn')?.classList.remove('active'); }
+        
         function updateContent(lang) {
-            document.querySelectorAll('[data-en]').forEach(element => {
-                const enText = element.getAttribute('data-en');
-                const hiText = element.getAttribute('data-hi');
-                if (element.tagName !== 'IMG') {
-                    element.textContent = lang === 'hi' ? hiText : enText;
-                }
-            });
-            const marqueeSpan = document.querySelector('#marqueeText');
-            if (marqueeSpan) {
-                marqueeSpan.textContent = lang === 'hi' ? marqueeSpan.getAttribute('data-hi') : marqueeSpan.getAttribute('data-en');
-            }
-            document.documentElement.lang = lang;
-            const langToggleButton = document.getElementById('langToggle');
-            if (langToggleButton) langToggleButton.textContent = (lang === 'hi') ? 'English' : 'हिन्दी';
-            localStorage.setItem('lang', lang);
-            currentLang = lang;
+            document.querySelectorAll('[data-en]').forEach(el => { if(el.tagName !== 'IMG') el.textContent = lang === 'hi' ? el.getAttribute('data-hi') : el.getAttribute('data-en'); });
+            const mt = document.getElementById('marqueeText'); if(mt) mt.textContent = lang === 'hi' ? mt.getAttribute('data-hi') : mt.getAttribute('data-en');
+            document.getElementById('langToggle').textContent = lang === 'hi' ? 'English' : 'हिन्दी';
+            localStorage.setItem('lang', lang); currentLang = lang;
+        }
+        function toggleLanguage() { updateContent(currentLang === 'en' ? 'hi' : 'en'); }
+        
+        function closeModal() { document.getElementById('policyModal').style.display = 'none'; document.body.style.overflow = ''; }
+        function showPolicyModal(titleHTML, contentHTML) { 
+            document.getElementById('modalContent').innerHTML = `<div class="modal-policy-content">${titleHTML}${contentHTML}</div>`; 
+            document.getElementById('policyModal').style.display = 'block'; document.body.style.overflow = 'hidden'; 
         }
 
-        function toggleLanguage() {
-            updateContent(currentLang === 'en' ? 'hi' : 'en');
-        }
-
-        function toggleMobileMenu(event) {
-            if (event) event.stopPropagation();
-            const mobileNav = document.getElementById('mobileNav');
-            const menuBtn = document.getElementById('mobileMenuBtn');
-            
-            if (mobileNav.classList.contains('show')) {
-                mobileNav.classList.remove('show');
-                menuBtn.classList.remove('active');
-            } else {
-                mobileNav.classList.add('show');
-                menuBtn.classList.add('active');
-            }
-        }
-
-        function closeMobileMenu() {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuBtn = document.getElementById('mobileMenuBtn');
-            if (mobileNav) mobileNav.classList.remove('show');
-            if (menuBtn) menuBtn.classList.remove('active');
-        }
-
-        function closeModal() {
-            document.getElementById('policyModal').style.display = 'none';
-        }
-
-        window.onclick = function(event) {
-            const modal = document.getElementById('policyModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        document.addEventListener('click', function(event) {
-            const mobileNav = document.getElementById('mobileNav');
-            const menuBtn = document.getElementById('mobileMenuBtn');
-            const isClickInsideNav = mobileNav && mobileNav.contains(event.target);
-            const isClickOnButton = menuBtn && menuBtn.contains(event.target);
-            
-            if (mobileNav && mobileNav.classList.contains('show') && !isClickInsideNav && !isClickOnButton) {
-                closeMobileMenu();
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', () => {
-            updateContent(currentLang);
-            updateActiveLinkOnScroll();
-        });
-
-        // ============================================
-        // YOUTUBE MODAL FUNCTION - With size adjustments
-        // ============================================
-        function openYouTubeModal(videoId, format = 'vertical') {
-            const modal = document.getElementById('videoModal');
-            const modalContent = document.getElementById('videoModalContent');
-            const videoWrapper = document.getElementById('videoWrapper');
-
-            if (!modal || !videoWrapper || !modalContent) return;
-
-            // Clear the wrapper
-            videoWrapper.innerHTML = '';
-
-            // Remove existing format classes
-            modalContent.classList.remove('vertical', 'horizontal', 'square');
-
-            // Add the appropriate format class - CSS handles the sizing
-            if (format === 'horizontal') {
-                modalContent.classList.add('horizontal');
-            } else if (format === 'square') {
-                modalContent.classList.add('square');
-            } else {
-                modalContent.classList.add('vertical');
-            }
-
-            // Create iframe with YouTube embed
-            const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0&showinfo=0`;
-
-            const iframe = document.createElement('iframe');
-            iframe.setAttribute('src', embedUrl);
-            iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
-            iframe.setAttribute('allowfullscreen', 'true');
-            // The iframe fills the container completely
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.border = 'none';
-            iframe.style.position = 'absolute';
-            iframe.style.top = '0';
-            iframe.style.left = '0';
-
-            videoWrapper.appendChild(iframe);
-
-            // Show modal
-            modal.classList.add('show');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeVideoModal() {
-            const modal = document.getElementById('videoModal');
-            const videoWrapper = document.getElementById('videoWrapper');
-            
-            const video = videoWrapper.querySelector('video');
-            if (video) {
-                video.pause();
-                video.src = '';
-                video.load();
-            }
-            
-            const iframe = videoWrapper.querySelector('iframe');
-            if (iframe) {
-                iframe.src = 'about:blank';
-                iframe.remove();
-            }
-            
-            videoWrapper.innerHTML = '';
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-
-        // Close modal when clicking on backdrop
-        document.addEventListener('click', function(event) {
-            const modal = document.getElementById('videoModal');
-            if (event.target === modal) {
-                closeVideoModal();
-            }
-        });
-
-        // Close modal on Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                const modal = document.getElementById('videoModal');
-                if (modal && modal.classList.contains('show')) {
-                    closeVideoModal();
-                }
-            }
-        });
-
+        // Cancellation Policy - Exact text as requested with point 5 highlighted
         function loadCancellationModal(lang) {
-            alert('Cancellation Policy content will be loaded from external file.');
+            const isHindi = lang === 'hi';
+            const titleEmoji = isHindi ? '📄 रद्दकरण नीति (Cancellation Policy)' : '📄 Cancellation Policy';
+            let content = '';
+            if (isHindi) {
+                content = `
+                    <p style="margin-bottom:1rem;">डिजिटल कार्ड मेकर (videocard.in), हम आपके विशेष अवसरों के लिए सर्वोत्तम सेवा प्रदान करने का प्रयास करते हैं। कृपया हमारी रद्दीकरण नीति को ध्यान से पढ़ें:</p>
+                    <ul>
+                        <li>1. ऑर्डर देने के 2 घंटों के भीतर रद्द करने पर पूर्ण धनवापसी।</li>
+                        <li>2. ऑर्डर देने के 4 से 8 घंटों के बीच रद्द करने पर 50% धनवापसी।</li>
+                        <li>3. 8 घंटे बाद या डिज़ाइन कार्य शुरू होने के बाद रद्द करने पर कोई धनवापसी नहीं।</li>
+                        <li>4. ऑर्डर रद्द करने हेतु क्लाइंट व्हाट्सएप से संपर्क करेगा।</li>
+                    </ul>
+                    <div class="highlight-point">5. सभी स्वीकृत धनवापसी 7-10 कार्य दिवसों के भीतर संसाधित की जाएंगी और भुगतान मूल स्रोत में वापस की जाएंगी।</div>
+                    <h3>📌 ऑर्डर कैसे रद्द करें ?</h3>
+                    <p>अपना ऑर्डर रद्द करने के लिए, कृपया अपने ऑर्डर विवरण के साथ हमें व्हाट्सएप पर संपर्क करें। हमारी टीम आपको रद्दीकरण प्रक्रिया में सहायता करेगी।</p>
+                    <div class="contact-wa">📞 contact us: 💬 +91-9413451477</div>
+                `;
+            } else {
+                content = `
+                    <p style="margin-bottom:1rem;">At Digital Card Maker (videocard.in), we strive to provide the best service for your special occasions. Please read our cancellation policy carefully:</p>
+                    <ul>
+                        <li>1. Full refund if cancelled within 2 hours of order placement.</li>
+                        <li>2. 50% refund if cancelled between 4 to 8 hours of order placement.</li>
+                        <li>3. No refund after 8 hours or once design work has commenced.</li>
+                        <li>4. Client must contact via WhatsApp to cancel the order.</li>
+                    </ul>
+                    <div class="highlight-point">5. All approved refunds will be processed within 7-10 business days and credited back to the original payment source.</div>
+                    <h3>📌 How to cancel an order?</h3>
+                    <p>To cancel your order, please contact us on WhatsApp with your order details. Our team will assist you through the cancellation process.</p>
+                    <div class="contact-wa">📞 contact us: 💬 +91-9413451477</div>
+                `;
+            }
+            showPolicyModal(`<h2 style="color: var(--secondary); margin-bottom: 1.2rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">${titleEmoji}</h2>`, content);
         }
+
         function loadPrivacyModal(lang) {
-            alert('Privacy Policy content will be loaded from external file.');
+            const isHindi = lang === 'hi';
+            const titleEmoji = isHindi ? '🔒 गोपनीयता नीति' : '🔒 Privacy Policy';
+            let content = isHindi ? 
+                `<p><strong>अंतिम अद्यतन:</strong> मार्च 2026</p><p>आपकी गोपनीयता हमारे लिए महत्वपूर्ण है। यह गोपनीयता नीति बताती है कि हम आपकी व्यक्तिगत जानकारी को कैसे एकत्र, उपयोग और सुरक्षित करते हैं।</p><h3>हम कौन सी जानकारी एकत्र करते हैं</h3><ul><li>नाम और संपर्क जानकारी</li><li>व्हाट्सएप नंबर</li><li>कार्ड कस्टमाइज़ेशन के लिए फ़ोटो</li><li>भुगतान जानकारी (सुरक्षित रूप से संसाधित)</li></ul><h3>हम आपकी जानकारी का उपयोग कैसे करते हैं</h3><ul><li>व्यक्तिगत डिजिटल कार्ड बनाने के लिए</li><li>ऑर्डर के बारे में संवाद करने के लिए</li><li>सेवाओं को बेहतर बनाने के लिए</li></ul><h3>डेटा संरक्षण</h3><p>हम आपकी व्यक्तिगत जानकारी को अनधिकृत पहुंच से बचाने के लिए उचित सुरक्षा उपायों को लागू करते हैं।</p><p>प्रश्नों के लिए संपर्क करें: 📧 info@videocard.in</p>` :
+                `<p><strong>Last updated:</strong> March 2026</p><p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information.</p><h3>Information We Collect</h3><ul><li>Name and contact information</li><li>WhatsApp number for communication</li><li>Photos and details for card customization</li><li>Payment information (processed securely)</li></ul><h3>How We Use Your Information</h3><ul><li>To create your personalized digital card</li><li>To communicate about your order</li><li>To improve our services</li></ul><h3>Data Protection</h3><p>We implement appropriate security measures to protect your personal information.</p><p>For questions, contact: 📧 info@videocard.in</p>`;
+            showPolicyModal(`<h2 style="color: var(--secondary); margin-bottom: 1.2rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">${titleEmoji}</h2>`, content);
         }
+
         function loadTermsModal(lang) {
-            alert('Terms & Conditions content will be loaded from external file.');
+            const isHindi = lang === 'hi';
+            const titleEmoji = isHindi ? '⚖️ नियम और शर्तें' : '⚖️ Terms & Conditions';
+            let content = isHindi ? 
+                `<p>हमारी सेवा का उपयोग करके, आप सटीक जानकारी प्रदान करने के लिए सहमत होते हैं। अनुचित सामग्री के लिए हम सेवा अस्वीकार करने का अधिकार सुरक्षित रखते हैं। डिलीवरी समय अनुमानित हैं और भिन्न हो सकते हैं। कार्ड निर्माण शुरू होने से पहले पूर्ण भुगतान किया जाना चाहिए। सभी डिजिटल कार्ड सामग्री की बौद्धिक संपदा हमारे पास सुरक्षित रहती है।</p>` :
+                `<p>By using our service, you agree to provide accurate information for your digital cards. We reserve the right to refuse service for inappropriate content. Delivery times are estimates and may vary. Payment must be made in full before card creation begins. All digital card designs remain our intellectual property until final delivery.</p>`;
+            showPolicyModal(`<h2 style="color: var(--secondary); margin-bottom: 1.2rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">${titleEmoji}</h2>`, content);
         }
+
+        function closeVideoModal() { const modal = document.getElementById('videoModal'); const wrapper = document.getElementById('videoWrapper'); const iframe = wrapper.querySelector('iframe'); if(iframe) iframe.src = 'about:blank'; wrapper.innerHTML = ''; modal.classList.remove('show'); document.body.style.overflow = ''; }
+        function openYouTubeModal(videoId, format='vertical') { 
+            const modal = document.getElementById('videoModal'); const contentDiv = document.getElementById('videoModalContent'); const wrapper = document.getElementById('videoWrapper'); 
+            wrapper.innerHTML = ''; contentDiv.classList.remove('vertical','horizontal','square'); contentDiv.classList.add(format); 
+            const iframe = document.createElement('iframe'); 
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0`; 
+            iframe.allow = 'autoplay; fullscreen'; iframe.style.width='100%'; iframe.style.height='100%'; iframe.style.border='none'; iframe.style.position='absolute'; 
+            wrapper.appendChild(iframe); modal.classList.add('show'); document.body.style.overflow='hidden'; 
+        }
+        
+        window.onclick = function(e) { if(e.target === document.getElementById('policyModal')) closeModal(); if(e.target === document.getElementById('videoModal')) closeVideoModal(); }
+        document.addEventListener('keydown', e => { if(e.key === 'Escape') { closeModal(); closeVideoModal(); } });
+        document.addEventListener('DOMContentLoaded', () => { updateContent(currentLang); });
     </script>
 </body>
 </html>
