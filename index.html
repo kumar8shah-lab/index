@@ -416,9 +416,9 @@
             margin-top: 1rem;
         }
 
-        #vertical .samples-grid { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+        #vertical .samples-grid { grid-template-columns: repeat(5, 1fr); }
         #horizontal .samples-grid,
-        #square .samples-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+        #square .samples-grid { grid-template-columns: repeat(3, 1fr); }
 
         .sample-card {
             background: white;
@@ -552,41 +552,23 @@
         .more-button.horizontal { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
         .more-button.square { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
 
-        /* Updated section label style to exactly match lable.png (gradient bar, left-aligned, rounded right end) */
         .section-main-label {
-            display: inline-flex;
+            display: flex;
             align-items: center;
-            padding: 0 2rem 0 1.5rem;
-            background: linear-gradient(to right, #e74c3c, #4a2c7e);
-            color: white;
+            justify-content: center;
+            gap: 12px;
+            background: #fff9e6;
+            color: #8B4513;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
             font-size: 1.3rem;
             font-weight: 700;
-            border-radius: 0 40px 40px 0;
-            margin: 1.5rem 0 0.5rem 0; /* left-most alignment */
+            margin: 1.5rem auto 0.5rem auto;
             width: fit-content;
+            border: 2px solid #d4af37;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
         }
-
-        .section-main-label::after {
-            content: '';
-            position: absolute;
-            right: -22px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 58px;
-            border-radius: 50%;
-            background: inherit;
-        }
-
-        /* Different colors for each heading as requested */
-        #wedding-label    { background: linear-gradient(to right, #e74c3c, #8e44ad); }
-        #birthday-label   { background: linear-gradient(to right, #f39c12, #e67e22); }
-        #anniversary-label{ background: linear-gradient(to right, #9b59b6, #2980b9); }
-        #customized-label { background: linear-gradient(to right, #27ae60, #16a085); }
 
         .red-circle-icon {
             display: inline-flex;
@@ -842,7 +824,6 @@
             .video-modal-content.vertical { height: min(80vh, calc(95vw * 16/9)); }
             .video-modal-content.square { width: min(60vh, 60vw); }
             .video-close-btn { top: -12px; right: -12px; width: 28px; height: 28px; font-size: 1.2rem; }
-            .samples-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
         }
 
         @media (max-width: 480px) {
@@ -1010,11 +991,6 @@
                 height: 35px;
                 font-size: 1.2rem;
             }
-            .main-header { padding: 0.8rem 1rem; }
-            .header-container { flex-wrap: wrap; }
-            .header-nav { display: none; }
-            .mobile-menu-btn { display: flex; }
-            .samples-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
         }
 
         @media (max-width: 480px) {
@@ -1025,9 +1001,9 @@
                 padding: 1rem;
             }
         }
+#anniversary .samples-grid { grid-template-columns: repeat(3, 1fr); }
+#birthday .samples-grid { grid-template-columns: repeat(3, 1fr); }
 
-#anniversary .samples-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-#birthday .samples-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 
 /* Style for the floating WhatsApp button */
 .floating-whatsapp {
@@ -1092,9 +1068,7 @@
         <div class="sticky-content">
             <div class="sticky-inner">
                 <aside class="sticky-sidebar">
-                   <div id="wedding-label" class="section-main-label">
-                <span data-en="Wedding Cards" data-hi="विवाह कार्ड्स">WEDDING CARDS</span>
-            </div>
+                    <h2 data-en="Wedding Cards" data-hi="विवाह कार्ड्स">Wedding Cards</h2>
                     <div class="format-links">
                         <a onclick="scrollToSection('vertical')" id="link-vertical" class="active" data-en="Vertical Format (9:16)" data-hi="वर्टिकल फॉर्मेट (9:16)">Vertical Format (9:16)</a>
                         <a onclick="scrollToSection('horizontal')" id="link-horizontal" data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</a>
@@ -1109,6 +1083,7 @@
                             <span class="maker" data-en="Maker" data-hi="मेकर">Maker</span>
                         </h1>
                         <div class="top-actions" id="topActions">
+
                             <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">हिन्दी</button>
                         </div>
                     </div>
@@ -1124,7 +1099,7 @@
         <div class="horizontal-scroll-wrapper" id="customCardsWrapper" style="justify-content: center; padding: 1rem;">
             <article class="custom-card" onclick="openCustomCard('english.webp')">
                 <div class="card-image-container">
-                    <img src="image/english.webp" alt="Royal Rajasthani" class="card-image">
+                    <img src="english.webp" alt="Royal Rajasthani" class="card-image">
                     <div class="card-overlay">
                         <span class="card-theme">Royal Rajasthani</span>
                     </div>
@@ -1135,7 +1110,7 @@
         <div class="horizontal-scroll-wrapper" id="customCardsWrapper" style="justify-content: center; padding: 1rem;">
             <article class="custom-card" onclick="openCustomCard('hindi.webp')">
                 <div class="card-image-container">
-                    <img src="image/hindi.webp" alt="Royal Rajasthani" class="card-image">
+                    <img src="hindi.webp" alt="Royal Rajasthani" class="card-image">
                     <div class="card-overlay">
                         <span class="card-theme">Royal Rajasthani</span>
                     </div>
@@ -1147,51 +1122,43 @@
     </div>
     <div class="scrollable-content">
         <section id="vertical">
-            <div id="wedding-label" class="section-main-label">
-                <span data-en="Wedding Cards" data-hi="विवाह कार्ड्स">WEDDING CARDS</span>
-            </div>
             <h2 data-en="Vertical Format (9:16)" data-hi="वर्टिकल फॉर्मेट (9:16)">Vertical Format (9:16)</h2>
             <p class="section-description" data-en="Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos." data-hi="व्हाट्सएप स्टेटस, इंस्टाग्राम स्टोरीज और फेसबुक स्टोरीज के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.</p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('_NyMgwNPgD4', 'vertical')"><div class="video-container ratio-9-16"><img src="image/Sample 01.webp" alt="Sample 01" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 01</span></div><div class="sample-info"><h3>Sample 01</h3><p>Royal golden theme</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('eOKX4xSyFoA', 'vertical')"><div class="video-container ratio-9-16"><img src="image/Sample 02.webp" alt="Sample 02" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 02</span></div><div class="sample-info"><h3>Sample 02</h3><p>Elegant wedding invitation</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('iVG0zxZxhIQ', 'vertical')"><div class="video-container ratio-9-16"><img src="image/Sample 03.webp" alt="Sample 03" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 03</span></div><div class="sample-info"><h3>Sample 03</h3><p>Modern fusion design</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('sSmjd6f9zbY', 'vertical')"><div class="video-container ratio-9-16"><img src="image/Sample 04.webp" alt="Sample 04" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 04</span></div><div class="sample-info"><h3>Sample 04</h3><p>Contemporary romantic</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('rbuVLRvd2Xs', 'vertical')"><div class="video-container ratio-9-16"><img src="image/Sample 05.webp" alt="Sample 05" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 05</span></div><div class="sample-info"><h3>Sample 05</h3><p>Elegant floral design</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('_NyMgwNPgD4', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 01.webp" alt="Sample 01" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 01</span></div><div class="sample-info"><h3>Sample 01</h3><p>Royal golden theme</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('eOKX4xSyFoA', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 02.webp" alt="Sample 02" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 02</span></div><div class="sample-info"><h3>Sample 02</h3><p>Elegant wedding invitation</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('iVG0zxZxhIQ', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 03.webp" alt="Sample 03" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 03</span></div><div class="sample-info"><h3>Sample 03</h3><p>Modern fusion design</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('sSmjd6f9zbY', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 04.webp" alt="Sample 04" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 04</span></div><div class="sample-info"><h3>Sample 04</h3><p>Contemporary romantic</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('rbuVLRvd2Xs', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 05.webp" alt="Sample 05" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 05</span></div><div class="sample-info"><h3>Sample 05</h3><p>Elegant floral design</p></div></article>
                 <div class="more-button-container"><a class="more-button vertical"><span>More Vertical</span><span class="arrow">→</span></a></div>
             </div>
         </section>
 
         <section id="horizontal">
-            <div id="wedding-label" class="section-main-label">
-                <span data-en="Wedding Cards" data-hi="विवाह कार्ड्स">WEDDING CARDS</span>
-            </div>
             <h2 data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</h2>
             <p class="section-description" data-en="Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos." data-hi="व्हाट्सएप मैसेजेस, फेसबुक पोस्ट्स और ट्विटर के लिए आदर्श। वीडियो चलाने के लिए क्लिक करें।">Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos.</p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('P1B9_CF8Wcw', 'horizontal')"><div class="video-container ratio-16-9"><img src="image/Sample 31.webp" alt="Sample 31" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 31</span></div><div class="sample-info"><h3>Sample 31</h3><p>Elegant widescreen design</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('nbxg8O1WWNA', 'horizontal')"><div class="video-container ratio-16-9"><img src="image/Sample 32.webp" alt="Sample 32" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 32</span></div><div class="sample-info"><h3>Sample 32</h3><p>Classic panoramic format</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('WsAhAjwEqy8', 'horizontal')"><div class="video-container ratio-16-9"><img src="image/Sample 33.webp" alt="Sample 33" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 33</span></div><div class="sample-info"><h3>Sample 33</h3><p>Modern cinematic style</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('P1B9_CF8Wcw', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 31.webp" alt="Sample 31" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 31</span></div><div class="sample-info"><h3>Sample 31</h3><p>Elegant widescreen design</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('nbxg8O1WWNA', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 32.webp" alt="Sample 32" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 32</span></div><div class="sample-info"><h3>Sample 32</h3><p>Classic panoramic format</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('WsAhAjwEqy8', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 33.webp" alt="Sample 33" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 33</span></div><div class="sample-info"><h3>Sample 33</h3><p>Modern cinematic style</p></div></article>
                 <div class="more-button-container"><a class="more-button horizontal"><span>More Horizontal</span><span class="arrow">→</span></a></div>
             </div>
         </section>
 
         <section id="square">
-            <div id="wedding-label" class="section-main-label">
-                <span data-en="Wedding Cards" data-hi="विवाह कार्ड्स">WEDDING CARDS</span>
-            </div>
             <h2 data-en="Square Format (1:1)" data-hi="स्क्वायर फॉर्मेट (1:1)">Square Format (1:1)</h2>
             <p class="section-description" data-en="Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos." data-hi="इंस्टाग्राम पोस्ट्स, फेसबुक फीड और प्रोफाइल पिक्चर्स के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos.</p>
             <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('lcHndGWwrKM', 'square')"><div class="video-container ratio-1-1"><img src="image/Sample 61.webp" alt="Sample 61" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 61</span></div><div class="sample-info"><h3>Sample 61</h3><p>Perfect for Instagram</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('6wm383QsA2I', 'square')"><div class="video-container ratio-1-1"><img src="image/Sample 62.webp" alt="Sample 62" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 62</span></div><div class="sample-info"><h3>Sample 62</h3><p>Traditional square design</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('Y6vLrSeWw0c', 'square')"><div class="video-container ratio-1-1"><img src="image/Sample 63.webp" alt="Sample 63" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 63</span></div><div class="sample-info"><h3>Sample 63</h3><p>Contemporary social media</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('lcHndGWwrKM', 'square')"><div class="video-container ratio-1-1"><img src="Sample 61.webp" alt="Sample 61" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 61</span></div><div class="sample-info"><h3>Sample 61</h3><p>Perfect for Instagram</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('6wm383QsA2I', 'square')"><div class="video-container ratio-1-1"><img src="Sample 62.webp" alt="Sample 62" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 62</span></div><div class="sample-info"><h3>Sample 62</h3><p>Traditional square design</p></div></article>
+                <article class="sample-card" onclick="openYouTubeModal('Y6vLrSeWw0c', 'square')"><div class="video-container ratio-1-1"><img src="Sample 63.webp" alt="Sample 63" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 63</span></div><div class="sample-info"><h3>Sample 63</h3><p>Contemporary social media</p></div></article>
                 <div class="more-button-container"><a class="more-button square"><span>More Square</span><span class="arrow">→</span></a></div>
             </div>
         </section>
 
        <section id="birthday">
-    <div id="birthday-label" class="section-main-label">
+    <div class="section-main-label">
+        <span class="red-circle-icon">🎂</span>
         <span data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</span>
     </div>
     <h2 data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</h2>
@@ -1199,7 +1166,7 @@
     <div class="samples-grid">
         <article class="sample-card" onclick="openYouTubeModal('VIDEO_ID_1', 'horizontal')">
             <div class="video-container ratio-16-9">
-                <img src="image/BD 01.webp" alt="BD 01" class="thumbnail-img">
+                <img src="BD 01.webp" alt="BD 01" class="thumbnail-img">
                 <div class="video-play-btn">▶</div>
                 <span class="duration-badge">BD 01</span>
             </div>
@@ -1210,7 +1177,7 @@
         </article>
         <article class="sample-card" onclick="openYouTubeModal('VIDEO_ID_2', 'horizontal')">
             <div class="video-container ratio-16-9">
-                <img src="image/BD 02.webp" alt="BD 02" class="thumbnail-img">
+                <img src="BD 02.webp" alt="BD 02" class="thumbnail-img">
                 <div class="video-play-btn">▶</div>
                 <span class="duration-badge">BD 02</span>
             </div>
@@ -1221,7 +1188,7 @@
         </article>
         <article class="sample-card" onclick="openYouTubeModal('VIDEO_ID_3', 'horizontal')">
             <div class="video-container ratio-16-9">
-                <img src="image/BD 03.webp" alt="BD 03" class="thumbnail-img">
+                <img src="BD 03.webp" alt="BD 03" class="thumbnail-img">
                 <div class="video-play-btn">▶</div>
                 <span class="duration-badge">BD 03</span>
             </div>
@@ -1234,7 +1201,8 @@
     </div>
 </section>
         <section id="anniversary">
-    <div id="anniversary-label" class="section-main-label">
+    <div class="section-main-label">
+        <span class="red-circle-icon">💖</span>
         <span data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</span>
     </div>
     <h2 data-en="Horizontal Format (16:9)" data-hi="हॉरिजॉन्टल फॉर्मेट (16:9)">Horizontal Format (16:9)</h2>
@@ -1242,7 +1210,7 @@
     <div class="samples-grid">
         <article class="sample-card" onclick="openYouTubeModal('VIDEO_ID_1', 'horizontal')">
             <div class="video-container ratio-16-9">
-                <img src="image/AV 01.webp" alt="AV 01" class="thumbnail-img">
+                <img src="AV 01.webp" alt="AV 01" class="thumbnail-img">
                 <div class="video-play-btn">▶</div>
                 <span class="duration-badge">AV 01</span>
             </div>
@@ -1253,7 +1221,7 @@
         </article>
         <article class="sample-card" onclick="openYouTubeModal('VIDEO_ID_2', 'horizontal')">
             <div class="video-container ratio-16-9">
-                <img src="image/AV 02.webp" alt="AV 02" class="thumbnail-img">
+                <img src="AV 02.webp" alt="AV 02" class="thumbnail-img">
                 <div class="video-play-btn">▶</div>
                 <span class="duration-badge">AV 02</span>
             </div>
@@ -1264,7 +1232,7 @@
         </article>
         <article class="sample-card" onclick="openYouTubeModal('VIDEO_ID_3', 'horizontal')">
             <div class="video-container ratio-16-9">
-                <img src="image/AV 03.webp" alt="AV 03" class="thumbnail-img">
+                <img src="AV 03.webp" alt="AV 03" class="thumbnail-img">
                 <div class="video-play-btn">▶</div>
                 <span class="duration-badge">AV 03</span>
             </div>
@@ -1276,9 +1244,7 @@
     </div>
 </section>
        <section id="customized">
-    <div id="customized-label" class="section-main-label">
-        <span data-en="Customized Cards" data-hi="कस्टमाइज्ड कार्ड्स">Customized Cards</span>
-    </div>
+    <div class="section-main-label"><span class="red-circle-icon">✨</span><span data-en="Customized Cards" data-hi="कस्टमाइज्ड कार्ड्स">Customized Cards</span></div>
     <p class="section-description" style="text-align: center;" data-en="Click on this card, Enter your details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="इस कार्ड पर क्लिक करें, अपना विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">Click on this card, Enter your details and get your FREE PERSONALIZED DIGITAL CARD.</p>
     
    
@@ -1457,7 +1423,7 @@ localStorage.setItem('selectedCardImage', imageName);
     </script>
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
-    <img src="image/w-icon.webp" alt="WhatsApp" class="floating-whatsapp-img">
+    <img src="w-icon.webp" alt="WhatsApp" class="floating-whatsapp-img">
 </a>
 </body>
 </html>
