@@ -80,6 +80,25 @@ button {
 
 button.reset { background: #e76f51; color: white; }
 button.download { background: #2a9d8f; color: white; }
+/* Style for the floating WhatsApp button */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 20px;  /* Distance from the bottom of the page */
+    right: 20px;   /* Distance from the right of the page */
+    z-index: 1000; /* Ensures the button is on top of other content */
+}
+
+/* Style for the image itself */
+.floating-whatsapp-img {
+    width: 60px;   /* Adjust size of the image */
+    height: 60px;  /* Adjust size of the image */
+    border-radius: 50%; /* Optional: makes the image round */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for better visibility */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.floating-whatsapp-img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
 </style>
 </head>
 
@@ -130,7 +149,7 @@ button.download { background: #2a9d8f; color: white; }
 
     <div style="text-align: center; margin-top: 30px;">
       <button class="reset" onclick="resetForm()">Reset</button>
-      <button class="download" onclick="downloadInvitation()">📥 Download Invitation</button>
+      <button class="download" onclick="downloadInvitation()">Download</button>
     </div>
   </div>
 </div>
@@ -263,6 +282,9 @@ function downloadInvitation() {
   }
 }
 </script>
-
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
+    <img src="w-icon.webp" alt="WhatsApp" class="floating-whatsapp-img">
+</a>
 </body>
 </html>
