@@ -3,578 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Create stunning digital WhatsApp video wedding cards. Choose templates, upload photos, and get custom video invitations delivered to your email.">
-    <meta name="keywords" content="digital wedding card, WhatsApp wedding invitation, video wedding card, online wedding invitation, digital invitation maker">
-    <meta property="og:title" content="Digital Card Maker - WhatsApp Video Invitations">
-    <meta property="og:description" content="Choose templates and create beautiful digital video cards perfect for WhatsApp sharing">
+    <meta name="description" content="Create stunning digital WhatsApp video wedding cards, birthday invitations & anniversary cards. Choose templates, upload photos, get custom video invitations. Best digital card maker India 2026.">
+    <meta name="keywords" content="digital wedding card, WhatsApp wedding invitation, video wedding card, online wedding invitation, digital invitation maker, birthday video card, anniversary invitation, digital card maker India">
+    <meta name="author" content="VideoCard.in">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Digital Video Card Maker | WhatsApp Video Invitations">
+    <meta property="og:description" content="Create beautiful digital video cards perfect for WhatsApp sharing. Wedding, Birthday & Anniversary invitations.">
     <meta property="og:type" content="website">
-    <title>Digital Card Maker | WhatsApp Video Invitations</title>
+    <meta property="og:url" content="https://videocard.in">
+    <meta property="og:image" content="https://videocard.in/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://videocard.in">
+    <title>Digital Video Card Maker | WhatsApp Wedding Invitations India 2026</title>
+    
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Digital Video Card Maker",
+        "url": "https://videocard.in",
+        "description": "Create personalized digital wedding, birthday, and anniversary video invitations for WhatsApp",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://videocard.in/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
     
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #d4af37;
-            --primary-dark: #b8941f;
-            --secondary: #2c1810;
-            --accent: #fff8e7;
-            --text: #333;
-            --light: #fafafa;
-            --success: #28a745;
-            --whatsapp: #25D366;
-            --header-orange: #ff8c42;
-            --red-circle: #e74c3c;
-            --dark-blue: #1a237e;
-        }
-
-        html {
+        body { 
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text);
-            background: var(--light);
             overflow-x: hidden;
         }
-
-        .marquee-bar {
-            background: var(--dark-blue);
-            color: white;
-            padding: 0.8rem 1rem;
-            overflow: hidden;
-            white-space: nowrap;
-            position: relative;
-            z-index: 1001;
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-            font-size: 0.95rem;
-            font-weight: 500;
-            letter-spacing: 0.3px;
-        }
-
-        .marquee-content span {
-            margin-right: 2rem;
-        }
-
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .marquee-bar:hover .marquee-content {
-            animation-play-state: paused;
-        }
-
-        @media (max-width: 768px) {
-            .marquee-content {
-                animation: marquee 35s linear infinite;
-                font-size: 0.85rem;
-            }
-        }
-
-        .sticky-wrapper {
-            position: sticky;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: var(--light);
-        }
-
-        .main-header {
-            background: var(--header-orange);
-            padding: 0.8rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: padding 0.25s ease;
-            position: relative;
-        }
-
-        .header-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            background: transparent;
-            padding: 0;
-        }
-
-        .header-logo-icon {
-            width: 32px;
-            height: 32px;
-            background: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            color: white;
-        }
-
-        .header-nav {
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        .header-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: opacity 0.3s;
-            cursor: pointer;
-        }
-
-        .header-nav a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-
-        .mobile-header-title {
-            display: none;
-            color: white;
-            font-size: 1rem;
-            font-weight: 600;
-            text-align: center;
-            flex: 1;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 22px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            z-index: 1002;
-            position: relative;
-        }
-
-        .mobile-menu-btn span {
-            width: 100%;
-            height: 3px;
-            background: white;
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .mobile-menu-btn.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .mobile-menu-btn.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .mobile-menu-btn.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .header-search {
-            padding: 0.4rem 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            width: 160px;
-            outline: none;
-        }
-
-        .header-search-btn {
-            background: #c44569;
-            color: white;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.9rem;
-        }
-
-        .mobile-nav {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--header-orange);
-            padding: 1rem;
-            flex-direction: column;
-            gap: 1rem;
-            z-index: 999;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .mobile-nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 500;
-            padding: 0.75rem;
-            text-align: center;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
-
-        .mobile-nav a:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .mobile-nav.show {
-            display: flex;
-        }
-
-        .sticky-content {
-            background: var(--light);
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .sticky-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            gap: 2rem;
-        }
-
-        .sticky-sidebar {
-            width: 220px;
-            flex-shrink: 0;
-        }
-
-        .sticky-sidebar h2 {
-            font-size: 1.4rem;
-            color: #555;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .format-links {
-            display: flex;
-            flex-direction: row;
-            gap: 1.2rem;
-        }
-
-        .format-links a {
-            color: #e74c3c;
-            text-decoration: none;
-            font-size: 0.9rem;
-            white-space: nowrap;
-            padding-bottom: 2px;
-            border-bottom: 2px solid transparent;
-            transition: border-color 0.3s;
-            cursor: pointer;
-        }
-
-        .format-links a:hover,
-        .format-links a.active {
-            border-bottom: 2px solid #e74c3c;
-            text-decoration: none;
-        }
-
-        .sticky-main {
-            flex: 1;
-        }
-
-        .title-section {
-            text-align: center;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-        }
-
-        h1 .digital { color: #d4af37; }
-        h1 .card { color: #8b4513; }
-        h1 .maker { color: #4caf50; }
-
-        .top-actions {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            transition: opacity 0.2s ease, visibility 0.2s ease, margin 0.2s ease, height 0.2s ease;
-        }
-
-        .whatsapp-action {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
-            text-decoration: none;
-        }
-
-        .whatsapp-icon-btn {
-            width: 50px;
-            height: 50px;
-            background: var(--whatsapp);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.8rem;
-            border: none;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        .whatsapp-icon-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .whatsapp-label {
-            font-size: 0.8rem;
-            color: #666;
-        }
-
-        .lang-btn {
-            padding: 0.6rem 2rem;
-            border: 2px solid #ddd;
-            background: white;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-
-        .lang-btn:hover {
-            background: #f0f0f0;
-        }
-
-        .scrollable-content {
-            margin-top: 0;
-            padding: 2rem 2rem 2rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        section {
-            margin-bottom: 3rem;
-            scroll-margin-top: 180px;
-        }
-
-        h2 {
-            font-size: 1.25rem;
-            text-align: center;
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .section-description {
-            text-align: center;
-            color: #666;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-        }
-
-        .samples-grid {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        #vertical .samples-grid { grid-template-columns: repeat(5, 1fr); }
-        #horizontal .samples-grid,
-        #square .samples-grid { grid-template-columns: repeat(3, 1fr); }
-
-        .sample-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .sample-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .video-container {
-            position: relative;
-            background: #000;
-            overflow: hidden;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .thumbnail-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .ratio-9-16 { aspect-ratio: 9/16; }
-        .ratio-16-9 { aspect-ratio: 16/9; }
-        .ratio-1-1 { aspect-ratio: 1/1; }
-
-        .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 193, 7, 0.9);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            border: 3px solid white;
-            cursor: pointer;
-            opacity: 0.9;
-            transition: all 0.3s;
-            z-index: 2;
-        }
-
-        .video-container:hover .video-play-btn {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1.1);
-        }
-
-        .duration-badge {
-            position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background: rgba(0,0,0,0.8);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .sample-info {
-            padding: 1rem;
-            text-align: left;
-        }
-
-        .sample-info h3 {
-            color: var(--secondary);
-            margin-bottom: 0.2rem;
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .sample-info p {
-            font-size: 0.85rem;
-            color: #666;
-        }
-
-        .more-button-container {
-            grid-column: 1 / -1;
-            display: flex;
-            justify-content: flex-end;
-            margin-top: 1rem;
-        }
-
-        .more-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 0.8rem 1.8rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            border: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            color: white;
-        }
-
-        .more-button .arrow {
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .more-button:hover .arrow {
-            transform: translateX(5px);
-        }
-
-        .more-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-        }
-
-        .more-button.vertical { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .more-button.horizontal { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
-        .more-button.square { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-
-        /* Fade-out style section labels */
+        
+        /* Custom Aspect Ratios */
+        .aspect-vertical { aspect-ratio: 9 / 16; }
+        .aspect-horizontal { aspect-ratio: 16 / 9; }
+        .aspect-square { aspect-ratio: 1 / 1; }
+        
+        /* Video Card Hover Effects */
+        .video-card:hover .play-overlay { opacity: 1; }
+        .video-card:hover { transform: translateY(-10px); }
+        
+        /* Section Label Fade Effect */
         .section-main-label {
             display: inline-block;
             padding: 10px 20px;
             color: #fff;
-            font: 700 1.3rem/1.3 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font: 700 1.3rem/1.3 'Poppins', sans-serif;
             border-radius: 6px;
             white-space: normal;
             margin: 1.5rem 0 0.5rem 0;
             position: relative;
-
-            /* Text with gradient fade effect */
-            background: linear-gradient(to right,
-                currentColor 0%,
-                currentColor 35%,
-                rgba(0,0,0,0) 100%
-            );
+            background: linear-gradient(to right, currentColor 0%, currentColor 35%, rgba(0,0,0,0) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-
-        /* Background fade effect using ::before */
         .section-main-label::before {
             content: '';
             position: absolute;
@@ -582,94 +79,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to right,
-                currentColor 0%,
-                currentColor 35%,
-                rgba(0,0,0,0) 100%
-            );
+            background: linear-gradient(to right, currentColor 0%, currentColor 35%, rgba(0,0,0,0) 100%);
             border-radius: 6px;
             z-index: -1;
             opacity: 0.25;
         }
-
-        /* Different colors for each heading - IDs added to HTML */
-        #birthday-label { color: #e67e22; }
-        #anniversary-label { color: #2980b9; }
-        #customized-label { color: #16a085; }
-
-        .red-circle-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #e74c3c;
-            color: white;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            font-size: 1.4rem;
-            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.4);
-            border: 2px solid #fff;
-        }
-
-        .bottom-info-section {
-            background: var(--light);
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-        }
-
-        .info-box {
-            background: #e8eaf6;
-            padding: 1.5rem 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #7986cb;
-            max-width: 800px;
-            width: 100%;
-            text-align: center;
-        }
-
-        .info-box p {
-            color: #555;
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        footer {
-            background: var(--secondary);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: color 0.3s;
-            cursor: pointer;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-copyright {
-            line-height: 1.5;
-            margin-top: 1rem;
-        }
-
-        @media (min-width: 601px) {
-            .footer-copyright br { display: none; }
-        }
-
-        .modal {
+        
+        /* Modal Styles */
+        .modal-overlay {
             display: none;
             position: fixed;
             z-index: 2000;
@@ -677,78 +94,26 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.85);
-            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 2rem;
+        .modal-overlay.show { display: flex; }
+        
+        .modal-content-box {
+            background: white;
             border-radius: 15px;
-            max-width: 900px;
-            width: 90%;
-            max-height: 85vh;
+            max-width: 600px;
+            width: 100%;
+            max-height: 80vh;
             overflow-y: auto;
             position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 2rem;
         }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #aaa;
-            cursor: pointer;
-            transition: color 0.3s;
-            z-index: 10;
-        }
-
-        .close-modal:hover {
-            color: var(--primary);
-        }
-
-        /* Modal content styling */
-        .modal-policy-content {
-            line-height: 1.8;
-            color: #444;
-        }
-        .modal-policy-content h3 {
-            margin: 1.2rem 0 0.5rem 0;
-            color: var(--secondary);
-            font-size: 1.25rem;
-        }
-        .modal-policy-content ul {
-            margin-left: 1.8rem;
-            margin-bottom: 1rem;
-        }
-        .modal-policy-content li {
-            margin-bottom: 0.4rem;
-        }
-        .highlight-point {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 0.75rem 1rem;
-            margin: 1rem 0;
-            font-weight: 600;
-            color: #856404;
-            border-radius: 6px;
-        }
-        .contact-wa {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: #25D36620;
-            padding: 8px 16px;
-            border-radius: 40px;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        /* VIDEO MODAL STYLES */
-        .video-modal {
+        
+        /* Video Modal */
+        .video-modal-overlay {
             display: none;
             position: fixed;
             z-index: 3000;
@@ -761,714 +126,952 @@
             align-items: center;
             padding: 20px;
         }
-
-        .video-modal.show {
-            display: flex;
-        }
-
-        .video-modal-content {
-            position: relative;
+        .video-modal-overlay.show { display: flex; }
+        
+        .video-modal-box {
             background: white;
             padding: 10px;
             border-radius: 12px;
+            position: relative;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            max-width: 95vw;
-            max-height: 95vh;
         }
-
-        .video-modal-content.horizontal {
-            width: min(85vw, calc(95vh * 16/9));
-            aspect-ratio: 16 / 9;
-            height: auto;
-        }
-
-        .video-modal-content.vertical {
-            height: min(90vh, calc(95vw * 16/9));
+        
+        .video-modal-box.vertical {
+            height: min(85vh, calc(95vw * 16/9));
             aspect-ratio: 9 / 16;
-            width: auto;
         }
-
-        .video-modal-content.square {
+        
+        .video-modal-box.horizontal {
+            width: min(85vw, calc(90vh * 16/9));
+            aspect-ratio: 16 / 9;
+        }
+        
+        .video-modal-box.square {
             width: min(70vh, 70vw);
-            height: auto;
             aspect-ratio: 1 / 1;
         }
-
-        .video-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #000;
-            border-radius: 8px;
-            overflow: hidden;
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .video-wrapper iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
+        
+        /* Dropdown Menu */
+        .dropdown-menu {
+            display: none;
             position: absolute;
-            top: 0;
+            top: 100%;
             left: 0;
-        }
-
-        .video-close-btn {
-            position: absolute;
-            top: -15px;
-            right: -15px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #333;
-            cursor: pointer;
-            z-index: 3001;
-            transition: all 0.3s;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             background: white;
-            border-radius: 50%;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            padding: 0.5rem 0;
+            min-width: 180px;
+            z-index: 100;
         }
-
-        .video-close-btn:hover {
-            color: #e74c3c;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .video-modal { padding: 10px; }
-            .video-modal-content { padding: 8px; }
-            .video-modal-content.horizontal { width: min(95vw, calc(85vh * 16/9)); }
-            .video-modal-content.vertical { height: min(80vh, calc(95vw * 16/9)); }
-            .video-modal-content.square { width: min(60vh, 60vw); }
-            .video-close-btn { top: -12px; right: -12px; width: 28px; height: 28px; font-size: 1.2rem; }
-        }
-
-        @media (max-width: 480px) {
-            .video-modal-content.vertical { height: min(75vh, calc(95vw * 16/9)); }
-            .video-modal-content.square { width: min(50vh, 50vw); }
-        }
-
-        /* Horizontal Scrolling Cards Styles */
-        .horizontal-scroll-container {
-            position: relative;
-            width: 100%;
-            padding: 1rem 0;
-        }
-
-        .horizontal-scroll-wrapper {
-            display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
-            overflow-y: hidden;
-            scroll-behavior: smooth;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            padding: 1rem 2rem;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary) transparent;
-        }
-
-        .horizontal-scroll-wrapper::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .horizontal-scroll-wrapper::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 4px;
-        }
-
-        .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-
-        .custom-card {
-            flex: 0 0 auto;
-            width: 200px;
-            scroll-snap-align: start;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 15px;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .custom-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .card-image-container {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 9/16;
-            overflow: hidden;
-        }
-
-        .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        
+        .dropdown:hover .dropdown-menu {
             display: block;
-            transition: transform 0.3s ease;
         }
-
-        .custom-card:hover .card-image {
-            transform: scale(1.05);
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.6rem 1.2rem;
+            color: #4b5563;
+            font-size: 0.9rem;
+            transition: all 0.2s;
         }
-
-        .card-overlay {
+        
+        .dropdown-menu a:hover {
+            background: #f3f4f6;
+            color: #7c3aed;
+        }
+        
+        /* Mobile Menu */
+        .mobile-nav {
+            display: none;
             position: absolute;
-            bottom: 0;
+            top: 100%;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            padding: 2rem 1rem 1rem;
-            display: flex;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 1rem;
             flex-direction: column;
-            align-items: center;
-            gap: 0.3rem;
+            gap: 0.5rem;
+            z-index: 999;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-
-        .card-number {
-            background: var(--primary);
-            color: white;
-            width: 32px;
-            height: 32px;
+        .mobile-nav.show { display: flex; }
+        
+        .mobile-submenu {
+            padding-left: 1.5rem;
+            border-left: 2px solid rgba(255,255,255,0.3);
+            margin-left: 0.5rem;
+        }
+        
+        /* Hamburger Animation */
+        .mobile-menu-btn.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .mobile-menu-btn.active span:nth-child(2) { opacity: 0; }
+        .mobile-menu-btn.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+        
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .floating-whatsapp-img {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 0.9rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
         }
-
-        .card-theme {
-            color: white;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-align: center;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        .floating-whatsapp-img:hover { transform: scale(1.1); }
+        
+        /* Highlight Point */
+        .highlight-point {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-weight: 600;
+            color: #856404;
+            border-radius: 6px;
         }
-
-        .scroll-indicator {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.95);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--secondary);
-            cursor: pointer;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 10;
-            user-select: none;
-        }
-
-        .scroll-indicator:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .scroll-indicator.left {
-            left: 0.5rem;
-        }
-
-        .scroll-indicator.right {
-            right: 0.5rem;
-        }
-
-        .swipe-hint {
-            text-align: center;
-            color: #888;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #7c3aed; border-radius: 4px; }
+        
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            .custom-card {
-                width: 160px;
+            .video-modal-box.vertical {
+                height: min(75vh, calc(95vw * 16/9));
             }
-            .scroll-indicator {
-                width: 35px;
-                height: 35px;
-                font-size: 1.2rem;
+            .video-modal-box.horizontal {
+                width: 95vw;
             }
-        }
-
-        @media (max-width: 480px) {
-            .custom-card {
-                width: 140px;
-            }
-            .horizontal-scroll-wrapper {
-                padding: 1rem;
+            .video-modal-box.square {
+                width: min(80vw, 80vh);
             }
         }
-#anniversary .samples-grid { grid-template-columns: repeat(3, 1fr); }
-#birthday .samples-grid { grid-template-columns: repeat(3, 1fr); }
-
-
-/* Style for the floating WhatsApp button */
-.floating-whatsapp {
-    position: fixed;
-    bottom: 20px;  /* Distance from the bottom of the page */
-    right: 20px;   /* Distance from the right of the page */
-    z-index: 1000; /* Ensures the button is on top of other content */
-}
-
-/* Style for the image itself */
-.floating-whatsapp-img {
-    width: 60px;   /* Adjust size of the image */
-    height: 60px;  /* Adjust size of the image */
-    border-radius: 50%; /* Optional: makes the image round */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: adds shadow for better visibility */
-    transition: transform 0.3s ease; /* Smooth scaling on hover */
-}
-
-.floating-whatsapp-img:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
-}
     </style>
+    <base target="_blank">
 <base target="_blank">
 </head>
-<body>
+<body class="bg-gray-50 text-gray-800">
 
-    <div class="marquee-bar">
-        <div class="marquee-content">
-            <span id="marqueeText" data-en="✨ Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today! ✨" data-hi="✨ इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें! ✨">✨ Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today! ✨</span>
-        </div>
-    </div>
-
-    <div class="sticky-wrapper" id="top">
-        <header class="main-header" id="mainHeader">
-            <div class="header-container">
-                <a href="#top" class="header-logo" onclick="scrollToTop(); return false;">
-                    <div class="header-logo-icon">🎬</div>
-                    <span>Digital Video Cards</span>
-                </a>
-                <div class="mobile-header-title" id="mobileTitle" data-en="Digital Card Maker" data-hi="डिजिटल कार्ड मेकर">Digital Card Maker</div>
-                <nav class="header-nav">
-                    <a onclick="scrollToTop()">Wedding Cards</a>
-                    <a onclick="scrollToSection('birthday')">Birthday Cards</a>
-                    <a onclick="scrollToSection('anniversary')">Anniversary Cards</a>
-                    <a onclick="scrollToSection('customized')">Customized</a>
-                </nav>
-                <div class="header-right">
-                    <input type="text" class="header-search" placeholder="Search...">
-                    <button class="header-search-btn" onclick="alert('Search coming soon!')">🔍</button>
-                </div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu(event)">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-            <div class="mobile-nav" id="mobileNav">
-                <a onclick="scrollToTop(); closeMobileMenu()">Wedding Cards</a>
-                <a onclick="scrollToSection('birthday'); closeMobileMenu()">Birthday Cards</a>
-                <a onclick="scrollToSection('anniversary'); closeMobileMenu()">Anniversary Cards</a>
-                <a onclick="scrollToSection('customized'); closeMobileMenu()">Customized</a>
-            </div>
-        </header>
-
-        <div class="sticky-content">
-            <div class="sticky-inner">
-                <aside class="sticky-sidebar">
-                    <h2 data-en="Wedding Cards" data-hi="विवाह कार्ड्स">Wedding Cards</h2>
-                    <div class="format-links">
-                        <a onclick="scrollToSection('vertical')" id="link-vertical" class="active" data-en="Vertical Format" data-hi="वर्टिकल फॉर्मेट">Vertical Format</a>
-                        <a onclick="scrollToSection('horizontal')" id="link-horizontal" data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</a>
-                        <a onclick="scrollToSection('square')" id="link-square" data-en="Square Format" data-hi="स्क्वायर फॉर्मेट">Square Format</a>
+    <!-- Sticky Header with Logo, Language & WhatsApp -->
+    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="/" class="flex items-center space-x-2 flex-shrink-0">
+                <img src="https://videocard.in/v-logo.webp" alt="VideoCard Logo - Digital Card Maker" class="h-8 md:h-10 w-auto" loading="eager">
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium">
+                <!-- Wedding Cards with Dropdown -->
+                <div class="dropdown relative">
+                    <a onclick="scrollToSection('vertical')" class="px-3 lg:px-4 py-2 rounded-lg text-rose-600 hover:bg-rose-50 hover:text-rose-700 transition cursor-pointer flex items-center gap-1">
+                        <span data-en="Wedding Cards" data-hi="विवाह कार्ड्स">Wedding Cards</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a onclick="scrollToSection('vertical')" class="text-rose-600 hover:text-rose-700">
+                            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-rose-500 rounded-full"></span> <span data-en="Vertical Format" data-hi="वर्टिकल फॉर्मेट">Vertical Format</span></span>
+                        </a>
+                        <a onclick="scrollToSection('horizontal')" class="text-emerald-600 hover:text-emerald-700">
+                            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-emerald-500 rounded-full"></span> <span data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</span></span>
+                        </a>
+                        <a onclick="scrollToSection('square')" class="text-violet-600 hover:text-violet-700">
+                            <span class="flex items-center gap-2"><span class="w-2 h-2 bg-violet-500 rounded-full"></span> <span data-en="Square Format" data-hi="स्क्वायर फॉर्मेट">Square Format</span></span>
+                        </a>
                     </div>
-                </aside>
-                <div class="sticky-main">
-                    <div class="title-section">
-                        <h1>
-                            <span class="digital" data-en="Digital" data-hi="डिजिटल">Digital</span>
-                            <span class="card" data-en="Card" data-hi="कार्ड">Card</span>
-                            <span class="maker" data-en="Maker" data-hi="मेकर">Maker</span>
-                        </h1>
-                        <div class="top-actions" id="topActions">
+                </div>
+                
+                <a onclick="scrollToSection('birthday')" class="px-3 lg:px-4 py-2 rounded-lg text-orange-500 hover:bg-orange-50 hover:text-orange-600 transition cursor-pointer" data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</a>
+                
+                <a onclick="scrollToSection('anniversary')" class="px-3 lg:px-4 py-2 rounded-lg text-blue-500 hover:bg-blue-50 hover:text-blue-600 transition cursor-pointer" data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</a>
+                
+                <a onclick="scrollToSection('customized')" class="px-3 lg:px-4 py-2 rounded-lg text-teal-500 hover:bg-teal-50 hover:text-teal-600 transition cursor-pointer" data-en="Customized" data-hi="कस्टमाइज्ड">Customized</a>
+            </nav>
 
-                            <button class="lang-btn" id="langToggle" onclick="toggleLanguage()">हिन्दी</button>
+            <!-- Right Side: Language & WhatsApp -->
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <button id="langToggle" onclick="toggleLanguage()" class="hidden sm:block bg-gray-100 hover:bg-gray-200 border-none rounded-full px-3 md:px-4 py-1.5 text-xs font-semibold focus:ring-2 focus:ring-indigo-500 transition">
+                    हिन्दी
+                </button>
+                <a href="https://wa.me/9413451477" class="bg-green-500 hover:bg-green-600 text-white px-3 md:px-5 py-2 rounded-full text-xs md:text-sm font-bold transition flex items-center shadow-lg shadow-green-200">
+                    <img src="https://videocard.in/w-icon.webp" class="w-4 h-4 mr-1 md:mr-2" alt="WA" loading="lazy">
+                    <span class="hidden sm:inline">WhatsApp</span>
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden flex flex-col justify-between w-6 h-5 ml-2" id="mobileMenuBtn" onclick="toggleMobileMenu(event)" aria-label="Toggle menu">
+                <span class="w-full h-0.5 bg-gray-600 rounded transition-all origin-center"></span>
+                <span class="w-full h-0.5 bg-gray-600 rounded transition-all"></span>
+                <span class="w-full h-0.5 bg-gray-600 rounded transition-all origin-center"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div class="mobile-nav md:hidden" id="mobileNav">
+            <a onclick="scrollToSection('vertical'); closeMobileMenu()" class="text-white text-sm py-2 hover:bg-white/20 rounded-lg transition flex items-center gap-2">
+                <span class="w-2 h-2 bg-rose-300 rounded-full"></span> <span data-en="Wedding Cards" data-hi="विवाह कार्ड्स">Wedding Cards</span>
+            </a>
+            <div class="mobile-submenu flex flex-col gap-1">
+                <a onclick="scrollToSection('vertical'); closeMobileMenu()" class="text-white/90 text-xs py-1 hover:text-white transition">↳ <span data-en="Vertical Format" data-hi="वर्टिकल फॉर्मेट">Vertical Format</span></a>
+                <a onclick="scrollToSection('horizontal'); closeMobileMenu()" class="text-white/90 text-xs py-1 hover:text-white transition">↳ <span data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</span></a>
+                <a onclick="scrollToSection('square'); closeMobileMenu()" class="text-white/90 text-xs py-1 hover:text-white transition">↳ <span data-en="Square Format" data-hi="स्क्वायर फॉर्मेट">Square Format</span></a>
+            </div>
+            <a onclick="scrollToSection('birthday'); closeMobileMenu()" class="text-white text-sm py-2 hover:bg-white/20 rounded-lg transition flex items-center gap-2">
+                <span class="w-2 h-2 bg-orange-300 rounded-full"></span> <span data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</span>
+            </a>
+            <a onclick="scrollToSection('anniversary'); closeMobileMenu()" class="text-white text-sm py-2 hover:bg-white/20 rounded-lg transition flex items-center gap-2">
+                <span class="w-2 h-2 bg-blue-300 rounded-full"></span> <span data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</span>
+            </a>
+            <a onclick="scrollToSection('customized'); closeMobileMenu()" class="text-white text-sm py-2 hover:bg-white/20 rounded-lg transition flex items-center gap-2">
+                <span class="w-2 h-2 bg-teal-300 rounded-full"></span> <span data-en="Customized" data-hi="कस्टमाइज्ड">Customized</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section - Reduced spacing -->
+    <section class="bg-white pt-8 md:pt-12 pb-6 md:pb-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 md:mb-6">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-500 via-purple-500 to-indigo-500" data-en="Digital Card Maker" data-hi="डिजिटल कार्ड मेकर">Digital Video Card Maker</span>
+            </h1>
+            <p class="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed" data-en="Create personalized digital wedding, birthday, and anniversary invitations. Choose a template, share your details, and get your video via WhatsApp." data-hi="व्यक्तिगत डिजिटल शादी, जन्मदिन और सालगिरह निमंत्रण बनाएं। एक टेम्पलेट चुनें, अपना विवरण साझा करें और व्हाट्सएप के माध्यम से अपना वीडियो प्राप्त करें।">
+                Create personalized digital wedding, birthday, and anniversary invitations. Choose a template, share your details, and get your video via WhatsApp.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
+
+        <!-- Free Wedding Card Section -->
+        <div class="mb-12 md:mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-2" data-en="Free Wedding Card" data-hi="निःशुल्क विवाह-कार्ड">Free Wedding Card</h2>
+            <p class="text-center text-gray-500 mb-6 md:mb-8 text-sm md:text-base" data-en="Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="इस कार्ड पर क्लिक करें, विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">
+                Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD.
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="hin-2.webp" alt="Royal Rajasthani Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <span class="text-white font-medium text-center px-2 text-sm">Royal Rajasthani</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="eng-2.webp" alt="Regal Wedding Invitation Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <span class="text-white font-medium text-center px-2 text-sm">Regal Wedding</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="eng-1.webp" alt="Rajwada Elegance Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <span class="text-white font-medium text-center px-2 text-sm">Rajwada Elegance</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="hin-1.webp" alt="Marwar Royal Charm Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
+                            <span class="text-white font-medium text-center px-2 text-sm">Marwar Royal</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-<br>
-<h2 data-en="Free Wedding Card" data-hi="निःशुल्क विवाह-कार्ड"></h2>
-<p class="section-description" data-en="Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="इस कार्ड पर क्लिक करें, विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।"></p>
 
- <div class="horizontal-scroll-container" style="display: flex; justify-content: center;">
-        <div class="horizontal-scroll-wrapper" id="customCardsWrapper" style="justify-content: center; padding: 1rem;">
-            <article class="custom-card" onclick="openCustomCard('hindi.webp')">
-                <div class="card-image-container">
-                    <img src="hin-2.webp" alt="Royal Rajasthani" class="card-image">
-                    <div class="card-overlay">
-                        <span class="card-theme">Royal Rajasthani</span>
-                    </div>
+        <!-- Vertical Format Section -->
+        <section id="vertical" class="mb-12 md:mb-16 scroll-mt-28">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 border-b border-gray-100 pb-4 gap-3">
+                <div>
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900" data-en="Vertical Format" data-hi="वर्टिकल फॉर्मेट">Vertical Format</h2>
+                    <p class="text-gray-500 mt-1 text-sm md:text-base" data-en="Status & Stories Format (9:16)" data-hi="स्टेटस और स्टोरीज फॉर्मेट (9:16)">Status & Stories Format (9:16)</p>
                 </div>
-            </article>
-        </div>
-  <div class="horizontal-scroll-wrapper" id="customCardsWrapper" style="justify-content: center; padding: 1rem;">
-            <article class="custom-card" onclick="openCustomCard('english.webp')">
-                <div class="card-image-container">
-                    <img src="eng-2.webp" alt="Regal Wedding Invitation" class="card-image">
-                    <div class="card-overlay">
-                        <span class="card-theme">Regal Wedding Invitation</span>
+                <a href="more-vertical-format.html" class="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-rose-500 to-pink-600 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <span data-en="More Vertical Format" data-hi="और वर्टिकल फॉर्मेट">More Vertical Format</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('_NyMgwNPgD4', 'vertical')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="Sample 01.webp" alt="Vertical Wedding Card Sample 01" class="w-full h-full object-cover" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition">
+                                <span class="text-rose-600 text-lg md:text-xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">01</span>
                     </div>
-                </div>
-            </article>
-        </div>
-<div class="horizontal-scroll-wrapper" id="customCardsWrapper" style="justify-content: center; padding: 1rem;">
-            <article class="custom-card" onclick="openCustomCard('english.webp')">
-                <div class="card-image-container">
-                    <img src="eng-1.webp" alt="Rajwada Elegance" class="card-image">
-                    <div class="card-overlay">
-                        <span class="card-theme">Rajwada Elegance</span>
+                    <div class="mt-3 text-center">
+                        <h3 class="font-semibold text-gray-800 text-sm md:text-base">Royal Golden</h3>
+                        <p class="text-xs text-gray-500">Wedding Theme</p>
                     </div>
-                </div>
-            </article>
-        </div>		
-        <div class="horizontal-scroll-wrapper" id="customCardsWrapper" style="justify-content: center; padding: 1rem;">
-            <article class="custom-card" onclick="openCustomCard('hindi.webp')">
-                <div class="card-image-container">
-                    <img src="hin-1.webp" alt="Marwar Royal Charm" class="card-image">
-                    <div class="card-overlay">
-                        <span class="card-theme">Marwar Royal Charm</span>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('eOKX4xSyFoA', 'vertical')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="Sample 02.webp" alt="Vertical Wedding Card Sample 02" class="w-full h-full object-cover" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition">
+                                <span class="text-rose-600 text-lg md:text-xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">02</span>
                     </div>
-                </div>
-            </article>
-        </div>
-    </div>
-</section>
-    </div>
-    <div class="scrollable-content">
-        <section id="vertical">
-            <h2 data-en="Vertical Format" data-hi="वर्टिकल फॉर्मेट">Vertical Format</h2>
-            <p class="section-description" data-en="Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos." data-hi="व्हाट्सएप स्टेटस, इंस्टाग्राम स्टोरीज और फेसबुक स्टोरीज के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for WhatsApp Status, Instagram Stories, and Facebook Stories. Click to play videos.</p>
-            <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('_NyMgwNPgD4', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 01.webp" alt="Sample 01" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 01</span></div><div class="sample-info"><h3>Sample 01</h3><p>Royal golden theme</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('eOKX4xSyFoA', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 02.webp" alt="Sample 02" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 02</span></div><div class="sample-info"><h3>Sample 02</h3><p>Elegant wedding invitation</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('iVG0zxZxhIQ', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 03.webp" alt="Sample 03" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 03</span></div><div class="sample-info"><h3>Sample 03</h3><p>Modern fusion design</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('sSmjd6f9zbY', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 04.webp" alt="Sample 04" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 04</span></div><div class="sample-info"><h3>Sample 04</h3><p>Contemporary romantic</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('rbuVLRvd2Xs', 'vertical')"><div class="video-container ratio-9-16"><img src="Sample 05.webp" alt="Sample 05" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 05</span></div><div class="sample-info"><h3>Sample 05</h3><p>Elegant floral design</p></div></article>
-                <div class="more-button-container"><a class="more-button vertical"><span>More Vertical</span><span class="arrow">→</span></a></div>
+                    <div class="mt-3 text-center">
+                        <h3 class="font-semibold text-gray-800 text-sm md:text-base">Floral Elegance</h3>
+                        <p class="text-xs text-gray-500">Wedding Theme</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('iVG0zxZxhIQ', 'vertical')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="Sample 03.webp" alt="Vertical Wedding Card Sample 03" class="w-full h-full object-cover" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition">
+                                <span class="text-rose-600 text-lg md:text-xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">03</span>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <h3 class="font-semibold text-gray-800 text-sm md:text-base">Modern Fusion</h3>
+                        <p class="text-xs text-gray-500">Wedding Theme</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('sSmjd6f9zbY', 'vertical')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="Sample 04.webp" alt="Vertical Wedding Card Sample 04" class="w-full h-full object-cover" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition">
+                                <span class="text-rose-600 text-lg md:text-xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">04</span>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <h3 class="font-semibold text-gray-800 text-sm md:text-base">Contemporary</h3>
+                        <p class="text-xs text-gray-500">Wedding Theme</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer hidden sm:block" onclick="openYouTubeModal('rbuVLRvd2Xs', 'vertical')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                        <img src="Sample 05.webp" alt="Vertical Wedding Card Sample 05" class="w-full h-full object-cover" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition">
+                                <span class="text-rose-600 text-lg md:text-xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">05</span>
+                    </div>
+                    <div class="mt-3 text-center">
+                        <h3 class="font-semibold text-gray-800 text-sm md:text-base">Elegant Floral</h3>
+                        <p class="text-xs text-gray-500">Wedding Theme</p>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="horizontal">
-            <h2 data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</h2>
-            <p class="section-description" data-en="Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos." data-hi="व्हाट्सएप मैसेजेस, फेसबुक पोस्ट्स और ट्विटर के लिए आदर्श। वीडियो चलाने के लिए क्लिक करें।">Ideal for WhatsApp Messages, Facebook Posts, and Twitter. Click to play videos.</p>
-            <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('P1B9_CF8Wcw', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 31.webp" alt="Sample 31" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 31</span></div><div class="sample-info"><h3>Sample 31</h3><p>Elegant widescreen design</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('nbxg8O1WWNA', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 32.webp" alt="Sample 32" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 32</span></div><div class="sample-info"><h3>Sample 32</h3><p>Classic panoramic format</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('WsAhAjwEqy8', 'horizontal')"><div class="video-container ratio-16-9"><img src="Sample 33.webp" alt="Sample 33" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 33</span></div><div class="sample-info"><h3>Sample 33</h3><p>Modern cinematic style</p></div></article>
-                <div class="more-button-container"><a class="more-button horizontal"><span>More Horizontal</span><span class="arrow">→</span></a></div>
+        <!-- Horizontal Format Section -->
+        <section id="horizontal" class="mb-12 md:mb-16 scroll-mt-28">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 border-b border-gray-100 pb-4 gap-3">
+                <div>
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900" data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</h2>
+                    <p class="text-gray-500 mt-1 text-sm md:text-base" data-en="Ideal for YouTube & Large Screens (16:9)" data-hi="यूट्यूब और बड़ी स्क्रीन के लिए आदर्श (16:9)">Ideal for YouTube & Large Screens (16:9)</p>
+                </div>
+                <a href="more-horizontal-format.html" class="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <span data-en="More Horizontal Format" data-hi="और हॉरिजॉन्टल फॉर्मेट">More Horizontal Format</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('P1B9_CF8Wcw', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="Sample 31.webp" alt="Horizontal Wedding Card Sample 31" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-emerald-600 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">31</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Elegant Widescreen</h3>
+                        <div class="flex items-center justify-between mt-1">
+                            <span class="text-xs md:text-sm text-gray-500">Landscape Mode</span>
+                            <span class="text-emerald-600 font-bold text-sm">Buy Now</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('nbxg8O1WWNA', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="Sample 32.webp" alt="Horizontal Wedding Card Sample 32" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-emerald-600 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">32</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Classic Panoramic</h3>
+                        <div class="flex items-center justify-between mt-1">
+                            <span class="text-xs md:text-sm text-gray-500">Wide Format</span>
+                            <span class="text-emerald-600 font-bold text-sm">Buy Now</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('WsAhAjwEqy8', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="Sample 33.webp" alt="Horizontal Wedding Card Sample 33" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-emerald-600 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">33</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Cinematic Style</h3>
+                        <div class="flex items-center justify-between mt-1">
+                            <span class="text-xs md:text-sm text-gray-500">Movie Style</span>
+                            <span class="text-emerald-600 font-bold text-sm">Buy Now</span>
+                        </div>
+                    </div>
+                </article>
             </div>
         </section>
 
-        <section id="square">
-            <h2 data-en="Square Format" data-hi="स्क्वायर फॉर्मेट">Square Format</h2>
-            <p class="section-description" data-en="Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos." data-hi="इंस्टाग्राम पोस्ट्स, फेसबुक फीड और प्रोफाइल पिक्चर्स के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for Instagram Posts, Facebook Feed, and Profile Pictures. Click to play videos.</p>
-            <div class="samples-grid">
-                <article class="sample-card" onclick="openYouTubeModal('lcHndGWwrKM', 'square')"><div class="video-container ratio-1-1"><img src="Sample 61.webp" alt="Sample 61" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 61</span></div><div class="sample-info"><h3>Sample 61</h3><p>Perfect for Instagram</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('6wm383QsA2I', 'square')"><div class="video-container ratio-1-1"><img src="Sample 62.webp" alt="Sample 62" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 62</span></div><div class="sample-info"><h3>Sample 62</h3><p>Traditional square design</p></div></article>
-                <article class="sample-card" onclick="openYouTubeModal('Y6vLrSeWw0c', 'square')"><div class="video-container ratio-1-1"><img src="Sample 63.webp" alt="Sample 63" class="thumbnail-img"><div class="video-play-btn">▶</div><span class="duration-badge">Card 63</span></div><div class="sample-info"><h3>Sample 63</h3><p>Contemporary social media</p></div></article>
-                <div class="more-button-container"><a class="more-button square"><span>More Square</span><span class="arrow">→</span></a></div>
+        <!-- Square Format Section -->
+        <section id="square" class="mb-12 md:mb-16 scroll-mt-28">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 border-b border-gray-100 pb-4 gap-3">
+                <div>
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900" data-en="Square Format" data-hi="स्क्वायर फॉर्मेट">Square Format</h2>
+                    <p class="text-gray-500 mt-1 text-sm md:text-base" data-en="Perfect for Instagram & Facebook Posts (1:1)" data-hi="इंस्टाग्राम और फेसबुक पोस्ट्स के लिए एकदम सही (1:1)">Perfect for Instagram & Facebook Posts (1:1)</p>
+                </div>
+                <a href="more-square-format.html" class="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-violet-500 to-purple-600 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <span data-en="More Square Format" data-hi="और स्क्वायर फॉर्मेट">More Square Format</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('lcHndGWwrKM', 'square')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-square shadow-md">
+                        <img src="Sample 61.webp" alt="Square Wedding Card Sample 61" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-violet-600 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">61</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Instagram Perfect</h3>
+                        <p class="text-xs md:text-sm text-gray-500">Social Media Ready</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('6wm383QsA2I', 'square')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-square shadow-md">
+                        <img src="Sample 62.webp" alt="Square Wedding Card Sample 62" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-violet-600 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">62</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Traditional Square</h3>
+                        <p class="text-xs md:text-sm text-gray-500">Classic Design</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('Y6vLrSeWw0c', 'square')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-square shadow-md">
+                        <img src="Sample 63.webp" alt="Square Wedding Card Sample 63" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-violet-600 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">63</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Contemporary Social</h3>
+                        <p class="text-xs md:text-sm text-gray-500">Modern Style</p>
+                    </div>
+                </article>
             </div>
         </section>
 
-       <section id="birthday">
-    <div class="section-main-label" id="birthday-label">
-        <span data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</span>
-    </div>
-    <h2 data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</h2>
-    <p class="section-description" data-en="Perfect for celebrating birthdays with joy and style. Click to play videos." data-hi="खुशी और स्टाइल के साथ जन्मदिन मनाने के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for celebrating birthdays with joy and style. Click to play videos.</p>
-    <div class="samples-grid">
-        <article class="sample-card" onclick="openYouTubeModal('fPnNSwBa1AE', 'horizontal')">
-            <div class="video-container ratio-16-9">
-                <img src="BD 01.webp" alt="BD 01" class="thumbnail-img">
-                <div class="video-play-btn">▶</div>
-                <span class="duration-badge">BD 01</span>
+        <!-- Birthday Cards Section -->
+        <section id="birthday" class="mb-12 md:mb-16 scroll-mt-28">
+            <div class="section-main-label text-orange-500" id="birthday-label">
+                <span data-en="Birthday Cards" data-hi="जन्मदिन कार्ड्स">Birthday Cards</span>
             </div>
-            <div class="sample-info">
-                <h3>BD 01</h3>
-                <p>Colorful balloon celebration</p>
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 border-b border-gray-100 pb-4 gap-3">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800" data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</h2>
+                    <p class="text-gray-500 mt-1 text-sm md:text-base" data-en="Perfect for celebrating birthdays with joy and style. Click to play videos." data-hi="खुशी और स्टाइल के साथ जन्मदिन मनाने के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
+                        Perfect for celebrating birthdays with joy and style.
+                    </p>
+                </div>
+                <a href="more-birthday-cards.html" class="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <span data-en="More Birthday Cards" data-hi="और जन्मदिन कार्ड्स">More Birthday Cards</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
             </div>
-        </article>
-        <article class="sample-card" onclick="openYouTubeModal('fPnNSwBa1AE', 'horizontal')">
-            <div class="video-container ratio-16-9">
-                <img src="BD 02.webp" alt="BD 02" class="thumbnail-img">
-                <div class="video-play-btn">▶</div>
-                <span class="duration-badge">BD 02</span>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('fPnNSwBa1AE', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="BD 01.webp" alt="Birthday Card BD 01" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-orange-500 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">BD 01</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Balloon Celebration</h3>
+                        <p class="text-xs md:text-sm text-gray-500">Colorful Birthday Theme</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('fPnNSwBa1AE', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="BD 02.webp" alt="Birthday Card BD 02" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-orange-500 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">BD 02</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Cake Party Theme</h3>
+                        <p class="text-xs md:text-sm text-gray-500">Elegant Celebration</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('fPnNSwBa1AE', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="BD 03.webp" alt="Birthday Card BD 03" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-orange-500 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">BD 03</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Confetti Explosion</h3>
+                        <p class="text-xs md:text-sm text-gray-500">Fun & Exciting</p>
+                    </div>
+                </article>
             </div>
-            <div class="sample-info">
-                <h3>BD 02</h3>
-                <p>Elegant cake party theme</p>
-            </div>
-        </article>
-        <article class="sample-card" onclick="openYouTubeModal('fPnNSwBa1AE', 'horizontal')">
-            <div class="video-container ratio-16-9">
-                <img src="BD 03.webp" alt="BD 03" class="thumbnail-img">
-                <div class="video-play-btn">▶</div>
-                <span class="duration-badge">BD 03</span>
-            </div>
-            <div class="sample-info">
-                <h3>BD 03</h3>
-                <p>Fun confetti explosion</p>
-            </div>
-        </article>
-        <div class="more-button-container"><a class="more-button horizontal"><span>More Birthday</span><span class="arrow">→</span></a></div>
-    </div>
-</section>
-        <section id="anniversary">
-    <div class="section-main-label" id="anniversary-label">
-        <span data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</span>
-    </div>
-    <h2 data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</h2>
-    <p class="section-description" data-en="Perfect for celebrating your love milestones. Click to play videos." data-hi="अपने प्यार के मील के पत्थरों का जश्न मनाने के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">Perfect for celebrating your love milestones. Click to play videos.</p>
-    <div class="samples-grid">
-        <article class="sample-card" onclick="openYouTubeModal('pB7HWstrcqw', 'horizontal')">
-            <div class="video-container ratio-16-9">
-                <img src="av 01.webp" alt="AV 01" class="thumbnail-img">
-                <div class="video-play-btn">▶</div>
-                <span class="duration-badge">AV 01</span>
-            </div>
-            <div class="sample-info">
-                <h3>AV 01</h3>
-                <p>Golden years celebration</p>
-            </div>
-        </article>
-        <article class="sample-card" onclick="openYouTubeModal('pB7HWstrcqw', 'horizontal')">
-            <div class="video-container ratio-16-9">
-                <img src="av 02.webp" alt="AV 02" class="thumbnail-img">
-                <div class="video-play-btn">▶</div>
-                <span class="duration-badge">AV 02</span>
-            </div>
-            <div class="sample-info">
-                <h3>AV 02</h3>
-                <p>Ruby romance theme</p>
-            </div>
-        </article>
-        <article class="sample-card" onclick="openYouTubeModal('pB7HWstrcqw', 'horizontal')">
-            <div class="video-container ratio-16-9">
-                <img src="av 03.webp" alt="AV 03" class="thumbnail-img">
-                <div class="video-play-btn">▶</div>
-                <span class="duration-badge">AV 03</span>
-            </div>
-            <div class="sample-info">
-                <h3>AV 03</h3>
-                <p>Silver jubilee elegance</p>
-            </div>
-        </article>
-    </div>
-</section>
-       <section id="customized">
-    <div class="section-main-label" id="customized-label"><span data-en="Customized Cards" data-hi="कस्टमाइज्ड कार्ड्स">Customized Cards</span></div>
-    <p class="section-description" style="text-align: center;" data-en="Click on this card, Enter your details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="इस कार्ड पर क्लिक करें, अपना विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">Click on this card, Enter your details and get your FREE PERSONALIZED DIGITAL CARD.</p>
-    
-   
+        </section>
 
-    <div class="bottom-info-section"><div class="info-box"><p data-en="Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!" data-hi="इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें!">Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!</p></div></div>
+        <!-- Anniversary Cards Section -->
+        <section id="anniversary" class="mb-12 md:mb-16 scroll-mt-28">
+            <div class="section-main-label text-blue-500" id="anniversary-label">
+                <span data-en="Anniversary Cards" data-hi="सालगिरह कार्ड्स">Anniversary Cards</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 border-b border-gray-100 pb-4 gap-3">
+                <div>
+                    <h2 class="text-xl md:text-2xl font-bold text-gray-800" data-en="Horizontal Format" data-hi="हॉरिजॉन्टल फॉर्मेट">Horizontal Format</h2>
+                    <p class="text-gray-500 mt-1 text-sm md:text-base" data-en="Perfect for celebrating your love milestones. Click to play videos." data-hi="अपने प्यार के मील के पत्थरों का जश्न मनाने के लिए एकदम सही। वीडियो चलाने के लिए क्लिक करें।">
+                        Perfect for celebrating your love milestones.
+                    </p>
+                </div>
+                <a href="more-anniversary-cards.html" class="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <span data-en="More Anniversary Cards" data-hi="और सालगिरह कार्ड्स">More Anniversary Cards</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('pB7HWstrcqw', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="av 01.webp" alt="Anniversary Card AV 01" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-blue-500 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">AV 01</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Golden Years</h3>
+                        <p class="text-xs md:text-sm text-gray-500">50th Anniversary</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('pB7HWstrcqw', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="av 02.webp" alt="Anniversary Card AV 02" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-blue-500 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">AV 02</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Ruby Romance</h3>
+                        <p class="text-xs md:text-sm text-gray-500">40th Anniversary</p>
+                    </div>
+                </article>
+                
+                <article class="video-card group cursor-pointer" onclick="openYouTubeModal('pB7HWstrcqw', 'horizontal')">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-horizontal shadow-md">
+                        <img src="av 03.webp" alt="Anniversary Card AV 03" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" loading="lazy">
+                        <div class="play-overlay absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 transition duration-300">
+                            <div class="w-12 h-12 md:w-16 md:h-16 bg-white/90 rounded-full flex items-center justify-center shadow-xl">
+                                <span class="text-blue-500 text-xl md:text-2xl ml-0.5">▶</span>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-0.5 rounded">AV 03</span>
+                    </div>
+                    <div class="mt-3 md:mt-4">
+                        <h3 class="font-bold text-base md:text-lg text-gray-800">Silver Jubilee</h3>
+                        <p class="text-xs md:text-sm text-gray-500">25th Anniversary</p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-    <footer>
-        <div class="footer-links">
-            <a onclick="scrollToTop()" data-en="Home" data-hi="होम">Home</a>
-            <a href="https://wa.me/9413451477" target="_blank" data-en="WhatsApp" data-hi="व्हाट्सएप">WhatsApp</a>
-            <a onclick="loadCancellationModal(currentLang)" style="cursor: pointer;" data-en="Cancellation Policy" data-hi="रद्दकरण नीति">Cancellation Policy</a>
-            <a onclick="loadPrivacyModal(currentLang)" style="cursor: pointer;" data-en="Privacy Policy" data-hi="गोपनीयता नीति">Privacy Policy</a>
-            <a onclick="loadTermsModal(currentLang)" style="cursor: pointer;" data-en="Terms & Conditions" data-hi="नियम और शर्तें">Terms & Conditions</a>
+        <!-- Customized Cards Section -->
+        <section id="customized" class="mb-12 md:mb-16 scroll-mt-28">
+            <div class="section-main-label text-teal-500" id="customized-label">
+                <span data-en="Customized Cards" data-hi="कस्टमाइज्ड कार्ड्स">Customized Cards</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 md:mb-8 border-b border-gray-100 pb-4 gap-3">
+                <div>
+                    <p class="text-gray-500 text-sm md:text-base" data-en="Click on this card, Enter your details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="इस कार्ड पर क्लिक करें, अपना विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">
+                        Click on this card, Enter your details and get your FREE PERSONALIZED DIGITAL CARD.
+                    </p>
+                </div>
+                <a href="more-customized-cards.html" class="inline-flex items-center justify-center gap-2 px-4 md:px-6 py-2 md:py-2.5 bg-gradient-to-r from-teal-500 to-cyan-600 text-white text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition transform hover:-translate-y-0.5 w-full sm:w-auto">
+                    <span data-en="More Customized Cards" data-hi="और कस्टमाइज्ड कार्ड्स">More Customized Cards</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            
+            <!-- Info Box -->
+            <div class="bg-gradient-to-r from-teal-50 to-cyan-50 border-l-4 border-teal-400 p-4 md:p-6 rounded-r-lg max-w-3xl mx-auto">
+                <p class="text-gray-600 leading-relaxed text-sm md:text-base" data-en="Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!" data-hi="इन कार्डों में से अपनी पसंद के सैम्पल का नम्बर हमें व्हाट्सएप पर भेजें। हम आपके लिए एक खास डिजिटल कार्ड तैयार करेंगे, जिससे आपका यह विशेष दिन और भी यादगार बन जाए। जल्दी करें, अपनी पसंदीदा डिज़ाइन आज ही चुनें!">
+                    Send us the sample number of your choice of these cards via WhatsApp. We'll create a unique digital card for you, making your special day even more memorable. Hurry, choose your favorite design today!
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Full Width Footer -->
+    <footer class="bg-gray-900 text-white py-10 md:py-12 w-full">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 border-b border-gray-800 pb-8 md:pb-12">
+                <div class="sm:col-span-2 lg:col-span-1">
+                    <div class="flex items-center space-x-2 mb-4 md:mb-6">
+                        <img src="https://videocard.in/v-logo.webp" alt="VideoCard Logo" class="h-7 md:h-8 w-auto brightness-0 invert" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed" data-en="The ultimate platform for creating digital memories. Join thousands of happy customers sharing their joy via WhatsApp." data-hi="डिजिटल यादें बनाने के लिए अंतिम प्लेटफॉर्म। हजारों खुशहाल ग्राहकों से जुड़ें जो व्हाट्सएप के माध्यम से अपनी खुशी साझा कर रहे हैं।">
+                        The ultimate platform for creating digital memories. Join thousands of happy customers sharing their joy via WhatsApp.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 md:mb-6 text-sm md:text-base" data-en="Quick Links" data-hi="त्वरित लिंक">Quick Links</h4>
+                    <ul class="space-y-2 md:space-y-3 text-sm text-gray-400">
+                        <li><a onclick="scrollToSection('vertical')" class="hover:text-white transition cursor-pointer">Wedding Cards</a></li>
+                        <li><a onclick="scrollToSection('birthday')" class="hover:text-white transition cursor-pointer">Birthday Cards</a></li>
+                        <li><a onclick="scrollToSection('anniversary')" class="hover:text-white transition cursor-pointer">Anniversary Cards</a></li>
+                        <li><a onclick="scrollToSection('customized')" class="hover:text-white transition cursor-pointer">Customized Cards</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 md:mb-6 text-sm md:text-base" data-en="Legal" data-hi="कानूनी">Legal</h4>
+                    <ul class="space-y-2 md:space-y-3 text-sm text-gray-400">
+                        <li><a onclick="loadPrivacyModal(currentLang)" class="hover:text-white transition cursor-pointer">Privacy Policy</a></li>
+                        <li><a onclick="loadCancellationModal(currentLang)" class="hover:text-white transition cursor-pointer">Cancellation Policy</a></li>
+                        <li><a onclick="loadTermsModal(currentLang)" class="hover:text-white transition cursor-pointer">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 md:mb-6 text-sm md:text-base" data-en="Connect With Us" data-hi="हमसे जुड़ें">Connect With Us</h4>
+                    <a href="https://wa.me/9413451477" class="flex items-center text-gray-400 hover:text-green-400 transition mb-3 md:mb-4">
+                        <img src="https://videocard.in/w-icon.webp" class="w-5 h-5 mr-3" alt="WA" loading="lazy">
+                        +91 94134 51477
+                    </a>
+                    <p class="text-xs text-gray-500" data-en="Monday - Sunday: 9:00 AM - 9:00 PM" data-hi="सोमवार - रविवार: सुबह 9:00 - रात 9:00">Monday - Sunday: 9:00 AM - 9:00 PM</p>
+                </div>
+            </div>
+            <div class="mt-6 md:mt-8 text-center text-xs text-gray-500">
+                <p data-en="&copy; 2026 VideoCard.in | All Rights Reserved." data-hi="&copy; 2026 VideoCard.in | सर्वाधिकार सुरक्षित।">
+                    &copy; 2026 VideoCard.in | All Rights Reserved.
+                </p>
+            </div>
         </div>
-        <p class="footer-copyright" data-en="&copy; 2026 Digital Card Maker. Designed with ❤ for your special day." data-hi="&copy; 2026 डिजिटल कार्ड मेकर। Designed with ❤ for your special day.">&copy; 2026 Digital Card Maker.<br>Designed with ❤ for your special day.</p>
     </footer>
 
-    <div id="policyModal" class="modal"><div class="modal-content"><span class="close-modal" onclick="closeModal()">&times;</span><div id="modalContent"></div></div></div>
-    <div id="videoModal" class="video-modal"><div class="video-modal-content" id="videoModalContent"><span class="video-close-btn" onclick="closeVideoModal()">&times;</span><div class="video-wrapper" id="videoWrapper"></div></div></div>
+    <!-- Floating WhatsApp Button (Mobile) -->
+    <div class="fixed bottom-4 right-4 md:hidden z-40">
+        <a href="https://wa.me/9413451477" class="bg-green-500 w-12 h-12 rounded-full shadow-2xl flex items-center justify-center animate-pulse" aria-label="Contact on WhatsApp">
+            <img src="https://videocard.in/w-icon.webp" class="w-6 h-6" alt="WhatsApp" loading="lazy">
+        </a>
+    </div>
+
+    <!-- Policy Modal -->
+    <div id="policyModal" class="modal-overlay" onclick="if(event.target === this) closeModal()">
+        <div class="modal-content-box mx-4">
+            <span class="absolute top-3 right-4 text-2xl md:text-3xl text-gray-400 hover:text-gray-600 cursor-pointer transition" onclick="closeModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal-overlay" onclick="if(event.target === this) closeVideoModal()">
+        <div id="videoModalBox" class="video-modal-box vertical mx-4">
+            <span class="absolute -top-3 -right-3 w-8 h-8 md:w-10 md:h-10 bg-white rounded-full flex items-center justify-center text-gray-600 hover:text-red-500 cursor-pointer shadow-lg transition transform hover:scale-110 z-10" onclick="closeVideoModal()">&times;</span>
+            <div id="videoWrapper" class="w-full h-full rounded-lg overflow-hidden bg-black"></div>
+        </div>
+    </div>
 
     <script>
         let currentLang = localStorage.getItem('lang') || 'en';
 
-        function scrollToTop() { window.scrollTo({ top: 0, behavior: 'smooth' }); closeMobileMenu(); }
-        function scrollToSection(id) { const el = document.getElementById(id); if(el) window.scrollTo({ top: el.offsetTop - 180, behavior: 'smooth' }); closeMobileMenu(); }
-        function toggleMobileMenu(e) { if(e) e.stopPropagation(); document.getElementById('mobileNav').classList.toggle('show'); document.getElementById('mobileMenuBtn').classList.toggle('active'); }
-        function closeMobileMenu() { document.getElementById('mobileNav')?.classList.remove('show'); document.getElementById('mobileMenuBtn')?.classList.remove('active'); }
+        function scrollToSection(id) { 
+            const el = document.getElementById(id); 
+            if(el) {
+                const headerOffset = 100;
+                const elementPosition = el.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' }); 
+            }
+            closeMobileMenu(); 
+        }
+        
+        function toggleMobileMenu(e) { 
+            if(e) e.stopPropagation(); 
+            document.getElementById('mobileNav').classList.toggle('show'); 
+            document.getElementById('mobileMenuBtn').classList.toggle('active'); 
+        }
+        
+        function closeMobileMenu() { 
+            document.getElementById('mobileNav')?.classList.remove('show'); 
+            document.getElementById('mobileMenuBtn')?.classList.remove('active'); 
+        }
         
         function updateContent(lang) {
-            document.querySelectorAll('[data-en]').forEach(el => { if(el.tagName !== 'IMG') el.textContent = lang === 'hi' ? el.getAttribute('data-hi') : el.getAttribute('data-en'); });
-            const mt = document.getElementById('marqueeText'); if(mt) mt.textContent = lang === 'hi' ? mt.getAttribute('data-hi') : mt.getAttribute('data-en');
+            document.querySelectorAll('[data-en]').forEach(el => { 
+                if(el.tagName !== 'IMG') el.textContent = lang === 'hi' ? el.getAttribute('data-hi') : el.getAttribute('data-en'); 
+            });
             document.getElementById('langToggle').textContent = lang === 'hi' ? 'English' : 'हिन्दी';
-            localStorage.setItem('lang', lang); currentLang = lang;
+            localStorage.setItem('lang', lang); 
+            currentLang = lang;
         }
-        function toggleLanguage() { updateContent(currentLang === 'en' ? 'hi' : 'en'); }
         
-        function closeModal() { document.getElementById('policyModal').style.display = 'none'; document.body.style.overflow = ''; }
+        function toggleLanguage() { 
+            updateContent(currentLang === 'en' ? 'hi' : 'en'); 
+        }
+        
+        function closeModal() { 
+            document.getElementById('policyModal').classList.remove('show'); 
+            document.body.style.overflow = ''; 
+        }
+        
         function showPolicyModal(titleHTML, contentHTML) { 
-            document.getElementById('modalContent').innerHTML = `<div class="modal-policy-content">${titleHTML}${contentHTML}</div>`; 
-            document.getElementById('policyModal').style.display = 'block'; document.body.style.overflow = 'hidden'; 
+            document.getElementById('modalContent').innerHTML = `<div class="prose max-w-none">${titleHTML}${contentHTML}</div>`; 
+            document.getElementById('policyModal').classList.add('show'); 
+            document.body.style.overflow = 'hidden'; 
         }
 
-        // Cancellation Policy - Exact text as requested with point 5 highlighted
+        // Cancellation Policy
         function loadCancellationModal(lang) {
             const isHindi = lang === 'hi';
-            const titleEmoji = isHindi ? '❌/🚫 रद्दकरण नीति (Cancellation Policy)' : '❌/🚫 Cancellation Policy';
+            const titleEmoji = isHindi ? '❌/🚫 रद्दकरण नीति' : '❌/🚫 Cancellation Policy';
             let content = '';
             if (isHindi) {
                 content = `
-                    <p style="margin-bottom:1rem;">डिजिटल कार्ड मेकर (videocard.in), हम आपके विशेष अवसरों के लिए सर्वोत्तम सेवा प्रदान करने का प्रयास करते हैं। कृपया हमारी रद्दीकरण नीति को ध्यान से पढ़ें:</p>
-                    <ul>
+                    <p class="mb-4 text-sm md:text-base">डिजिटल कार्ड मेकर (videocard.in), हम आपके विशेष अवसरों के लिए सर्वोत्तम सेवा प्रदान करने का प्रयास करते हैं। कृपया हमारी रद्दीकरण नीति को ध्यान से पढ़ें:</p>
+                    <ul class="list-disc ml-5 md:ml-6 mb-4 space-y-2 text-sm md:text-base">
                         <li>1. ऑर्डर देने के 2 घंटों के भीतर रद्द करने पर पूर्ण धनवापसी।</li>
                         <li>2. ऑर्डर देने के 4 से 8 घंटों के बीच रद्द करने पर 50% धनवापसी।</li>
                         <li>3. 8 घंटे बाद या डिज़ाइन कार्य शुरू होने के बाद रद्द करने पर कोई धनवापसी नहीं।</li>
                         <li>4. ऑर्डर रद्द करने हेतु क्लाइंट व्हाट्सएप से संपर्क करेगा।</li>
                     </ul>
-                    <div class="highlight-point">5. सभी स्वीकृत धनवापसी 7-10 कार्य दिवसों के भीतर संसाधित की जाएंगी और भुगतान मूल स्रोत में वापस की जाएंगी।</div>
-                    <h3>📌 ऑर्डर कैसे रद्द करें ?</h3>
-                    <p>अपना ऑर्डर रद्द करने के लिए, कृपया अपने ऑर्डर विवरण के साथ हमें व्हाट्सएप पर संपर्क करें। हमारी टीम आपको रद्दीकरण प्रक्रिया में सहायता करेगी।</p>
-                    <div class="contact-wa">📞 contact us: 💬 +91-9413451477</div>
+                    <div class="highlight-point text-sm md:text-base">5. सभी स्वीकृत धनवापसी 7-10 कार्य दिवसों के भीतर संसाधित की जाएंगी और भुगतान मूल स्रोत में वापस की जाएंगी।</div>
+                    <h3 class="text-base md:text-lg font-bold mt-5 md:mt-6 mb-2">📌 ऑर्डर कैसे रद्द करें ?</h3>
+                    <p class="text-sm md:text-base">अपना ऑर्डर रद्द करने के लिए, कृपया अपने ऑर्डर विवरण के साथ हमें व्हाट्सएप पर संपर्क करें। हमारी टीम आपको रद्दीकरण प्रक्रिया में सहायता करेगी।</p>
+                    <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 md:px-4 py-2 rounded-full mt-4 font-semibold text-sm">
+                        📞 contact us: 💬 +91-9413451477
+                    </div>
                 `;
             } else {
                 content = `
-                    <p style="margin-bottom:1rem;">At Digital Card Maker (videocard.in), we strive to provide the best service for your special occasions. Please read our cancellation policy carefully:</p>
-                    <ul>
+                    <p class="mb-4 text-sm md:text-base">At Digital Card Maker (videocard.in), we strive to provide the best service for your special occasions. Please read our cancellation policy carefully:</p>
+                    <ul class="list-disc ml-5 md:ml-6 mb-4 space-y-2 text-sm md:text-base">
                         <li>1. Full refund if cancelled within 2 hours of order placement.</li>
                         <li>2. 50% refund if cancelled between 4 to 8 hours of order placement.</li>
                         <li>3. No refund after 8 hours or once design work has commenced.</li>
                         <li>4. Client must contact via WhatsApp to cancel the order.</li>
                     </ul>
-                    <div class="highlight-point">5. All approved refunds will be processed within 7-10 business days and credited back to the original payment source.</div>
-                    <h3>📌 How to cancel an order?</h3>
-                    <p>To cancel your order, please contact us on WhatsApp with your order details. Our team will assist you through the cancellation process.</p>
-                    <div class="contact-wa">📞 contact us: 💬 +91-9413451477</div>
+                    <div class="highlight-point text-sm md:text-base">5. All approved refunds will be processed within 7-10 business days and credited back to the original payment source.</div>
+                    <h3 class="text-base md:text-lg font-bold mt-5 md:mt-6 mb-2">📌 How to cancel an order?</h3>
+                    <p class="text-sm md:text-base">To cancel your order, please contact us on WhatsApp with your order details. Our team will assist you through the cancellation process.</p>
+                    <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 md:px-4 py-2 rounded-full mt-4 font-semibold text-sm">
+                        📞 contact us: 💬 +91-9413451477
+                    </div>
                 `;
             }
-            showPolicyModal(`<h2 style="color: var(--secondary); margin-bottom: 1.2rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">${titleEmoji}</h2>`, content);
+            showPolicyModal(`<h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 pb-2 border-b-2 border-indigo-400">${titleEmoji}</h2>`, content);
         }
 
+        // Privacy Policy
         function loadPrivacyModal(lang) {
             const isHindi = lang === 'hi';
             const titleEmoji = isHindi ? '🔒 गोपनीयता नीति' : '🔒 Privacy Policy';
             let content = isHindi ? 
-                `<p><strong>अंतिम अद्यतन:</strong> मार्च 2026</p><p>आपकी गोपनीयता हमारे लिए महत्वपूर्ण है। यह गोपनीयता नीति बताती है कि हम आपकी व्यक्तिगत जानकारी को कैसे एकत्र, उपयोग और सुरक्षित करते हैं।</p><h3>हम कौन सी जानकारी एकत्र करते हैं</h3><ul><li>नाम और संपर्क जानकारी</li><li>व्हाट्सएप नंबर</li><li>कार्ड कस्टमाइज़ेशन के लिए फ़ोटो</li><li>भुगतान जानकारी (सुरक्षित रूप से संसाधित)</li></ul><h3>हम आपकी जानकारी का उपयोग कैसे करते हैं</h3><ul><li>व्यक्तिगत डिजिटल कार्ड बनाने के लिए</li><li>ऑर्डर के बारे में संवाद करने के लिए</li><li>सेवाओं को बेहतर बनाने के लिए</li></ul><h3>डेटा संरक्षण</h3><p>हम आपकी व्यक्तिगत जानकारी को अनधिकृत पहुंच से बचाने के लिए उचित सुरक्षा उपायों को लागू करते हैं।</p><p>प्रश्नों के लिए संपर्क करें: 📧 info@videocard.in</p>` :
-                `<p><strong>Last updated:</strong> March 2026</p><p>Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information.</p><h3>Information We Collect</h3><ul><li>Name and contact information</li><li>WhatsApp number for communication</li><li>Photos and details for card customization</li><li>Payment information (processed securely)</li></ul><h3>How We Use Your Information</h3><ul><li>To create your personalized digital card</li><li>To communicate about your order</li><li>To improve our services</li></ul><h3>Data Protection</h3><p>We implement appropriate security measures to protect your personal information.</p><p>For questions, contact: 📧 info@videocard.in</p>`;
-            showPolicyModal(`<h2 style="color: var(--secondary); margin-bottom: 1.2rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">${titleEmoji}</h2>`, content);
+                `<p class="mb-2 text-sm md:text-base"><strong>अंतिम अद्यतन:</strong> मार्च 2026</p>
+                <p class="mb-4 text-sm md:text-base">आपकी गोपनीयता हमारे लिए महत्वपूर्ण है। यह गोपनीयता नीति बताती है कि हम आपकी व्यक्तिगत जानकारी को कैसे एकत्र, उपयोग और सुरक्षित करते हैं।</p>
+                <h3 class="text-base md:text-lg font-bold mt-4 mb-2">हम कौन सी जानकारी एकत्र करते हैं</h3>
+                <ul class="list-disc ml-5 md:ml-6 mb-4 space-y-1 text-sm md:text-base">
+                    <li>नाम और संपर्क जानकारी</li>
+                    <li>व्हाट्सएप नंबर</li>
+                    <li>कार्ड कस्टमाइज़ेशन के लिए फ़ोटो</li>
+                    <li>भुगतान जानकारी (सुरक्षित रूप से संसाधित)</li>
+                </ul>
+                <h3 class="text-base md:text-lg font-bold mt-4 mb-2">हम आपकी जानकारी का उपयोग कैसे करते हैं</h3>
+                <ul class="list-disc ml-5 md:ml-6 mb-4 space-y-1 text-sm md:text-base">
+                    <li>व्यक्तिगत डिजिटल कार्ड बनाने के लिए</li>
+                    <li>ऑर्डर के बारे में संवाद करने के लिए</li>
+                    <li>सेवाओं को बेहतर बनाने के लिए</li>
+                </ul>
+                <h3 class="text-base md:text-lg font-bold mt-4 mb-2">डेटा संरक्षण</h3>
+                <p class="text-sm md:text-base">हम आपकी व्यक्तिगत जानकारी को अनधिकृत पहुंच से बचाने के लिए उचित सुरक्षा उपायों को लागू करते हैं।</p>
+                <p class="mt-4 text-sm md:text-base">प्रश्नों के लिए संपर्क करें: 📧 info@videocard.in</p>` :
+                
+                `<p class="mb-2 text-sm md:text-base"><strong>Last updated:</strong> March 2026</p>
+                <p class="mb-4 text-sm md:text-base">Your privacy is important to us. This Privacy Policy explains how we collect, use, and protect your personal information.</p>
+                <h3 class="text-base md:text-lg font-bold mt-4 mb-2">Information We Collect</h3>
+                <ul class="list-disc ml-5 md:ml-6 mb-4 space-y-1 text-sm md:text-base">
+                    <li>Name and contact information</li>
+                    <li>WhatsApp number for communication</li>
+                    <li>Photos and details for card customization</li>
+                    <li>Payment information (processed securely)</li>
+                </ul>
+                <h3 class="text-base md:text-lg font-bold mt-4 mb-2">How We Use Your Information</h3>
+                <ul class="list-disc ml-5 md:ml-6 mb-4 space-y-1 text-sm md:text-base">
+                    <li>To create your personalized digital card</li>
+                    <li>To communicate about your order</li>
+                    <li>To improve our services</li>
+                </ul>
+                <h3 class="text-base md:text-lg font-bold mt-4 mb-2">Data Protection</h3>
+                <p class="text-sm md:text-base">We implement appropriate security measures to protect your personal information.</p>
+                <p class="mt-4 text-sm md:text-base">For questions, contact: 📧 info@videocard.in</p>`;
+            showPolicyModal(`<h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 pb-2 border-b-2 border-indigo-400">${titleEmoji}</h2>`, content);
         }
 
+        // Terms & Conditions
         function loadTermsModal(lang) {
             const isHindi = lang === 'hi';
             const titleEmoji = isHindi ? '✍️ नियम और शर्तें' : '✍️ Terms & Conditions';
             let content = isHindi ? 
-                `<p>हमारी सेवा का उपयोग करके, आप सटीक जानकारी प्रदान करने के लिए सहमत होते हैं। अनुचित सामग्री के लिए हम सेवा अस्वीकार करने का अधिकार सुरक्षित रखते हैं। डिलीवरी समय अनुमानित हैं और भिन्न हो सकते हैं। कार्ड निर्माण शुरू होने से पहले पूर्ण भुगतान किया जाना चाहिए। सभी डिजिटल कार्ड सामग्री की बौद्धिक संपदा हमारे पास सुरक्षित रहती है।</p>` :
-                `<p>By using our service, you agree to provide accurate information for your digital cards. We reserve the right to refuse service for inappropriate content. Delivery times are estimates and may vary. Payment must be made in full before card creation begins. All digital card designs remain our intellectual property until final delivery.</p>`;
-            showPolicyModal(`<h2 style="color: var(--secondary); margin-bottom: 1.2rem; border-bottom: 2px solid var(--primary); padding-bottom: 0.5rem;">${titleEmoji}</h2>`, content);
+                `<p class="text-sm md:text-base">हमारी सेवा का उपयोग करके, आप सटीक जानकारी प्रदान करने के लिए सहमत होते हैं। अनुचित सामग्री के लिए हम सेवा अस्वीकार करने का अधिकार सुरक्षित रखते हैं। डिलीवरी समय अनुमानित हैं और भिन्न हो सकते हैं। कार्ड निर्माण शुरू होने से पहले पूर्ण भुगतान किया जाना चाहिए। सभी डिजिटल कार्ड सामग्री की बौद्धिक संपदा हमारे पास सुरक्षित रहती है।</p>` :
+                `<p class="text-sm md:text-base">By using our service, you agree to provide accurate information for your digital cards. We reserve the right to refuse service for inappropriate content. Delivery times are estimates and may vary. Payment must be made in full before card creation begins. All digital card designs remain our intellectual property until final delivery.</p>`;
+            showPolicyModal(`<h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 pb-2 border-b-2 border-indigo-400">${titleEmoji}</h2>`, content);
         }
 
-        function closeVideoModal() { const modal = document.getElementById('videoModal'); const wrapper = document.getElementById('videoWrapper'); const iframe = wrapper.querySelector('iframe'); if(iframe) iframe.src = 'about:blank'; wrapper.innerHTML = ''; modal.classList.remove('show'); document.body.style.overflow = ''; }
-        function openYouTubeModal(videoId, format='vertical') { 
-            const modal = document.getElementById('videoModal'); const contentDiv = document.getElementById('videoModalContent'); const wrapper = document.getElementById('videoWrapper'); 
-            wrapper.innerHTML = ''; contentDiv.classList.remove('vertical','horizontal','square'); contentDiv.classList.add(format); 
-            const iframe = document.createElement('iframe'); 
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=0&loop=1&playlist=${videoId}&modestbranding=1&rel=0`; 
-            iframe.allow = 'autoplay; fullscreen'; iframe.style.width='100%'; iframe.style.height='100%'; iframe.style.border='none'; iframe.style.position='absolute'; 
-            wrapper.appendChild(iframe); modal.classList.add('show'); document.body.style.overflow='hidden'; 
+        // Video Modal Functions
+        function closeVideoModal() { 
+            const modal = document.getElementById('videoModal'); 
+            const wrapper = document.getElementById('videoWrapper'); 
+            const iframe = wrapper.querySelector('iframe'); 
+            if(iframe) iframe.src = 'about:blank'; 
+            wrapper.innerHTML = ''; 
+            modal.classList.remove('show'); 
+            document.body.style.overflow = ''; 
         }
         
-        window.onclick = function(e) { if(e.target === document.getElementById('policyModal')) closeModal(); if(e.target === document.getElementById('videoModal')) closeVideoModal(); }
-        document.addEventListener('keydown', e => { if(e.key === 'Escape') { closeModal(); closeVideoModal(); } });
-        document.addEventListener('DOMContentLoaded', () => { updateContent(currentLang); });
-
-        // Horizontal scroll functions
-        function scrollCards(direction) {
-            const wrapper = document.getElementById('customCardsWrapper');
-            const scrollAmount = 220;
-            if (direction === 'left') {
-                wrapper.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            } else {
-                wrapper.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        function openYouTubeModal(videoId, format='vertical') { 
+            const modal = document.getElementById('videoModal'); 
+            const box = document.getElementById('videoModalBox'); 
+            const wrapper = document.getElementById('videoWrapper'); 
+            
+            wrapper.innerHTML = ''; 
+            
+            // Set format class
+            box.className = 'video-modal-box mx-4';
+            box.classList.add(format);
+            
+            const iframe = document.createElement('iframe'); 
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&playsinline=1&controls=1&loop=1&playlist=${videoId}&modestbranding=1&rel=0`; 
+            iframe.allow = 'autoplay; fullscreen'; 
+            iframe.className = 'w-full h-full';
+            iframe.style.border = 'none';
+            iframe.title = 'Video Preview';
+            
+            wrapper.appendChild(iframe); 
+            modal.classList.add('show'); 
+            document.body.style.overflow = 'hidden'; 
+        }
+        
+        // Custom Card Navigation
+        function openCustomCard(imageName) {
+            localStorage.setItem('selectedCardImage', imageName);
+            if (imageName === 'english.webp') {
+                window.location.href = 'free_eng.html';
+            } else if (imageName === 'hindi.webp') {
+                window.location.href = 'free_hindi.html';
             }
         }
-
-        // Touch swipe support for horizontal scrolling
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        const slider = document.getElementById('customCardsWrapper');
-
-        if (slider) {
-            slider.addEventListener('mousedown', (e) => {
-                isDown = true;
-                slider.style.cursor = 'grabbing';
-                startX = e.pageX - slider.offsetLeft;
-                scrollLeft = slider.scrollLeft;
-            });
-
-            slider.addEventListener('mouseleave', () => {
-                isDown = false;
-                slider.style.cursor = 'grab';
-            });
-
-            slider.addEventListener('mouseup', () => {
-                isDown = false;
-                slider.style.cursor = 'grab';
-            });
-
-            slider.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2;
-                slider.scrollLeft = scrollLeft - walk;
-            });
-
-            // Touch events for mobile swipe
-            slider.addEventListener('touchstart', (e) => {
-                startX = e.touches[0].pageX - slider.offsetLeft;
-                scrollLeft = slider.scrollLeft;
-            }, { passive: true });
-
-            slider.addEventListener('touchmove', (e) => {
-                const x = e.touches[0].pageX - slider.offsetLeft;
-                const walk = (x - startX) * 2;
-                slider.scrollLeft = scrollLeft - walk;
-            }, { passive: true });
-        }
-// Open custom card editor with selected image
-        function openCustomCard(imageName) {
-localStorage.setItem('selectedCardImage', imageName);
-    if (imageName === 'english.webp') {
-      window.location.href = 'free_eng.html'; // Navigate to the English page
-    } else if (imageName === 'hindi.webp') {
-      window.location.href = 'free_hindi.html'; // Navigate to the Hindi page
-    }
-  }
+        
+        // Event Listeners
+        document.addEventListener('keydown', e => { 
+            if(e.key === 'Escape') { 
+                closeModal(); 
+                closeVideoModal(); 
+            } 
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', e => {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileBtn = document.getElementById('mobileMenuBtn');
+            if (mobileNav?.classList.contains('show') && !mobileNav.contains(e.target) && !mobileBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => { 
+            updateContent(currentLang); 
+        });
     </script>
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
-    <img src="w-icon.webp" alt="WhatsApp" class="floating-whatsapp-img">
-</a>
 </body>
 </html>
