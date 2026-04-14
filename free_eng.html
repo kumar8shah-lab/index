@@ -99,11 +99,32 @@ button.download { background: #2a9d8f; color: white; }
 
 .floating-whatsapp-img:hover {
     transform: scale(1.1); /* Slight zoom effect on hover */
+
+
+.back-btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #f8f1e9;
+  border: none;
+  font-size: 20px;
+  color: #8B0000;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #e76f51;
+  color: white;
+}
 </style>
 </head>
 
 <body>
-
+<button id="back-btn" class="back-btn">← Back</button>
 <div class="container">
   <canvas id="canvas" width="500" height="750"></canvas>
 
@@ -281,6 +302,9 @@ function downloadInvitation() {
     alert("Error: Cannot download. The image may have cross-origin restrictions. Please right-click on the canvas and select 'Save image as...'");
   }
 }
+document.getElementById("back-btn").addEventListener("click", function() {
+  window.history.back();
+});
 </script>
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
