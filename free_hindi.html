@@ -6,25 +6,23 @@
 
 <style>
 
- .back-btn {
-      position: absolute;
-      top: 10px;
-      left: 10px;
-      background-color: #ff4500; /* Brighter, more vibrant orange */
-      border: 2px solid #ffffff; /* White border */
-      font-size: 24px; /* Larger text for better readability */
-      color: white; /* White text */
+.back-btn {
+      position: fixed;
+      top: 10px; /* 10px from the top */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%);
+      background-color: #ff4500;
+      color: white;
+      font-size: 24px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      border: none;
       cursor: pointer;
-      padding: 14px 30px; /* Increased padding */
-      border-radius: 12px; /* Rounded corners */
-      box-shadow: 0 6px 15px rgba(0,0,0,0.5); /* Strong shadow */
-      transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      z-index: 9999;
     }
-
     .back-btn:hover {
-      background-color: #e64a19; /* Darker orange on hover */
-      transform: scale(1.08); /* Zoom effect */
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.6); /* Stronger shadow */
+      background-color: #e64a19;
     }
 
 body {
@@ -125,8 +123,9 @@ button.download { background: #2a9d8f; color: white; }
 </style>
 </head>
 
-<body>
-<button id="back-btn" class="back-btn">← Back</button>
+<body><br>
+<button class="back-btn" onclick="window.history.back()">← Back</button>
+<br><br><br>
 <div class="container"> 
   <div class="canvas-wrapper">
     <canvas id="canvas" width="500" height="750"></canvas>
@@ -302,7 +301,7 @@ function downloadInvitation() {
   }
 }
 
-  document.getElementById("back-btn").addEventListener("click", function() {
+document.getElementById("back-btn").addEventListener("click", function() {
       window.history.back();  // Goes back to the previous page
     });
 </script>
