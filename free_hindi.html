@@ -6,7 +6,7 @@
 
 <style>
 
-.back-btn {
+ .back-btn {
       position: absolute;
       top: 10px;
       left: 10px;
@@ -284,26 +284,6 @@ function downloadInvitation() {
             h2 { color: #5C0000; }
             p { font-size: 18px; color: #333; margin: 20px 0; }
             .btn { background:#2a9d8f; color:white; padding:12px 24px; border:none; border-radius:6px; cursor:pointer; margin-top:15px; }
-
-.back-btn {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: #f8f1e9;
-  border: none;
-  font-size: 20px;
-  color: #8B0000;
-  cursor: pointer;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 5px 10px rgba(0,0,0,0.3);
-  transition: background-color 0.3s;
-}
-
-.back-btn:hover {
-  background-color: #e76f51;
-  color: white;
-}
           </style>
         </head>
         <body>
@@ -322,9 +302,9 @@ function downloadInvitation() {
   }
 }
 
-document.getElementById("back-btn").addEventListener("click", function() {
-  window.history.back();
-});
+  document.getElementById("back-btn").addEventListener("click", function() {
+      window.history.back();  // Goes back to the previous page
+    });
 </script>
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
