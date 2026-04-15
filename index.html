@@ -329,9 +329,22 @@
     <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-gray-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
             <!-- Logo -->
-            <a href="/" class="flex items-center space-x-2 flex-shrink-0">
-                <img src="https://videocard.in/v-logo.webp" alt="VideoCard Logo - Digital Card Maker" class="h-8 md:h-10 w-auto" loading="eager">
-            </a>
+             <div class="flex items-center space-x-2">
+  <img src="https://videocard.in/v-logo.webp" 
+       alt="VideoCard Logo - Digital Card Maker" 
+       class="h-8 md:h-10 w-auto" 
+       loading="eager"
+       onerror="this.style.display='none'; 
+                const emoji = document.createElement('span'); 
+                emoji.textContent='🎬'; 
+                emoji.style.color='orange'; 
+                emoji.style.display='inline-block'; 
+                emoji.style.height='2rem'; 
+                emoji.style.fontSize='2rem'; 
+                emoji.style.lineHeight='1'; 
+                this.parentNode.insertBefore(emoji, this.nextSibling);">
+  <strong>Digital Video Cards</strong>
+</div>
             
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium">
@@ -420,13 +433,13 @@
         <!-- Free Wedding Card Section -->
         <div class="mb-12 md:mb-16">
             <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-2" data-en="Free Wedding Card" data-hi="निःशुल्क विवाह-कार्ड">Free Wedding Card</h2>
-            <p class="text-center text-gray-500 mb-6 md:mb-8 text-sm md:text-base" data-en="Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="इस कार्ड पर क्लिक करें, विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">
-                Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD.
+            <p class="text-center text-gray-500 mb-6 md:mb-8 text-sm md:text-base" data-en="Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="किसी भी कार्ड पर क्लिक करें, विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">
+                Click on any card, Enter details and get your FREE PERSONALIZED DIGITAL CARD.
             </p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Royal Rajasthani')">
                         <img src="hin-2.webp" alt="Royal Rajasthani Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Royal Rajasthani</span>
@@ -435,7 +448,7 @@
                 </div>
                 
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Regal Wedding')">
                         <img src="eng-2.webp" alt="Regal Wedding Invitation Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Regal Wedding</span>
@@ -444,7 +457,7 @@
                 </div>
                 
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Rajwada Elegance')">
                         <img src="eng-1.webp" alt="Rajwada Elegance Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Rajwada Elegance</span>
@@ -453,7 +466,7 @@
                 </div>
                 
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Marwar Royal')">
                         <img src="hin-1.webp" alt="Marwar Royal Charm Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Marwar Royal</span>
@@ -866,7 +879,14 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 border-b border-gray-800 pb-8 md:pb-12">
                 <div class="sm:col-span-2 lg:col-span-1">
                     <div class="flex items-center space-x-2 mb-4 md:mb-6">
-                        <img src="https://videocard.in/v-logo.webp" alt="VideoCard Logo" class="h-7 md:h-8 w-auto brightness-0 invert" loading="lazy">
+                              <div class="flex items-center space-x-2">
+  <img src="https://videocard.in/v-logo.webp" 
+       alt="VideoCard Logo - Digital Card Maker" 
+       class="h-8 md:h-10 w-auto" 
+       loading="eager"
+       onerror="this.style.display='none'; this.insertAdjacentHTML('afterend','🎬')">
+  <strong>Digital Video Cards</strong>
+</div>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed" data-en="The ultimate platform for creating digital memories. Join thousands of happy customers sharing their joy via WhatsApp." data-hi="डिजिटल यादें बनाने के लिए अंतिम प्लेटफॉर्म। हजारों खुशहाल ग्राहकों से जुड़ें जो व्हाट्सएप के माध्यम से अपनी खुशी साझा कर रहे हैं।">
                         The ultimate platform for creating digital memories. Join thousands of happy customers sharing their joy via WhatsApp.
@@ -891,8 +911,8 @@
                 </div>
                 <div>
                     <h4 class="font-bold mb-4 md:mb-6 text-sm md:text-base" data-en="Connect With Us" data-hi="हमसे जुड़ें">Connect With Us</h4>
-                    <a href="https://wa.me/9413451477" class="flex items-center text-gray-400 hover:text-green-400 transition mb-3 md:mb-4">
-                        <img src="https://videocard.in/w-icon.webp" class="w-5 h-5 mr-3" alt="WA" loading="lazy">
+                    <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="flex items-center text-gray-400 hover:text-green-400 transition mb-3 md:mb-4">
+                        <img src="w-icon.webp" class="w-5 h-5 mr-3" alt="WA" loading="lazy">
                         +91 94134 51477
                     </a>
                     <p class="text-xs text-gray-500" data-en="Monday - Sunday: 9:00 AM - 9:00 PM" data-hi="सोमवार - रविवार: सुबह 9:00 - रात 9:00">Monday - Sunday: 9:00 AM - 9:00 PM</p>
@@ -908,8 +928,8 @@
 
     <!-- Floating WhatsApp Button (Mobile) -->
     <div class="fixed bottom-4 right-4 md:hidden z-40">
-        <a href="https://wa.me/9413451477" class="bg-green-500 w-12 h-12 rounded-full shadow-2xl flex items-center justify-center animate-pulse" aria-label="Contact on WhatsApp">
-            <img src="https://videocard.in/w-icon.webp" class="w-6 h-6" alt="WhatsApp" loading="lazy">
+        <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="bg-green-500 w-12 h-12 rounded-full shadow-2xl flex items-center justify-center animate-pulse" aria-label="Contact on WhatsApp">
+            <img src="w-icon.webp" class="w-6 h-6" alt="WhatsApp" loading="lazy">
         </a>
     </div>
 
@@ -985,7 +1005,7 @@
             let content = '';
             if (isHindi) {
                 content = `
-                    <p class="mb-4 text-sm md:text-base">डिजिटल कार्ड मेकर (videocard.in), हम आपके विशेष अवसरों के लिए सर्वोत्तम सेवा प्रदान करने का प्रयास करते हैं। कृपया हमारी रद्दीकरण नीति को ध्यान से पढ़ें:</p>
+                    <p class="mb-4 text-sm md:text-base">डिजिटल कार्ड मेकर (videocard.in), हम आपके विशेष अवसरों के लिए सर्वोत्तम सेवा प्रदान करने का प्रयास करते हैं। कृपया हमारी रद्दकरण नीति को ध्यान से पढ़ें:</p>
                     <ul class="list-disc ml-5 md:ml-6 mb-4 space-y-2 text-sm md:text-base">
                         <li>1. ऑर्डर देने के 2 घंटों के भीतर रद्द करने पर पूर्ण धनवापसी।</li>
                         <li>2. ऑर्डर देने के 4 से 8 घंटों के बीच रद्द करने पर 50% धनवापसी।</li>
@@ -994,7 +1014,7 @@
                     </ul>
                     <div class="highlight-point text-sm md:text-base">5. सभी स्वीकृत धनवापसी 7-10 कार्य दिवसों के भीतर संसाधित की जाएंगी और भुगतान मूल स्रोत में वापस की जाएंगी।</div>
                     <h3 class="text-base md:text-lg font-bold mt-5 md:mt-6 mb-2">📌 ऑर्डर कैसे रद्द करें ?</h3>
-                    <p class="text-sm md:text-base">अपना ऑर्डर रद्द करने के लिए, कृपया अपने ऑर्डर विवरण के साथ हमें व्हाट्सएप पर संपर्क करें। हमारी टीम आपको रद्दीकरण प्रक्रिया में सहायता करेगी।</p>
+                    <p class="text-sm md:text-base">अपना ऑर्डर रद्द करने के लिए, कृपया अपने ऑर्डर विवरण के साथ हमें व्हाट्सएप पर संपर्क करें। हमारी टीम आपको रद्दकरण प्रक्रिया में सहायता करेगी।</p>
                     <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 md:px-4 py-2 rounded-full mt-4 font-semibold text-sm">
                         📞 contact us: 💬 +91-9413451477
                     </div>
@@ -1138,7 +1158,14 @@
         document.addEventListener('DOMContentLoaded', () => { 
             updateContent(currentLang); 
         });
+function setPageName(name) {
+        localStorage.setItem('lastViewedPage', name);  // Store the name of the clicked image
+    }
     </script>
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
+    <img src="w-icon.webp" alt="WhatsApp" class="floating-whatsapp-img">
+</a>
 </body>
 </html>
        
