@@ -6,24 +6,51 @@
 
 <style>
 
+/* Back button style */
 .back-btn {
-      position: fixed;
-      top: 10px; /* 10px from the top */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%);
-      background-color: #ff4500;
-      color: white;
-      font-size: 24px;
-      padding: 10px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-      border: none;
-      cursor: pointer;
-      z-index: 9999;
-    }
-    .back-btn:hover {
-      background-color: #e64a19;
-    }
+    background-color: #c0c0c0;
+    color: #ffffff;
+    font-size: 32px;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute; /* Position button absolutely */
+	left: 42%;
+    transform: translateX(-42%);  /* Centers horizontally */
+    top: 10%; /* Vertically center the button */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    z-index: 2; /* Ensure button is on top */	
+}
+
+.back-btn:hover {
+    background-color: #a0a0a0;
+	color: #ffff00;
+    transform: scale(1.1);
+    top: 9%; /* Vertically center the button */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+}
+/* Page name style */
+.page-name {
+    background-color: #f9ffff;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+	position: absolute; /* Position name absolutely */
+	left: 46%;
+    transform: translateX(-46%);  /* Centers horizontally */
+    top: 11%; /* Vertically center the name */
+    transform: translateY(-50%); /* Fine-tune vertical centering */
+    z-index: 1; /* Ensure name is below the button */
+}
+
+.page-name::before {
+    content: '\00a0\00a0';  /* Adds a single space before the name */
+}
 
 body {
   font-family: Arial, sans-serif;
@@ -39,6 +66,7 @@ body {
   margin: 0 auto;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 140px; /* Adjust this value as needed */
 }
 
 canvas {
@@ -124,9 +152,10 @@ button.download { background: #2a9d8f; color: white; }
 </head>
 
 <body>
-<br>
-<button class="back-btn" onclick="window.history.back()">← Back</button>
-<br><br><br>
+
+    <button class="back-btn" onclick="window.history.back()"><<</button>
+    <div class="page-name" id="page-name"></div>
+
 <div class="container">
   <canvas id="canvas" width="500" height="750"></canvas>
 
@@ -305,8 +334,11 @@ function downloadInvitation() {
   }
 }
 
-document.getElementById("back-btn").addEventListener("click", function() {
-  window.history.back();
+document.addEventListener("DOMContentLoaded", function() {
+    var lastViewedPage = localStorage.getItem('lastViewedPage'); 
+    if (lastViewedPage) {
+        document.getElementById('page-name').innerText = lastViewedPage;
+    }
 });
 </script>
 <!-- Floating WhatsApp Button -->

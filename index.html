@@ -103,7 +103,7 @@
         
         .modal-content-box {
             background: white;
-            border-radius: 8px;   /* was 15px, reduced to half ~8px */
+            border-radius: 4px;   /* reduced to half ~4px */
             max-width: 600px;
             width: 100%;
             max-height: 80vh;
@@ -131,7 +131,7 @@
         .video-modal-box {
             background: white;
             padding: 10px;
-            border-radius: 6px;   /* was 12px, reduced to half */
+            border-radius: 3px;   /* reduced to half ~3px */
             position: relative;
             box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
@@ -253,25 +253,34 @@
                 width: min(80vw, 80vh);
             }
             
-            /* 🔄 ROTATE HORIZONTAL VIDEO 90 DEGREES ON MOBILE */
+            /* 🔄 ROTATE HORIZONTAL VIDEO 90 DEGREES ON MOBILE - FULL SCREEN */
             .video-modal-box.horizontal {
-                transform: rotate(90deg);
-                /* Adjust dimensions to fit screen after rotation */
-                width: 85vh !important;          /* width becomes based on viewport height */
-                height: auto !important;
-                aspect-ratio: 16 / 9;
-                max-width: 90vw;
-                max-height: 90vh;
+                transform: rotate(90deg) translate(-50%, -50%);
+                transform-origin: center center;
+                /* Full screen dimensions after rotation - fills entire viewport */
+                width: 100vh !important;
+                height: 100vw !important;
+                max-width: none !important;
+                max-height: none !important;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                margin: 0;
+                border-radius: 0;
             }
-            
-            /* Keep close button clickable and roughly in place */
-            .video-modal-box.horizontal > span {
-                transform: rotate(-90deg);  /* optional: keep 'X' upright? but we leave as is, it's fine */
+
+            /* Keep close button upright and positioned correctly */
+            .video-modal-box.horizontal .absolute.-top-3.-right-3 {
+                transform: rotate(-90deg);
+                top: 10px;
+                right: 10px;
+                z-index: 100;
             }
         }
     </style>
     <!-- Removed duplicate base target -->
     <base target="_blank">
+<base target="_blank">
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -383,13 +392,13 @@
         <!-- Free Wedding Card Section -->
         <div class="mb-12 md:mb-16">
             <h2 class="text-2xl md:text-3xl font-bold text-center text-gray-900 mb-2" data-en="Free Wedding Card" data-hi="निःशुल्क विवाह-कार्ड">Free Wedding Card</h2>
-            <p class="text-center text-gray-500 mb-6 md:mb-8 text-sm md:text-base" data-en="Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="इस कार्ड पर क्लिक करें, विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">
+            <p class="text-center text-gray-500 mb-6 md:mb-8 text-sm md:text-base" data-en="Click on any card, Enter details and get your FREE PERSONALIZED DIGITAL CARD." data-hi="किसी भी कार्ड पर क्लिक करें, विवरण दर्ज करें और अपना मुफ्त व्यक्तिगत डिजिटल कार्ड प्राप्त करें।">
                 Click on this card, Enter details and get your FREE PERSONALIZED DIGITAL CARD.
             </p>
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Royal Rajasthani')">
                         <img src="hin-2.webp" alt="Royal Rajasthani Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Royal Rajasthani</span>
@@ -398,7 +407,7 @@
                 </div>
                 
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Regal Wedding')">
                         <img src="eng-2.webp" alt="Regal Wedding Invitation Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Regal Wedding</span>
@@ -407,7 +416,7 @@
                 </div>
                 
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Rajwada Elegance')">
                         <img src="eng-1.webp" alt="Rajwada Elegance Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Rajwada Elegance</span>
@@ -416,7 +425,7 @@
                 </div>
                 
                 <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
-                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md">
+                    <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Marwar Royal')">
                         <img src="hin-1.webp" alt="Marwar Royal Charm Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
                             <span class="text-white font-medium text-center px-2 text-sm">Marwar Royal</span>
@@ -1102,6 +1111,10 @@
         document.addEventListener('DOMContentLoaded', () => { 
             updateContent(currentLang); 
         });
+		
+ function setPageName(name) {
+        localStorage.setItem('lastViewedPage', name);  // Store the name of the clicked image
+    }		
     </script>
 	<!-- Floating WhatsApp Button -->
 <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
