@@ -155,7 +155,29 @@ button.download { background: #2a9d8f; color: white; }
     margin-top: 100px;
     gap: 20px;
   }
-  
+  .back-btn {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    transform: none;
+    font-size: 22px;
+    padding: 10px;
+  }
+
+  .page-name {
+    position: fixed;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    padding: 8px 16px;
+    max-width: 70%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
   .form {
     width: 90%;
     max-width: 350px;
@@ -321,8 +343,11 @@ function draw() {
 document.querySelectorAll("input").forEach(i => i.addEventListener("input", draw));
 
 function resetForm() {
-  document.querySelectorAll("input").forEach(i => i.value = "");
+  document.querySelectorAll("input").forEach(function(input) {
+    input.value = "";
+  });
   draw();
+  updateLimits(); // IMPORTANT
 }
 
 function downloadInvitation() {
@@ -371,6 +396,22 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById('page-name').innerText = lastViewedPage;
     }
 });
+function updateLimits() {
+  document.querySelectorAll(".field").forEach(function(field) {
+    const input = field.querySelector("input");
+    const badge = field.querySelector(".limit");
+    badge.textContent = input.maxLength - input.value.length;
+  });
+}
+
+// typing update
+document.querySelectorAll(".field input").forEach(function(input) {
+  input.addEventListener("input", updateLimits);
+});
+
+// initial load
+updateLimits();
+
 </script>
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
