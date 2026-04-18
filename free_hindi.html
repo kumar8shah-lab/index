@@ -191,24 +191,31 @@ button.download { background: #2a9d8f; color: white; }
   <div class="canvas-wrapper">
     <canvas id="canvas" width="500" height="750"></canvas>
   </div>
-  <div class="form"><br><br>
-    <h4>इस फॉर्म को भरने के बाद आप अपना कार्ड डाउनलोड कर सकते हैं।</h4>
+  <div class="form"><br>
+    <h4 class="title-offer">
+  <span class="title-text">
+    इस फॉर्म को भरने के बाद आप अपना फ्री कार्ड डाउनलोड कर सकते हैं।
+  </span>
+  <span style="background:#ff3b3b; color:#fff; padding:6px 10px; border-radius:6px; font-size:13px; font-weight:bold; margin-left:10px;">
+    Full Card In Rs. 99/-
+  </span>
+</h4>
    
     <div class="field">
-      <input id="f1" maxlength="16" value="अंजली" placeholder="Bride Name">
-      <div class="limit">16</div>
+      <input id="f1" maxlength="25" value="अंजली" placeholder="Bride Name">
+      <div class="limit">25</div>
     </div>
     <div class="field">
-      <input id="f2" maxlength="40" value="श्रीमती सीता देवी और श्री रामचन्द्र जी" placeholder="Bride Parents">
-      <div class="limit">40</div>
+      <input id="f2" maxlength="60" value="श्रीमती सीता देवी और श्री रामचन्द्र जी" placeholder="Bride Parents">
+      <div class="limit">60</div>
     </div>
     <div class="field">
-      <input id="f3" maxlength="15" value="अजय" placeholder="Groom Name">
-      <div class="limit">16</div>
+      <input id="f3" maxlength="25" value="अजय" placeholder="Groom Name">
+      <div class="limit">25</div>
     </div>
     <div class="field">
-      <input id="f4" maxlength="40" value="श्रीमती राधा देवी और श्री कृष्णचन्द्र जी" placeholder="Groom Parents">
-      <div class="limit">30</div>
+      <input id="f4" maxlength="60" value="श्रीमती राधा देवी और श्री कृष्णचन्द्र जी" placeholder="Groom Parents">
+      <div class="limit">60</div>
     </div>
     <div class="field">
       <input id="f5" maxlength="20" value="30 अगस्त 2024" placeholder="Date">
@@ -219,12 +226,12 @@ button.download { background: #2a9d8f; color: white; }
       <div class="limit">15</div>
     </div>
     <div class="field">
-      <input id="f7" maxlength="35" value="अग्रवाल भवन, क्लब हाऊस के पास" placeholder="Venue Line 1">
-      <div class="limit">35</div>
+      <input id="f7" maxlength="65" value="अग्रवाल भवन, क्लब हाऊस के पास" placeholder="Venue Line 1">
+      <div class="limit">65</div>
     </div>
     <div class="field">
-      <input id="f8" maxlength="45" value="बनी पार्क, जयपुर" placeholder="Venue Line 2">
-      <div class="limit">45</div>
+      <input id="f8" maxlength="65" value="बनी पार्क, जयपुर" placeholder="Venue Line 2">
+      <div class="limit">65</div>
     </div>
     <div class="field">
       <input type="tel" id="f9" maxlength="10" value="9888888888" placeholder="Mobile">
@@ -234,6 +241,12 @@ button.download { background: #2a9d8f; color: white; }
     <div style="text-align: center; margin-top: 30px;">
       <button class="reset" onclick="resetForm()">Reset</button>
       <button class="download" onclick="downloadInvitation()">Download</button>
+	   <p style="margin-top:12px; font-size:15px; background:#fff3cd; color:#856404; padding:10px; border-radius:6px; font-weight:bold; border:1px solid #ffeeba;">
+ <a href="https://wa.me/9413451477?text=मुझे%20अपने%20कार्ड%20के%20लिए%20PDF%20बनवानी%20है" target="_blank" 
+   style="display:inline-block; margin-top:12px; background:#25D366; color:white; padding:12px 18px; border-radius:8px; font-weight:bold; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2);">
+   📲 कार्ड की Full PDF के लिए WhatsApp करें
+</a>
+</p>
     </div>
   </div>
 </div>
@@ -389,7 +402,7 @@ updateLimits();
 
 </script>
 <!-- Floating WhatsApp Button -->
-<a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
+<a href="https://wa.me/9413451477?text=मुझे%20अपने%20कार्ड%20के%20लिए%20PDF%20बनवानी%20है" class="floating-whatsapp" target="_blank">
     <img src="w-icon.webp" alt="WhatsApp" class="floating-whatsapp-img">
 </a>
 </body>
