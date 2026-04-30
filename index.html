@@ -1171,6 +1171,36 @@
     });
 });
 
+ // Your unique quote to track your visits
+        const uniqueQuote = "I am 62 born #Lion, using AI.";
+
+        // Function to check and store your unique quote in localStorage
+        function checkVisit() {
+            // Check if the quote is stored in localStorage
+            if (!localStorage.getItem('uniqueQuote')) {
+                // If not found, store the quote in localStorage
+                localStorage.setItem('uniqueQuote', uniqueQuote);
+
+                // Send a request to Google Apps Script to log the visit
+                fetch('https://script.google.com/macros/s/AKfycbym4SPT8Y_N816WFBoMzsUNALZlgPW8USGO2Igq59LDIzqjfHkBi-JCw44SlyraYNt1/exec', {
+                    method: 'GET',
+                    headers: {
+                        'Visitor-Flag': 'new',  // Flag to identify this as a new visitor
+                    }
+                })
+                .then(response => response.text())
+                .then(result => console.log('Visit recorded successfully'))
+                .catch(error => console.error('Error:', error));
+            } else {
+                console.log('This visit is skipped because it’s you!');
+            }
+        }
+
+        // Run the checkVisit function on page load
+        window.onload = function() {
+            checkVisit();
+        };
+
     </script>
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
