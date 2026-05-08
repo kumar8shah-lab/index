@@ -1254,30 +1254,25 @@
 
         // Function to check and store your unique quote in localStorage
         function checkVisit() {
-            // Check if the quote is stored in localStorage
-            if (!localStorage.getItem('uniqueQuote')) {
-                // If not found, store the quote in localStorage
-                localStorage.setItem('uniqueQuote', uniqueQuote);
+    // Check if the quote is stored in localStorage
+    if (!localStorage.getItem('uniqueQuote')) {
+        const uniqueQuote = "I am 62 born #Lion, using AI."; // must match your Apps Script logic
+        localStorage.setItem('uniqueQuote', uniqueQuote);
 
-                // Send a request to Google Apps Script to log the visit
-                fetch('https://script.google.com/macros/s/AKfycbym4SPT8Y_N816WFBoMzsUNALZlgPW8USGO2Igq59LDIzqjfHkBi-JCw44SlyraYNt1/exec', {
-                    method: 'GET',
-                    headers: {
-                        'Visitor-Flag': 'new',  // Flag to identify this as a new visitor
-                    }
-                })
-                .then(response => response.text())
-                .then(result => console.log('Visit recorded successfully'))
-                .catch(error => console.error('Error:', error));
-            } else {
-                console.log('This visit is skipped because it’s you!');
-            }
-        }
+        // Use query parameter instead of headers
+        const url = 'https://script.google.com/macros/s/AKfycbym4SPT8Y_N816WFBoMzsUNALZlgPW8USGO2Igq59LDIzqjfHkBi-JCw44SlyraYNt1/exec?Visitor-Flag=new';
 
-        // Run the checkVisit function on page load
-        window.onload = function() {
-            checkVisit();
-        };
+        fetch(url)
+            .then(response => response.text())
+            .then(result => console.log(result))  // Should print "Visit recorded successfully!"
+            .catch(error => console.error('Error:', error));
+    } else {
+        console.log('This visit is skipped because it’s you!');
+    }
+}
+
+// Run the checkVisit function on page load
+window.addEventListener('load', checkVisit);
 
     </script>
 <!-- Floating WhatsApp Button -->
