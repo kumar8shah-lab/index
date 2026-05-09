@@ -1253,20 +1253,26 @@
         const uniqueQuote = "I am 62 born #Lion, using AI.";
 
         // Function to check and store your unique quote in localStorage
-function visitCallback(response) {
-    console.log('Visit recorded via JSONP:', response);
+ function checkVisit() {
+    // Check if the quote is stored in localStorage
+    if (!localStorage.getItem('uniqueQuote')) {
+        const uniqueQuote = "I am 62 born #Lion, using AI."; // must match your Apps Script logic
+        localStorage.setItem('uniqueQuote', uniqueQuote);
+
+        // Use query parameter instead of headers
+        const url = 'https://script.google.com/macros/s/AKfycbxwFVXW2R1o9__ZVv1X10KajZ0a_M_q5CY6ZevkiuwEBSjt74n-dqP0bwJ3bWlDa2jH/exec?Visitor-Flag=new';
+
+        fetch(url)
+            .then(response => response.text())
+            .then(result => console.log(result))  // Should print "Visit recorded successfully!"
+            .catch(error => console.error('Error:', error));
+    } else {
+        console.log('This visit is skipped because it’s you!');
+    }
 }
 
-(function logVisit() {
-    console.log('Logging visit (forced test)...');
-
-    const script = document.createElement('script');
-
-    // Replace with your /exec URL from Step 1
-    script.src = 'https://script.google.com/macros/s/AKfycbxwFVXW2R1o9__ZVv1X10KajZ0a_M_q5CY6ZevkiuwEBSjt74n-dqP0bwJ3bWlDa2jH/exec?visitorFlag=new&callback=visitCallback';
-    script.async = true;
-    document.head.appendChild(script);
-})();
+// Run the checkVisit function on page load
+window.addEventListener('load', checkVisit);
 </script>
 
 <!-- Floating WhatsApp Button -->
