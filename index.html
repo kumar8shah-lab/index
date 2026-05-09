@@ -1249,30 +1249,52 @@
     });
 });
 
- // Your unique quote to track your visits
-        const uniqueQuote = "I am 62 born #Lion, using AI.";
-
-        // Function to check and store your unique quote in localStorage
- function checkVisit() {
-    // Check if the quote is stored in localStorage
-    if (!localStorage.getItem('uniqueQuote')) {
-        const uniqueQuote = "I am 62 born #Lion, using AI."; // must match your Apps Script logic
-        localStorage.setItem('uniqueQuote', uniqueQuote);
-
-        // Use query parameter instead of headers
-        const url = 'https://script.google.com/macros/s/AKfycbzhcMMPNIA3NZcZHqmYV3sEv7A6FU_njcRlVICtk22ZvcByb6ra3GRw34W_LmgApA/exec?Visitor-Flag=new';
-
-        fetch(url)
-            .then(response => response.text())
-            .then(result => console.log(result))  // Should print "Visit recorded successfully!"
-            .catch(error => console.error('Error:', error));
-    } else {
-        console.log('This visit is skipped because it’s you!');
-    }
+         // Function to check and store your unique quote in localStorage
+ function visitCallback(response) {
+    console.log('Visit recorded:', response);
 }
 
-// Run the checkVisit function on page load
-window.addEventListener('load', checkVisit);
+function checkVisit() {
+    // Detect if mobile
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    var script = document.createElement('script');
+    var baseUrl = 'https://script.google.com/macros/s/AKfycbwlO70v5JEEkHt3bidolf-ZWZ_oH_-MZCBkFmOovf8WWUwXUjdMM7laY5-C-J98-kC0/exec';
+    
+    if (isMobile) {
+        // MOBILE: Always count, no skip logic
+        script.src = baseUrl + '?visitorFlag=new&device=mobile&callback=visitCallback';
+        console.log('Mobile detected - counting every visit');
+    } else {
+        // PC: Check if it's your own visit using quote
+        var myQuote = "I am 62 born #Lion, using AI.";
+        var isMyVisit = localStorage.getItem('uniqueQuote') === myQuote;
+        
+        if (isMyVisit) {
+            console.log('PC - Your visit skipped');
+            return; // Don't even send request
+        }
+        
+        // First time on PC - store quote and count
+        localStorage.setItem('uniqueQuote', myQuote);
+        script.src = baseUrl + '?visitorFlag=' + encodeURIComponent(myQuote) + '&device=pc&callback=visitCallback';
+        console.log('PC - First visit, sending with quote');
+    }
+    
+    script.async = true;
+    script.onerror = function() {
+        console.error('Failed to load tracking script');
+    };
+    
+    document.head.appendChild(script);
+}
+
+// Run on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', checkVisit);
+} else {
+    checkVisit();
+}
 </script>
 
 <!-- Floating WhatsApp Button -->
