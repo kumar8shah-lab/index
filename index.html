@@ -1257,31 +1257,26 @@
     console.log('Visit recorded via JSONP:', response);
 }
 
-function checkVisit() {
-    console.log('Checking localStorage for uniqueQuote...');
-    
-    const uniqueQuote = "I am 62 born #Lion, using AI.";
-
-    // If uniqueQuote exists, skip logging
-    if (localStorage.getItem('uniqueQuote')) {
-        console.log('This visit is skipped because it is you!');
-        return;
-    }
-
-    // Store uniqueQuote to prevent counting this browser again
-    localStorage.setItem('uniqueQuote', uniqueQuote);
-    console.log('uniqueQuote not found, storing it. Logging visit...');
-
-    // Create script tag for JSONP call
-    const script = document.createElement('script');
-
-    // Replace YOUR_SCRIPT_ID with your deployed Apps Script Web App ID
-    script.src = 'https://script.google.com/macros/s/BfLJok5LaI547Zbizxri0jdFrh1VcVUmwYT_f9tgwGqT1_P0zMZYY3DAiFll/exec?visitorFlag=new&callback=visitCallback';
-    
-    document.head.appendChild(script);
+function visitCallback(response) {
+    console.log('Visit recorded via JSONP:', response);
 }
 
-// Run on page load
+function checkVisit() {
+    console.log('Checking localStorage for uniqueQuote...');
+    const uniqueQuote = "I am 62 born #Lion, using AI.";
+
+    if (!localStorage.getItem('uniqueQuote')) {
+        localStorage.setItem('uniqueQuote', uniqueQuote);
+        console.log('uniqueQuote not found, storing it. Logging visit...');
+
+        const script = document.createElement('script');
+        script.src = 'https://script.google.com/macros/s/AKfycbyaPiv2Z-bAlIp_KeYFOWhXrIq8UsSoL_OJWZyxuzV528WBU7MLmd3TNnHjtziLAVI/exec?visitorFlag=new&callback=visitCallback';
+        document.head.appendChild(script);
+    } else {
+        console.log('This visit is skipped because it is you!');
+    }
+}
+
 window.addEventListener('load', checkVisit);
 
     </script>
