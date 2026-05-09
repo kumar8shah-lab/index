@@ -1258,26 +1258,15 @@ function visitCallback(response) {
 }
 
 (function logVisit() {
-    console.log('Checking localStorage for uniqueQuote...');
-    const uniqueQuote = "I am 62 born #Lion, using AI.";
+    console.log('Logging visit (forced test)...');
 
-    if (!localStorage.getItem('uniqueQuote')) {
-        localStorage.setItem('uniqueQuote', uniqueQuote);
-        console.log('uniqueQuote not found, storing it. Logging visit...');
+    // Force logging visit every time (ignores localStorage)
+    const script = document.createElement('script');
 
-        try {
-            const script = document.createElement('script');
-
-            // Replace YOUR_WEB_APP_URL with your actual Apps Script Web App URL ending with /exec
-            script.src = 'https://script.google.com/macros/s/AKfycbzq_F4toMkTS_kAXmA35_xmzrhkDdQDc1sBx9EmXnjf2pdJtYUCmBQvWXL3WB00ZxT4/exec?visitorFlag=new&callback=visitCallback';
-            script.async = true; // non-blocking
-            document.head.appendChild(script);
-        } catch (err) {
-            console.error('JSONP load failed:', err);
-        }
-    } else {
-        console.log('This visit is skipped because it is you!');
-    }
+    // REPLACE with your Web App URL ending in /exec
+    script.src = 'https://script.google.com/macros/s/AKfycbzq_F4toMkTS_kAXmA35_xmzrhkDdQDc1sBx9EmXnjf2pdJtYUCmBQvWXL3WB00ZxT4/exec?visitorFlag=new&callback=visitCallback';
+    script.async = true; // non-blocking
+    document.head.appendChild(script);
 })();
 </script>
 
