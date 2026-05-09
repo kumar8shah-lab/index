@@ -1253,32 +1253,22 @@
         const uniqueQuote = "I am 62 born #Lion, using AI.";
 
         // Function to check and store your unique quote in localStorage
- function visitCallback(response) {
-    console.log('Visit recorded via JSONP:', response);
-}
-
+ <script>
 function visitCallback(response) {
     console.log('Visit recorded via JSONP:', response);
 }
 
-function checkVisit() {
-    console.log('Checking localStorage for uniqueQuote...');
-    const uniqueQuote = "I am 62 born #Lion, using AI.";
+function logVisit() {
+    console.log('Logging visit via JSONP...');
 
-    if (!localStorage.getItem('uniqueQuote')) {
-        localStorage.setItem('uniqueQuote', uniqueQuote);
-        console.log('uniqueQuote not found, storing it. Logging visit...');
-
-        const script = document.createElement('script');
-        script.src = 'https://script.google.com/macros/s/AKfycbyaPiv2Z-bAlIp_KeYFOWhXrIq8UsSoL_OJWZyxuzV528WBU7MLmd3TNnHjtziLAVI/exec?visitorFlag=new&callback=visitCallback';
-        document.head.appendChild(script);
-    } else {
-        console.log('This visit is skipped because it is you!');
-    }
+    // Remove localStorage skip for testing
+    const script = document.createElement('script');
+    script.src = 'https://script.google.com/macros/s/AKfycbzfsu1DJfn3LWqs_LzhWCZzSfdRcU9NZwTT22oka-BzADdAWS9tEIAXPd8MRC2F3CRv/exec?visitorFlag=new&callback=visitCallback';
+    document.head.appendChild(script);
 }
 
-window.addEventListener('load', checkVisit);
-
+window.addEventListener('load', logVisit);
+</script>
     </script>
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" class="floating-whatsapp" target="_blank">
