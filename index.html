@@ -1253,31 +1253,31 @@
         const uniqueQuote = "I am 62 born #Lion, using AI.";
 
         // Function to check and store your unique quote in localStorage
- <script>
-function visitCallback(response) {
-    console.log('Visit recorded via JSONP:', response);
-}
-
-function checkVisit() {
+ function checkVisit() {
     console.log('Checking localStorage for uniqueQuote...');
-    const uniqueQuote = "I am 62 born #Lion, using AI.";
+    
+    const uniqueQuote = "I am 62 born #Lion, using AI."; // Your unique quote
     
     if (!localStorage.getItem('uniqueQuote')) {
         console.log('uniqueQuote not found, storing it.');
         localStorage.setItem('uniqueQuote', uniqueQuote);
 
-        // Create script tag to call Apps Script
-        const script = document.createElement('script');
-        script.src = 'https://script.google.com/macros/s/BfLJok5LaI547Zbizxri0jdFrh1VcVUmwYT_f9tgwGqT1_P0zMZYY3DAiFll/exec?visitorFlag=new&callback=visitCallback';
-        document.head.appendChild(script);
+        // CORS-safe fetch using query parameters
+        const url = 'https://script.google.com/macros/s/AKfycbztdg9-BfLJok5LaI547Zbizxri0jdFrh1VcVUmwYT_f9tgwGqT1_P0zMZYY3DAiFll/exec?visitorFlag=new';
+        console.log('Sending fetch to:', url);
+
+        fetch(url)
+            .then(response => response.text())
+            .then(result => console.log('Fetch response:', result))
+            .catch(error => console.error('Fetch error:', error));
+
     } else {
         console.log('This visit is skipped because uniqueQuote exists.');
     }
 }
 
-// Run on page load
+// Run checkVisit on page load
 window.addEventListener('load', checkVisit);
-</script>
 
     </script>
 <!-- Floating WhatsApp Button -->
