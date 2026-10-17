@@ -61,7 +61,7 @@
         margin-top: 8px;
     }
     .form {
-        width: 360px;
+        width: 460px;
         max-width: 100%;
         background: white;
         padding: 25px;
@@ -229,19 +229,23 @@ const ctx = canvas.getContext("2d");
 const W = canvas.width;   // 540
 const H = canvas.height;  // 960
 
-// Sample key -> background file (files sit in the same folder as this page)
+// Sample key -> background file, text color and text shadow.
+// Files sit in the same folder as this page.
 const SAMPLE_IMAGES = {
-    'hin-1': 'h-1.webp',
-    'hin-2': 'h-2.webp',
-    'eng-1': 'e-1.webp',
-    'eng-2': 'e-2.webp',
+    'hin-1': { file: 'h-1.webp', color: '#5C0000', shadow: 'rgba(255,255,255,0.9)' },
+    'hin-2': { file: 'h-2.webp', color: '#FFFFFF', shadow: 'rgba(0,0,0,0.7)' },
+    'eng-1': { file: 'e-1.webp', color: '#5C0000', shadow: 'rgba(255,255,255,0.9)' },
+    'eng-2': { file: 'e-2.webp', color: '#5C0000', shadow: 'rgba(255,255,255,0.9)' },
     // older keys still sent by previous links
-    'hindi.webp': 'h-1.webp',
-    'english.webp': 'e-1.webp'
+    'hindi.webp':   { file: 'h-1.webp', color: '#5C0000', shadow: 'rgba(255,255,255,0.9)' },
+    'english.webp': { file: 'e-1.webp', color: '#5C0000', shadow: 'rgba(255,255,255,0.9)' }
 };
 
 const selectedKey = localStorage.getItem('selectedCardImage');
-const imgSrc = SAMPLE_IMAGES[selectedKey] || 'h-1.webp';
+const sample = SAMPLE_IMAGES[selectedKey] || SAMPLE_IMAGES['hin-1'];
+const imgSrc = sample.file;
+const textColor = sample.color;
+const textShadow = sample.shadow;
 
 // Text positions for the 540 x 960 canvas
 const LAYOUT = {
@@ -297,8 +301,8 @@ function draw() {
 
     ctx.textAlign = "center";
     ctx.textBaseline = "alphabetic";
-    ctx.fillStyle = "#5C0000";
-    ctx.shadowColor = "rgba(255,255,255,0.9)";
+    ctx.fillStyle = textColor;
+    ctx.shadowColor = textShadow;
     ctx.shadowBlur = 8;
 
     // Fixed wording
