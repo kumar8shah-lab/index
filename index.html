@@ -474,7 +474,7 @@
             </p>
 
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-                <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('hin-1.webp')">
                     <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Royal Rajasthani')">
                         <img src="hin-2.webp" alt="Royal Rajasthani Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
@@ -483,7 +483,7 @@
                     </div>
                 </div>
 
-                <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('hin-2.webp')">
                     <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Regal Wedding')">
                         <img src="eng-2.webp" alt="Regal Wedding Invitation Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
@@ -492,7 +492,7 @@
                     </div>
                 </div>
 
-                <div class="video-card group cursor-pointer" onclick="openCustomCard('english.webp')">
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('eng-1.webp')">
                     <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Rajwada Elegance')">
                         <img src="eng-1.webp" alt="Rajwada Elegance Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
@@ -501,7 +501,7 @@
                     </div>
                 </div>
 
-                <div class="video-card group cursor-pointer" onclick="openCustomCard('hindi.webp')">
+                <div class="video-card group cursor-pointer" onclick="openCustomCard('eng-2.webp')">
                     <div class="relative overflow-hidden rounded-xl md:rounded-2xl bg-gray-200 aspect-vertical shadow-md" onclick="setPageName('Marwar Royal')">
                         <img src="hin-1.webp" alt="Marwar Royal Charm Wedding Card" class="w-full h-full object-cover transition duration-500 group-hover:scale-110" loading="lazy">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end justify-center pb-4 opacity-0 group-hover:opacity-100 transition duration-300">
@@ -1251,14 +1251,10 @@
         }
 
         // Custom Card Navigation
-        function openCustomCard(imageName) {
-            localStorage.setItem('selectedCardImage', imageName);
-            if (imageName === 'english.webp') {
-                window.location.href = 'free_eng.html';
-            } else if (imageName === 'hindi.webp') {
-                window.location.href = 'free_hindi.html';
-            }
-        }
+        function openCustomCard(key) {
+    localStorage.setItem('selectedCardImage', key);
+    window.location.href = key.startsWith('hin') ? 'free_hindi.html' : 'free_eng.html';
+}
 
         // Event Listeners
         document.addEventListener('keydown', e => {
