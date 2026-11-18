@@ -343,8 +343,7 @@ footer a{text-decoration:none}footer a:hover,.linklike:hover{color:#fff}
 footer p{margin:12px 0 0;font-size:.93rem}footer address{font-style:normal;display:grid;gap:10px}
 footer address a{display:flex;align-items:center;gap:10px}
 .small{font-size:.85rem!important;opacity:.8}.copy{text-align:center;font-size:.85rem!important;margin-top:24px!important}
-.fab{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;align-items:center;gap:8px;background:var(--wa);color:#fff;padding:9px 18px 9px 12px;border-radius:999px;text-decoration:none;font-weight:600;font-size:.93rem;box-shadow:0 10px 26px -8px rgba(14,143,79,.7)}
-.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:84px;max-width:90vw;text-align:center;background:var(--deep);color:#fff;font-size:.92rem;padding:12px 22px;border-radius:999px;z-index:5000;transition:opacity .3s}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:24px;max-width:90vw;text-align:center;background:var(--deep);color:#fff;font-size:.92rem;padding:12px 22px;border-radius:999px;z-index:5000;transition:opacity .3s}
 /* modals + slider */
 .modal-content-box{border:1px solid var(--line);box-shadow:0 24px 70px rgba(30,12,40,.3)}
 .modal-close{position:absolute;top:8px;right:14px;background:none;border:0;font-size:2rem;line-height:1;color:var(--mute);cursor:pointer}
@@ -395,7 +394,6 @@ footer address a{display:flex;align-items:center;gap:10px}
 </div>
 <p class="copy" data-en="© 2026 VideoCard.in | All Rights Reserved." data-hi="© 2026 VideoCard.in | सर्वाधिकार सुरक्षित।">© 2026 VideoCard.in | सर्वाधिकार सुरक्षित।</p>
 </div></footer>
-<a class="fab" href="https://wa.me/9413451477?text=हां,%20मुझे%20डिजीटल%20कार्ड%20बनवाना%20है,%20सैम्पल%20नम्बर-" target="_blank" rel="noopener" aria-label="WhatsApp"><img src="w-icon.webp" alt="" width="26" height="26"><span data-en="Chat on WhatsApp" data-hi="WhatsApp पर चैट करें">WhatsApp पर चैट करें</span></a>
 <div class="modal-overlay" id="policyModal" role="dialog" aria-modal="true" onclick="if(event.target === this) closeModal()"><div class="modal-content-box"><button class="modal-close" aria-label="Close" onclick="closeModal()" type="button">×</button><div id="modalContent"></div></div></div>
 <div class="video-modal-overlay" id="videoModal" role="dialog" aria-modal="true" onclick="if(event.target === this) closeVideoModal()"><div class="video-modal-box vertical" id="videoModalBox"><button class="video-close-btn" aria-label="Close" onclick="closeVideoModal()" type="button">×</button><div id="videoWrapper"></div></div></div>
 <script>
@@ -830,6 +828,18 @@ document.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.tar
         };
     })();
     
+</script>
+<script>
+(function(){
+ var pushed=false;
+ var orig={yt:window.closeVideoModal,cat:window.closeCategorySlider,pol:window.closeModal};
+ function push(){if(!pushed){history.pushState({overlay:1},'');pushed=true;}}
+ function wrapOpen(n){var f=window[n];window[n]=function(){f.apply(this,arguments);push();};}
+ function wrapClose(n,k){window[n]=function(){orig[k].apply(this,arguments);if(pushed){pushed=false;history.back();}};}
+ wrapOpen('openYouTubeModal');wrapOpen('openCategorySlider');wrapOpen('showPolicyModal');
+ wrapClose('closeVideoModal','yt');wrapClose('closeCategorySlider','cat');wrapClose('closeModal','pol');
+ window.addEventListener('popstate',function(){pushed=false;orig.yt();orig.cat();orig.pol();});
+})();
 </script>
 </body>
 </html>
